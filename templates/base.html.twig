@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta name="description" content="Rémi Delecroix Photographe et vidéaste">
+        <meta name="author" content="">
+        <title>{% block title %}Rémi DELECROIX - Photographe | Vidéaste{% endblock title%}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+            <link rel="stylesheet" href="css/style.css">
+        {% endblock stylesheets %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+            <script src="js/jquery-3.2.1.min.js"></script>
+            <script src="js/bootstrap.js"></script>
+            <script src="js/isotope.pkgd.min.js"></script>
+            <script src="js/imagesloaded.pkgd.min.js"></script>
+            <script src="js/jquery.fancybox.min.js"></script>
+            <script src="js/swiper.min.js"></script>
+            <script src="js/typed.min.js"></script>
+            <script src="js/menu.js"></script>
+            <script src="js/custom.js"></script>
+        {% endblock javascripts %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block preloader %}
+        <div class="oculoader">
+            <div class="loader"></div>
+            <div class="top-side"></div>
+            <div class="bottom-side"></div>
+        </div>
+    {% endblock preloader %}
+
+            {% block header %}
+                {% include "components/_header.html.twig" %}
+            {% endblock header %}
+
+            {% block body %}
+            {% endblock body %}
+
+            {% block footer %}
+                {% include "components/_footer.html.twig" %}
+            {% endblock footer %}
+
 </html>
