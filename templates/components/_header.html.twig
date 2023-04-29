@@ -7,15 +7,15 @@
             <nav id="flexmenu">
                 <div class="nav-inner">
                     <ul class="main-menu">
-                        <li class="menu-item active"><a href="{{ path('home') }}">Accueil</a>
+                        <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
                         </li>
-                        <li class="menu-item"><a href="{{ path('gallery') }}">Galerie</a>
+                        <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
                         </li>
-                        <li class="menu-item"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
+                        <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                         </li>
-                        <li class="menu-item"><a href="#">Me contacter</a>
+                        <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="#">Me contacter</a>
                         </li>
-                        <li class="menu-item"><a href="#">Blog</a>
+                        <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="#">Témoignages</a>
                         </li>
                     </ul>
                 </div>
@@ -44,15 +44,15 @@
         <a href="#" class="overlaynavclose">&times;</a>
         <nav id="overlaymenu">
             <ul class="main-menu">
-                <li class="menu-item active"><a href="{{ path('home') }}l">Accueil</a>
+                <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}l">Accueil</a>
                 </li>
-                <li class="menu-item"><a href="{{ path('gallery') }}">Galerie</a>
+                <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
                 </li>
-                <li class="menu-item"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
+                <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                 </li>
-                <li class="menu-item"><a href="#">Me contacter</a>
+                <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="#">Me contacter</a>
                 </li>
-                <li class="menu-item"><a href="#">Blog</a>
+                <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="#">Témoignages</a>
                 </li>
             </ul>
         </nav>

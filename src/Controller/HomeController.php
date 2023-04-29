@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\MediaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,24 +18,24 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $medias = $this->mediaRepository->findBy(['type' => 'photo'], ['created_at' => 'DESC'], 5);
+        $current_route = $request->attributes->get('_route');
 
         return $this->render('home/index.html.twig', [
             'medias' => $medias,
+            'current_route' => $current_route
         ]);
     }
 
-    #[Route('/galerie', name: 'gallery')]
-    public function gallery(): Response
-    {
-        return $this->render('pages/gallery.html.twig', []);
-    }
-
     #[Route('/a-propos', name: 'about_me')]
-    public function about(): Response
+    public function about(Request $request): Response
     {
-        return $this->render('pages/about-me.html.twig', []);
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/about-me.html.twig', [
+            'current_route' => $current_route
+        ]);
     }
 }

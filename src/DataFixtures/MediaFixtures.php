@@ -35,10 +35,10 @@ class MediaFixtures extends Fixture
     ];
 
     private $videoUrls = [
-        'public/videos/cascade-37088.mp4',
-        'public/videos/coupler-77929.mp4',
-        'public/videos/mariage-1330.mp4',
-        'public/videos/mariage-29337.mp4'
+        'https://github.com/audrey-ebrotie/remi-delecroix/blob/develop/public/videos/cascade-37088.mp4',
+        'https://github.com/audrey-ebrotie/remi-delecroix/blob/develop/public/videos/coupler-77929.mp4',
+        'https://github.com/audrey-ebrotie/remi-delecroix/blob/develop/public/videos/mariage-1330.mp4',
+        'https://github.com/audrey-ebrotie/remi-delecroix/blob/develop/public/videos/mariage-29337.mp4'
     ];
 
     private $type = [
@@ -59,7 +59,7 @@ class MediaFixtures extends Fixture
             $media->setFilename($type === 'photo' ? $faker->randomElement($this->imageUrls) : $faker->randomElement($this->videoUrls));
 
 
-            $category = $this->getReference('category_' . rand(0, 3));
+            $category = $this->getReference('category_' . rand(0, 4));
             $media->setCategory($category);
             $media->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 years', 'now')));
 

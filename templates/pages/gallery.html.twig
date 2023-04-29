@@ -25,11 +25,11 @@
     <section class="portfolio-grid pt-0 pb-0">
 
         <div class="button-group filters-button-group">
-            <button class="button is-checked" data-filter="*">Toute la galerie<sup class="filter-count"></sup></button>
+            <button class="button active" data-filter=".photo">Toutes les photos<sup class="filter-count"></sup></button>
             {% for category in categories %}
                 <button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }} <sup class="filter-count"></sup></button>
             {% endfor %}
-            <button class="button" data-filter=".video">Vidéos <sup class="filter-count"></sup></button>
+            <button class="button" data-filter=".video">Toutes les vidéos <sup class="filter-count"></sup></button>
         </div>
 
         <div class="grid grid-4 gutter-5 clearfix">
