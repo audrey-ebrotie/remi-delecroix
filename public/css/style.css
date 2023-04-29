@@ -872,7 +872,7 @@ section {
   margin: 0 50px;
   }
  .about_me {
-  background-color: #1f1f1f;
+  background-color: #303030;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -883,7 +883,7 @@ section {
 
 .about_me img {
     border: 2px solid #888;
-    box-shadow: 8px 8px 4px #121212
+    box-shadow: 8px 8px 4px #1c1c1c
 }
 
 /*---- About us 1-----*/

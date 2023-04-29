@@ -11,9 +11,9 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     
-                    {% for media in medias %}
+                    {% for photoHomepage in photosHomepage %}
                         <div class="swiper-slide">
-                            <div class="slider_item" style="background-image:url('{{ media.filename }}')">
+                            <div class="slider_item" style="background-image:url('{{ photoHomepage.filename }}')">
                                 <div class="slider-inner">
                                     <div class="slider-details">
                                             <h4 class="slider-tag">Photographe | Vidéaste</h4>
@@ -42,6 +42,6 @@
         </div>
 
     </div>
-    <div class="page_title"><span>Dernières photos</span></div>
+    <div class="page_title"><span>Bienvenue</span></div>
 
 {% endblock body %}

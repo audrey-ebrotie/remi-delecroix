@@ -33,6 +33,9 @@ class Media
     #[ORM\JoinColumn(name: "category_id", referencedColumnName: "id", nullable: true)]
     private ?Category $category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $homepage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,6 +109,18 @@ class Media
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isHomepage(): ?bool
+    {
+        return $this->homepage;
+    }
+
+    public function setHomepage(?bool $homepage): self
+    {
+        $this->homepage = $homepage;
 
         return $this;
     }
