@@ -20,7 +20,7 @@ class Media
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 455)]
     private ?string $filename = null;
 
     #[ORM\Column(length: 45)]
@@ -29,8 +29,8 @@ class Media
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'media')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'media')]
+    #[ORM\JoinColumn(name: "category_id", referencedColumnName: "id", nullable: true)]
     private ?Category $category = null;
 
     public function getId(): ?int

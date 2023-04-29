@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+{{ parent() }} 
+{% endblock title %}
+
+{% block body %}
+
+<div class="inner_body bg_gray">
+    <!-- Page Header -->
+    <div class="page-header type2">
+        <div class="page-header-content text-center">
+            <div class="container">
+                <h1 class="heading">
+                    Galerie
+                    <span class="icon"><i class="fa fa-camera"></i></span>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris <br> massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
+                <div class="sign"><img src="{{ asset(latestPhoto.filename)}}" alt="{{ latestPhoto.title }}"></div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Header -->
+
+    <section class="portfolio-grid pt-0 pb-0">
+
+        <div class="button-group filters-button-group">
+            <button class="button is-checked" data-filter="*">Toute la galerie<sup class="filter-count"></sup></button>
+            {% for category in categories %}
+                <button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }} <sup class="filter-count"></sup></button>
+            {% endfor %}
+            <button class="button" data-filter=".video">Vidéos <sup class="filter-count"></sup></button>
+        </div>
+
+        <div class="grid grid-4 gutter-5 clearfix">
+            <div class="grid-sizer"></div>
+
+            {% for media in medias %}
+                <div class="grid-item {{ media.category.name|lower }} {{ media.type }}">
+                    <div class="thumb">
+                        {% if media.type == 'photo' %}
+                            <img class="item_image" src="{{ asset(media.filename) }}" alt=""/>
+                        {% else %}
+                            <video controls class="item_video" src="{{ asset(media.filename) }}" type="video/mp4"></video>
+                        {% endif %}
+                        <div class="works-info">
+                            <div class="label-text">
+                                <h4>{{ media.title }}</h4>
+                                <h6>{{ media.category.name }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+</div>
+
+{% endblock body %}

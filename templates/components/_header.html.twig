@@ -2,57 +2,20 @@
     <div class="nav-bar">
         <div class="navigation">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                <p><strong>RDvideographe</strong></p>
             </div>
             <nav id="flexmenu">
                 <div class="nav-inner">
                     <ul class="main-menu">
-                        <li class="menu-item active"><a href="index.html">Home</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item active"><a href="index-2.html">Home 2</a></li>
-                                <li class="menu-item"><a href="index-3.html">Home 3</a></li>
-                                <li class="menu-item"><a href="index-4.html">Home 4</a></li>
-                                <li class="menu-item"><a href="index-5.html">Home 5</a></li>
-                            </ul>
+                        <li class="menu-item active"><a href="{{ path('home') }}">Accueil</a>
                         </li>
-                        <li class="menu-item"><a href="#">Gallery</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="portfolio-1.html">Portfolio 1</a></li>
-                                <li class="menu-item"><a href="portfolio-2.html">Portfolio 2</a></li>
-                                <li class="menu-item"><a href="portfolio-3.html">Portfolio 3</a></li>
-                                <li class="menu-item"><a href="portfolio-4.html">Portfolio 4</a></li>
-                                <li class="menu-item"><a href="masonry.html">Portfolio Masonry</a></li>
-                                <li class="menu-item"><a href="portfolio-single-1.html">Portfolio Single 1</a></li>
-                                <li class="menu-item"><a href="portfolio-single-2.html">Portfolio Single 2</a></li>
-                            </ul>
+                        <li class="menu-item"><a href="{{ path('gallery') }}">Galerie</a>
                         </li>
-                        <li class="menu-item"><a href="#">About</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="aboutus-1.html">About Us 1</a></li>
-                                <li class="menu-item"><a href="aboutus-2.html">About Us 2</a></li>
-                                <li class="menu-item"><a href="aboutus-3.html">About Us 3</a></li>
-                                <li class="menu-item"><a href="aboutme.html">About Me</a></li>
-                            </ul>
+                        <li class="menu-item"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                         </li>
-                        <li class="menu-item"><a href="#">Contacts</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="contact-1.html">Contact 1</a></li>
-                                <li class="menu-item"><a href="contact-2.html">Contact 2</a></li>
-                            </ul>
+                        <li class="menu-item"><a href="#">Me contacter</a>
                         </li>
                         <li class="menu-item"><a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="blog-1.html">Blog 1</a></li>
-                                <li class="menu-item"><a href="blog-2.html">Blog 2</a></li>
-                                <li class="menu-item"><a href="blog-3.html">Blog 3</a></li>
-                                <li class="menu-item"><a href="blog-single-1.html">Blog Single 1</a></li>
-                                <li class="menu-item"><a href="blog-single-2.html">Blog Single 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item"><a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="elements.html">Elements</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +31,7 @@
                     <div class="search_overlay">
                         <span class="closebtn">&times;</span>
                         <form class="search-form" action="search.php">
-                            <input type="text" name="search" class="keyword form-control" placeholder="Search">
+                            <input type="text" name="search" class="keyword form-control" placeholder="Rechercher">
                             <button type="submit" class="form-control form-control-submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -81,52 +44,15 @@
         <a href="#" class="overlaynavclose">&times;</a>
         <nav id="overlaymenu">
             <ul class="main-menu">
-                <li class="menu-item active"><a href="index.html">Home</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item active"><a href="index-2.html">Home 2</a></li>
-                        <li class="menu-item"><a href="index-3.html">Home 3</a></li>
-                        <li class="menu-item"><a href="index-4.html">Home 4</a></li>
-                        <li class="menu-item"><a href="index-5.html">Home 5</a></li>
-                    </ul>
+                <li class="menu-item active"><a href="{{ path('home') }}l">Accueil</a>
                 </li>
-                <li class="menu-item"><a href="#">Gallery</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="portfolio-1.html">Portfolio 1</a></li>
-                        <li class="menu-item"><a href="portfolio-2.html">Portfolio 2</a></li>
-                        <li class="menu-item"><a href="portfolio-3.html">Portfolio 3</a></li>
-                        <li class="menu-item"><a href="portfolio-4.html">Portfolio 4</a></li>
-                        <li class="menu-item"><a href="masonry.html">Portfolio Masonry</a></li>
-                        <li class="menu-item"><a href="portfolio-single-1.html">Portfolio Single 1</a></li>
-                        <li class="menu-item"><a href="portfolio-single-2.html">Portfolio Single 2</a></li>
-                    </ul>
+                <li class="menu-item"><a href="{{ path('gallery') }}">Galerie</a>
                 </li>
-                <li class="menu-item"><a href="#">About</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="aboutus-1.html">About Us 1</a></li>
-                        <li class="menu-item"><a href="aboutus-2.html">About Us 2</a></li>
-                        <li class="menu-item"><a href="aboutus-3.html">About Us 3</a></li>
-                        <li class="menu-item"><a href="aboutme.html">About Me</a></li>
-                    </ul>
+                <li class="menu-item"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                 </li>
-                <li class="menu-item"><a href="#">Contacts</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="contact-1.html">Contact 1</a></li>
-                        <li class="menu-item"><a href="contact-2.html">Contact 2</a></li>
-                    </ul>
+                <li class="menu-item"><a href="#">Me contacter</a>
                 </li>
                 <li class="menu-item"><a href="#">Blog</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="blog-1.html">Blog 1</a></li>
-                        <li class="menu-item"><a href="blog-2.html">Blog 2</a></li>
-                        <li class="menu-item"><a href="blog-3.html">Blog 3</a></li>
-                        <li class="menu-item"><a href="blog-single-1.html">Blog Single 1</a></li>
-                        <li class="menu-item"><a href="blog-single-2.html">Blog Single 2</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item"><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="elements.html">Elements</a></li>
-                    </ul>
                 </li>
             </ul>
         </nav>

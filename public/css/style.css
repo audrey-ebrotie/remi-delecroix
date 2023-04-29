@@ -872,7 +872,7 @@ section {
   margin: 0 50px;
   }
  .about_me {
-  background-image: url('../images/about-bg.jpg');
+  background-color: #000;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -3616,6 +3616,12 @@ color: #fff;
 .project_inner_end .share a i{
     color: #222;
     margin-right: 5px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 @media screen and (max-width: 991px) {

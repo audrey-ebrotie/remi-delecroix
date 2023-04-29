@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+{{ parent() }} 
+{% endblock title %}
+
+{% block body %}
+
+<div class="inner_body">
+    <div class="about_me">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-details">
+                        <h3>Qui suis-je ?</h3>
+                        <p>Integer vel congue orci. In iaculis dui vel odio varius, sed pretium dui vehicula. Mauris imperdiet turpis ut ligula condimentum, ut eleifend mauris efficitur. Praesent consectetur vel dolor a faucibus. Nulla lobortis sit amet metus id blandit. Integer pulvinar lacus quis mauris commodo, vitae lacinia augue semper. </p>
+                        <p>Cras fermentum sit amet mauris id aliquet. Quisque risus arcu, interdum sit amet sapien quis, euismod fringilla arcu. Phasellus non venenatis nisi. Quisque vestibulum metus nisi. Vivamus cursus dolor at odio auctor, nec consequat massa sodales nec consequat. </p>
+                        <ul class="about_list">
+                            <li>In iaculis dui vel odio varius sed pretium dui vehicula</li>
+                            <li>Nulla lobortis sit amet metus id blandit integer pulvinar</li>
+                            <li>Cras fermentum sit amet mauris id aliquet quisque risus</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ asset('images/about-me/portrait-remi.jpeg') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page_title"><span>Qui suis-je ?</span></div>
+
+{% endblock body %}
