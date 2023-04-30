@@ -89,7 +89,7 @@ body {
     right: 0;
     top: 0;
     background: #000000;
-    width: 250px;
+    width: 200px;
     height: 100%;
 }
 @media screen and (max-width: 600px) {
@@ -883,7 +883,7 @@ section {
 
 .about_me img {
     border: 2px solid #888;
-    box-shadow: 8px 8px 4px #1c1c1c
+    box-shadow: 6px 6px 3px #1c1c1c
 }
 
 /*---- About us 1-----*/
@@ -1240,6 +1240,11 @@ section {
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+@media screen and (max-width: 991px) {
+    .swiper-button-prev:after, .swiper-button-next:after{
+        color: white;
+    }
 }
 .swiper-scrollbar{
     height: 2px;
@@ -3629,6 +3634,15 @@ video {
     object-fit: cover;
 }
 
+@media screen and (max-width: 600px) {
+    .logo  {
+        background-color: white;
+        position: absolute;
+        left: 0rem;
+        top: 4rem;
+    }
+}
+
 @media screen and (max-width: 991px) {
     .project_inner_top,
     .project_inner_bottom {
@@ -4583,6 +4597,11 @@ ul.comment-area{
     padding: 0px 10px; 
     color: #cbd2d9;
     font-size: 14px;
+}
+@media screen and (max-width: 991px) {
+    .social-icon ul li a {
+        color: #000;
+    }
 }
 .social-icon ul li:first-child a{
     padding-left: 0;

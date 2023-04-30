@@ -228,12 +228,7 @@ header p{
     transition: all 0.5s ease;
 }
 /*======== Menu CSS ========*/
-.logo{
-    min-width: 130px;
-}
-.logo img{
-    max-width: 100%;
-}
+
 .navigation{
   position: relative;
   display: flex;
@@ -282,7 +277,7 @@ header p{
     left: 0;
     bottom: 0;
     width: 0px;
-    height: 2px;
+    height: 6px;
     background: #c19b76;    
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -485,15 +480,18 @@ header p{
     }
 }
 
-@media screen and (min-width: 786px) and (max-width: 991px) {
-    #flexmenu .nav-inner ul.main-menu >li{
-        margin: 0px 10px;
+@media screen and (max-width: 600px) {
+    #header{
+        padding: 25px 50px;
     }
 }
 
-@media screen and (max-width: 785px) {    
+@media screen and (min-width: 601px) and (max-width: 991px) {    
     #header{
         padding: 25px 80px;
+    }
+    #flexmenu .nav-inner {
+        display: none;
     }
    /* reset horizontal styles */
     #flexmenu .nav-inner ul.main-menu {
