@@ -171,6 +171,12 @@
 .swiper-container-rtl .swiper-button-next {
   left: 10px;
   right: auto;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+.swiper-button-prev:hover,
+.swiper-container-rtl .swiper-button-prev:hover {
+  transform: scale(1.2);
 }
 .swiper-button-prev:after,
 .swiper-container-rtl .swiper-button-next:after {
@@ -180,6 +186,12 @@
 .swiper-container-rtl .swiper-button-prev {
   right: 10px;
   left: auto;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+.swiper-button-next:hover,
+.swiper-container-rtl .swiper-button-prev:hover {
+  transform: scale(1.2);  
 }
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {

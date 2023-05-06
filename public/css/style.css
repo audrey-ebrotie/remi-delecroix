@@ -62,10 +62,12 @@ body {
 .body_box .wrapper{
     position: relative;
     padding: 80px 80px;
+    height: 100%;
 }
 .body_box .wrapper .inner_body{
     position: relative;
     z-index: 5;
+    margin-bottom: 4em;
 }
 .dark_mode .wrapper{
     background: #121212;
@@ -115,7 +117,7 @@ a{
 }
 
 a:hover, a:focus {
-    color: #ffffff;
+    color: #b7a59f;
 	text-decoration: none;
 }
 
@@ -1853,11 +1855,20 @@ ul.about_list li::before {
 .bg_light_gray{
   background: #f6f6f6;
 }
+.bg_dark_gray{
+    background: #5b5b5b;
+  }
 .bg_black {
     background: #000;
 }
 .bg_dark {
     background: #1b1b1f;
+}
+.bg_gold{
+    background: #c19b76;
+}
+.bg_gold_light{
+    background: #ad957d;
 }
 .bg_transparent {
     background: transparent;
@@ -2232,6 +2243,11 @@ ul.angle li:before{
     border-radius: 100%;
     overflow: hidden;
 }
+.testibox1 .testi-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .testibox1 h4{
     font-size: 16px;
     font-weight: 700;
@@ -2254,9 +2270,62 @@ ul.angle li:before{
     font-style: italic;
     color: #5e646a;
     margin-top: 45px;
-    margin-bottom: 0px;
+    margin-bottom: 45px;
 }
 /*--------- Testimonials Carousel Navs --------*/
+.testimonials {
+    padding-top: 0 !important;
+}
+.testimonial-block {
+    background-color: #e4dfd9; 
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.banner-testimonials img{
+    width: 60%;
+    height: auto;
+}
+.testimonials_button-block{
+   display: block;
+   position: relative;
+   top: -4rem;
+}
+.image-preview-container {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.image-preview {
+    max-width: 100%;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.image-upload {
+    display: inline-block;
+    margin-top: 10px;
+    width: 50%;
+}
+span.optional, span.required{
+    color: rgb(81, 81, 81);
+    font-style: italic;
+    display: flex;
+    justify-content: end;
+}
+span.optional-sm, span.required-sm{
+    color: #C19A76;
+    font-style: italic;
+    display: flex;
+    justify-content: end;
+    font-size: 10px;
+}
 .testimonials .owl-theme .owl-nav{
     margin: 50px 0px;
 }
@@ -2593,9 +2662,13 @@ ul.angle li:before{
     transform: translateY(-50%);
 }
 /* -------- Contact ---------- */
+.contact-container{
+    height: 80vh;
+}
 .contact_body{
     background: #f6f6f6;
     padding-top: 130px;
+    padding-bottom: 130px;
 }
 .contact_info {
     position: relative;
@@ -3642,7 +3715,6 @@ video {
         top: 4rem;
     }
 }
-
 @media screen and (max-width: 991px) {
     .project_inner_top,
     .project_inner_bottom {

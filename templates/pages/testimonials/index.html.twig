@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Témoignages - {{ parent() }}
+{% endblock title %}
+
+{% block body %}
+
+<div class="inner_body bg_gray">
+    <!-- Page Header -->
+    <div class="page-header type2">
+        <div class="page-header-content text-center">
+            <div class="container">
+                <h1 class="heading">
+                    Témoignages
+                    <span class="icon"><i class="fa fa-comments"></i></span>
+                </h1>
+                <div class="banner-testimonials"><img src="{{ asset('images/banner-testimonials.jpg')}}" alt="image d'un stylo plume">
+                    <div class="button_group testimonials_button-block">
+                        <a href="{{ path('testimonials_new') }}" class="button effect_5 black_button"><span>Ajouter votre témoignage</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Header -->
+
+    <section class="testimonials bg_gray">
+        <div class="container col-10">
+    
+            {% for comment in comments %}
+                <div class="testibox1 testimonial-block mb-3">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-2">
+                            <div class="testi-img">
+                                {% if comment.image %}
+                                    <img src="{{ asset('uploads/comment_images/' ~ comment.image) }}" alt="{{ comment.image }}" class="rounded-circle">
+                                {% else %}
+                                    <img src="images/default_avatar.png" alt="Avatar par défaut" class="rounded-circle">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="testi-content">
+                                <h4>{{ comment.firstname }} {{ comment.lastname }}</h4>
+                                <p>{{ comment.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    
+        </div>
+    </section>
+    
+    
+
+</div>
+<div class="page_title"><span>Témoignages</span></div>
+
+{% endblock body %}

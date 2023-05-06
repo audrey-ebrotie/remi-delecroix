@@ -2,7 +2,7 @@
     <div class="nav-bar">
         <div class="navigation">
             <div class="logo">
-                <p><strong>RDvideographe</strong></p>
+                <strong><a href="{{ path('home') }}">RDvideographe</a></strong>
             </div>
             <nav id="flexmenu">
                 <div class="nav-inner">
@@ -13,9 +13,13 @@
                         </li>
                         <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                         </li>
-                        <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="#">Me contacter</a>
+                        <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="{{ path('contact_me') }}">Me contacter</a>
                         </li>
-                        <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="#">Témoignages</a>
+                        <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="{{ path('testimonials') }}">Témoignages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -27,13 +31,9 @@
                         <span class="toggle_line"></span>
                         <span class="toggle_line"></span>
                     </div>
-                    <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+
                     <div class="search_overlay">
                         <span class="closebtn">&times;</span>
-                        <form class="search-form" action="search.php">
-                            <input type="text" name="search" class="keyword form-control" placeholder="Rechercher">
-                            <button type="submit" class="form-control form-control-submit"><i class="fa fa-search"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -44,15 +44,19 @@
         <a href="#" class="overlaynavclose">&times;</a>
         <nav id="overlaymenu">
             <ul class="main-menu">
-                <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}l">Accueil</a>
+                <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
                 </li>
                 <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                 </li>
-                <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="#">Me contacter</a>
+                <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="{{ path('contact_me') }}">Me contacter</a>
                 </li>
-                <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="#">Témoignages</a>
+                <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="{{ path('testimonials') }}">Témoignages</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

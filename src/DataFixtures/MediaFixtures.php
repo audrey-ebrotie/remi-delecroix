@@ -10,14 +10,6 @@ use Faker\Factory;
 class MediaFixtures extends Fixture
 {
     private $imageUrls = [
-        'https://lh3.googleusercontent.com/p/AF1QipPXRNG7u9qUHuJZz0FkVDWPcNuXaypr-_rT815_=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipNEpy3Bh6ZR2LkUqsICrnNm3u_P7KzPPXqfMWsu=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipNuecyeYPx2gMJuifM5amKLv8DSymn_VXwcDf_O=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipNAkq4FnhaCM-oGSW9L1hWZZ6DTYQL8cZkWajCB=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipNN-1gXwM1OR1TtzOJmD0jIOBGI1MzhVcZqONMz=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipMxVxD39RcFOxK8rQRROe2_bmFW357bCATXNX2X=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipM2unccGWe-bVQ21CXUS57WmD7GmNPPKKd_-bcn=s1360-w1360-h1020',
-        'https://lh3.googleusercontent.com/p/AF1QipM2unccGWe-bVQ21CXUS57WmD7GmNPPKKd_-bcn=s1360-w1360-h1020',
         'https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/87518058_10218543248069989_3651564582125699072_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=730e14&_nc_ohc=QwdOCupbxwsAX-EbwAS&_nc_ht=scontent-cdg4-1.xx&oh=00_AfCEDy7RpY7SUTnRC46zFEFNKbjWk0toNMG2egDW9Klcyw&oe=6474BBFA',
         'https://scontent-cdg4-1.xx.fbcdn.net/v/t1.6435-9/89047143_10218543254030138_5170395808335396864_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=vDAGIElf5poAX_RF_de&_nc_ht=scontent-cdg4-1.xx&oh=00_AfAkDImxFibirocU9L7MnATGaOn8MCJ34EdsJ1JX5WyXcg&oe=6474D49E',
         'https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-9/88276811_10218543263350371_2670188314748780544_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=aY3eE5Vy_msAX_2TIQi&_nc_ht=scontent-cdg4-2.xx&oh=00_AfAxaGRG2sHjgv-RlrYwXYMsBQcsgRwnvFFEDm4_6sdvlA&oe=6474D752',

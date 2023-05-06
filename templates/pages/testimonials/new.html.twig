@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Ajouter votre témoignage - {{ parent() }}
+{% endblock title %}
+
+{% block body %}
+
+<div class="inner_body">
+    <section class="testimonials bg_gold_light">
+        <div class="section-title">
+            <h1 class="heading">
+                Votre témoignage
+                <span class="icon"><i class="fa fa-comments"></i></span>
+            </h1>
+        </div>
+
+        <div class="container">
+            <div class="testimonial-form">
+                {{ form_start(form, { 'attr': { 'class': 'testi-form', 'enctype': 'multipart/form-data', 'method': 'POST' } }) }}
+                    <div class="form-group">
+                        {{ form_label(form.firstname) }}
+                        {{ form_widget(form.firstname, { 'attr': { 'class': 'form-control' } }) }}
+                        {% if form.firstname.vars.required %}
+                            <span class="required">obligatoire</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.lastname) }}
+                        {{ form_widget(form.lastname, { 'attr': { 'class': 'form-control' } }) }}
+                        {% if not form.lastname.vars.required %}
+                            <span class="optional">facultatif</span>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <div class="image-preview-container">
+                            <img src="{{ asset('images/default-user-silhouette.png') }}" alt="Image par défaut" class="image-preview" id="image-preview">
+                            <div class="image-upload">
+                                {{ form_label(form.image) }}
+                                {{ form_widget(form.image, { 'attr': { 'id': 'comment_image_file', 'class': 'form-control', 'onchange': 'previewImage(event)' } }) }}
+                                {{ form_help(form.image) }}
+
+                                {% if not form.image.vars.required %}
+                                    <span class="optional">facultatif</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.content) }}
+                        {{ form_widget(form.content, { 'attr': { 'class': 'form-control', 'rows': '5' } }) }}
+                        {% if form.content.vars.required %}
+                            <span class="required">obligatoire</span>
+                        {% endif %}
+                    </div>
+                    <div class="button_group">
+                        <button type="submit" class="button effect_2 white_button"><span>Valider</span></button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+</div>
+
+    <div class="page_title"><span>Votre témoignage</span></div>
+
+{% endblock body %}
+
