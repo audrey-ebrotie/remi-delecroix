@@ -1,10 +1,12 @@
 @charset "utf-8";
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,300italic,400,600,700|Mukta:400,500,600,700,800|Playfair+Display');
+@import url('bootstrap.css');
 @import url('animate.css');
 @import url('menu.css');
 @import url('swiper.css');
 @import url('jquery.fancybox.css');
+@import url('fonts/font-awesome/css/font-awesome.min.css');
 @import url('fonts/ionicons/css/ionicons.min.css');
 
 
@@ -703,6 +705,7 @@ section {
 /*---------- Breadcrumb Section ------------*/
 .page-header{
     position: relative;
+    background: url("../images/header-bg.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -752,7 +755,7 @@ section {
     width: 40%;
     height: 2px;
     background: transparent;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #999;
 }
 .page-header-content .icon:after{
     content: "";
@@ -763,69 +766,7 @@ section {
     width: 40%;
     height: 2px;
     background: transparent;
-    border-bottom: 1px solid #ffffff;
-}
-.page-header-content #dark-icon{
-    position: absolute;
-    font-size: 16px;
-    color: #000000;
-    width: 100%;
-    left: 50%;
-    top: 70%;
-    transform: translateX(-50%);
-}
-.page-header-content #dark-icon:before{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 2px;
-    background: transparent;
-    border-bottom: 1px solid #000000;
-}
-.page-header-content #dark-icon:after{
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 2px;
-    background: transparent;
-    border-bottom: 1px solid #000000;
-}
-.page-header-content #white-icon{
-    position: absolute;
-    font-size: 16px;
-    color: #ffffff;
-    width: 100%;
-    left: 50%;
-    top: 70%;
-    transform: translateX(-50%);
-}
-.page-header-content #white-icon:before{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 2px;
-    background: transparent;
-    border-bottom: 1px solid #ffffff;
-}
-.page-header-content #white-icon:after{
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 40%;
-    height: 2px;
-    background: transparent;
-    border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #999;
 }
 .page-header.type1 .page-header-content p{
     font-family: 'Playfair Display', serif;
@@ -839,10 +780,6 @@ section {
   margin-top: 30px;
 }
 /*------- Page Header type 2 -----*/
-
-#light-title{
-    color: #ffffff;
-}
 .page-header.type2{
   background: transparent;
   padding-top: 150px;
@@ -865,13 +802,13 @@ section {
     line-height: 36px;
 }
 .page-header.type2 .page-header-content .icon{
-  color: #c19b76;
+  color: #ddd;
 }
 .page-header.type2 .page-header-content .icon:before{
-    border-bottom: 1px solid #c19b76;
+    border-bottom: 1px solid #ddd;
 }
 .page-header.type2 .page-header-content .icon:after{
-    border-bottom: 1px solid #c19b76;
+    border-bottom: 1px solid #ddd;
 }
 .breadcrumb {
     padding: 0px 0px;
@@ -936,15 +873,19 @@ section {
   background-repeat: no-repeat;
   margin: 0 50px;
   }
-#about_me-header{
-    padding: 10% 0 10% 0;
-  }
-#about_me img {
+ .about_me {
+  background-color: #303030;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 200px 0 170px 0;
+  height: 100%;
+}
+
+.about_me img {
     border: 2px solid #888;
-    box-shadow: 5px 5px 3px #393939;
-    width: 100%;
-    height: auto;
-    margin-bottom: 15%;
+    box-shadow: 6px 6px 3px #1c1c1c
 }
 
 /*---- About us 1-----*/
@@ -1008,6 +949,7 @@ section {
 /*---- Banner 1 ---*/
 .banner_1{
     position: relative;
+    background: url(../images/bg-1.jpg);
     background-position: center;
     background-size: cover;
     padding: 130px 0px;
@@ -1511,7 +1453,7 @@ section {
 }
 .about-details p {
     font-size: 14px;
-    color: #ffffff;
+    color: #999;
     line-height: 28px;
 }
 ul.about_list{
@@ -1553,6 +1495,7 @@ ul.about_list li::before {
     flex: 0 0 50%;
 }
 .about_content_box:nth-child(1) .aboutus_img {
+    background-image: url('../images/about/1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1562,6 +1505,7 @@ ul.about_list li::before {
     margin-left: 15px;
 }
 .about_content_box:nth-child(2) .aboutus_img {
+    background-image: url('../images/about/2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1571,6 +1515,7 @@ ul.about_list li::before {
     margin-left: 0px;
 }
 .about_content_box:nth-child(3) .aboutus_img {
+    background-image: url('../images/about/3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1911,7 +1856,7 @@ ul.about_list li::before {
   background: #f6f6f6;
 }
 .bg_dark_gray{
-    background: #494949;
+    background: #5b5b5b;
   }
 .bg_black {
     background: #000;
@@ -1923,7 +1868,7 @@ ul.about_list li::before {
     background: #c19b76;
 }
 .bg_gold_light{
-    background: #ad9d8d;
+    background: #ad957d;
 }
 .bg_transparent {
     background: transparent;
@@ -2268,6 +2213,7 @@ ul.angle li:before{
     height: 70px;
     right: 40px;
     bottom: 40px;
+    background: url('../images/quote-icon.png');
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -2331,7 +2277,7 @@ ul.angle li:before{
     padding-top: 0 !important;
 }
 .testimonial-block {
-    background-color: #ffffff; 
+    background-color: #e4dfd9; 
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -2719,6 +2665,11 @@ span.optional-sm, span.required-sm{
 .contact-container{
     height: 80vh;
 }
+.contact_body{
+    background: #f6f6f6;
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
 .contact_info {
     position: relative;
     padding-right: 100px;
@@ -2854,9 +2805,6 @@ input[type=submit].button:hover{
     margin-top: 130px;
 }
 /*------ Contact Us 2 ------*/
-.contact_body .container{
-    padding-bottom: 5%;
-}
 .contact_body.map_full{
     position: relative;
     padding-top: 0px;
@@ -2889,6 +2837,7 @@ input[type=submit].button:hover{
   right: 60px;
   width: 125px;
   height: 75px;
+  background-image: url('../images/stamp.png');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -3060,10 +3009,13 @@ input[type=submit].button:hover{
 .custom-control-input:active ~ .custom-control-label::before {background-color: transparent;}
 .custom-control-input:focus ~ .custom-control-label::before {box-shadow: none;}
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before, .custom-control-input:disabled ~ .custom-control-label::before {background-color: transparent;}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {background-image: url(../images/check.png);}
 .custom-radio .custom-control-label::before {background-color: transparent; border: 1px solid #dddddd;}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {background-image: url(../images/black-ellipes.png);}
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {background-color: transparent;}
 .custom-control-inline .custom-control-input:checked ~ .custom-control-label::before {background: #222;}
 .custom-control-inline .custom-control-label::before {background: #222;}
+.custom-control-inline .custom-control-input:checked ~ .custom-control-label::after {background-image: url(../images/white-ellipse.png);}
 .custom-control-label {font-size: 14px; letter-spacing: -1px;}
 .custom-control-input:disabled ~ .custom-control-label {color: #888888;}
 @media screen and (max-width: 767px) {
@@ -3593,7 +3545,7 @@ color: #fff;
 /*-------- Type 2 ---------*/
 .project_details.type_2 .project_details_header {
     position: relative;
-    
+    background: url("../images/bg-2.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -3755,15 +3707,6 @@ video {
     object-fit: cover;
 }
 
-.logo a {
-    color: #000;
-    text-decoration: none;
-}
-
-.logo a:hover {
-    color: #C19A76;
-}
-
 @media screen and (max-width: 600px) {
     .logo  {
         background-color: white;
@@ -3870,6 +3813,7 @@ video {
 /*---------- Video Banner ---------*/
 .video-banner{
     position: relative;
+    background:  url('../images/video-bg.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4235,6 +4179,7 @@ video {
 
 .blog_details.type_1 .blog_details_header {
     position: relative;
+    background: url(../images/bg-2.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
