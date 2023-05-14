@@ -3,15 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
-use App\Form\CommentType;
+use CommentType;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 #[Route('/temoignages')]
 class CommentController extends AbstractController
@@ -37,7 +38,7 @@ class CommentController extends AbstractController
     }
 
     #[Route('/nouveau', name: 'testimonials_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, SluggerInterface $slugger): Response
+    public function new(Request $request, SluggerInterface $slugger, ValidatorInterface $validator): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -76,10 +77,21 @@ class CommentController extends AbstractController
                 $comment->setImage($defaultImageFilename);
             }
 
+            // Enregistrer le commentaire dans la base de données
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
 
+            $this->addFlash('notice', 'Votre témoignage a bien été ajouté.');
+
+            // Rediriger l'utilisateur vers une page de confirmation
             return $this->redirectToRoute('testimonials');
+        }
+
+        // Validation du formulaire après la soumission
+        if ($form->isSubmitted()) {
+            $errors = $validator->validate($comment);
+        } else {
+            $errors = [];
         }
 
         $current_route = $request->attributes->get('_route');

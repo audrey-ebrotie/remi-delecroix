@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
@@ -15,15 +16,37 @@ class Comment
     private ?int $id = null;
 
     #[ORM\Column(length: 45)]
+    #[Assert\NotBlank(message: "Veuillez entrer votre prénom ou un pseudo.")]
+    #[Assert\Length(
+        min: 2,
+        max: 45,
+        minMessage: "Votre prénom ou pseudo doit comporter au moins {{ limit }} caractères.",
+        maxMessage: "Votre prénom ou pseudo doit comporter au maximum {{ limit }} caractères."
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 45, nullable: true)]
     private ?string $lastname = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: "Veuillez entrer un message.")]
+    #[Assert\Length(
+        min: 10,
+        minMessage: "Le message doit comporter au moins {{ limit }} caractères."
+    )]
     private ?string $content = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Image(
+        maxSize: "2M",
+        mimeTypes: [
+            "image/jpg",
+            "image/jpeg",
+            "image/png",
+        ],
+        mimeTypesMessage: "Veuillez sélectionner un fichier au format jpg, jpeg ou png.",
+        maxSizeMessage: "le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo."
+    )]
     private ?string $image = null;
 
     public function getId(): ?int

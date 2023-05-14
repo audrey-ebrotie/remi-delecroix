@@ -2292,6 +2292,26 @@ ul.angle li:before{
    position: relative;
    top: -4rem;
 }
+.form-group  li {
+    color: rgb(181, 7, 7);
+    font-size: 1.0em;
+    margin-top: 5px;
+    list-style: none;
+}
+#image-error {
+    color: rgb(181, 7, 7);
+    font-size: 1.0em;
+    margin-top: 5px;
+    list-style: none;
+    padding: 1%;
+}
+#image-valid {
+    color: rgb(17, 150, 0);
+    font-size: 1.0em;
+    margin-top: 5px;
+    list-style: none;
+    padding: 1%;
+}
 .image-preview-container {
     width: 100%;
     display: inline-block;
@@ -2781,6 +2801,9 @@ span.optional-sm, span.required-sm{
 .input_field .form-control{
   padding: 10px 0px;
 }
+.input_field #contact_message{
+    padding: 30px 0px;
+  }
 .input_field input[type=text]:focus:not([readonly]) + label, .input_field input[type=email]:focus:not([readonly]) + label, .input_field textarea.md-textarea:focus:not([readonly]) + label {color: #999999;}
 .input_field input[type=text]:focus:not([readonly]), .input_field input[type=email]:focus:not([readonly]), .input_field textarea.md-textarea:focus:not([readonly]) {box-shadow: none; border-bottom: 1px solid #cccccc;}
 .input_field input[type=text], .input_field input[type=email], .input_field textarea.md-textarea {
@@ -4745,8 +4768,6 @@ ul.comment-area{
 .page_title.right span{
     transform: translateY(-50%) rotate(0deg);
 }
-
-
 .dark_mode .swiper-pagination-bullet.swiper-pagination-bullet-active{
     background: #ffffff;
 }
@@ -4767,7 +4788,6 @@ ul.comment-area{
 .dark_mode .copyright p{
     color: #ffffff;
 }
-
 #cursor{
     border-radius: 100%;
     width: 30px;

@@ -24,7 +24,10 @@ class ContactType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),
-                    new Length(['min' => 2, 'max' => 45]),
+                    new Length([
+                        'max' => 45,
+                        'maxMessage' => 'Veuillez renseigner votre prénom ou un peudo.'
+                    ]),
                 ],
             ])
             ->add('nom', TextType::class, [
@@ -32,7 +35,10 @@ class ContactType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new NotBlank(),
-                    new Length(['min' => 2, 'max' => 45]),
+                    new Length([
+                        'max' => 45,
+                        'maxMessage' => 'Veuillez renseigner votre nom.'
+                    ]),
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -68,7 +74,10 @@ class ContactType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),
-                    new Length(['min' => 20]),
+                    new Length([
+                        'min' => 20,
+                        'minMessage' => 'Veuillez renseigner un message d\'au moins 20 caractères.'
+                    ]),
                 ],
             ]);
     }

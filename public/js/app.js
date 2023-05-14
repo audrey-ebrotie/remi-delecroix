@@ -1,6 +1,33 @@
-const player = new Plyr('video');
-
 function previewImage(event) {
+    const allowedFormats = ['image/jpg', 'image/jpeg', 'image/png'];
+    const maxSize = 2 * 1024 * 1024; // 2 Mo
+    const imageFile = event.target.files[0];
+    const imagePreview = document.getElementById('image-preview');
+    const imageError = document.getElementById('image-error');
+    const imageValid = document.getElementById('image-valid');
+    const defaultImageUrl = imagePreview.dataset.defaultImageUrl;
+
+    if (allowedFormats.indexOf(imageFile.type) === -1) {
+        // Format invalide
+        imageError.textContent = 'Veuillez sélectionner un fichier au format jpg, jpeg ou png.';
+        event.target.value = null;
+        imagePreview.src = defaultImageUrl;
+        imageValid.style.display = 'none';
+        return;
+    }
+
+    if (imageFile.size > maxSize) {
+        // Poids trop élevé
+        imageError.textContent = 'Le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo.';
+        event.target.value = null;
+        imagePreview.src = defaultImageUrl;
+        imageValid.style.display = 'none';
+        return;
+    }
+
+    // Tout est correct, affichage de l'aperçu de l'image et du message "Image valide"
+    imageError.textContent = '';
+    imageValid.style.display = 'block';
     var reader = new FileReader();
     reader.onload = function () {
         var output = document.getElementById('image-preview');
