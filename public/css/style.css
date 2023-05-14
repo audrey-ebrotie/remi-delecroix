@@ -6,7 +6,7 @@
 @import url('menu.css');
 @import url('swiper.css');
 @import url('jquery.fancybox.css');
-@import url('fonts/font-awesome/css/font-awesome.min.css');
+@import url('fonts/font-awesome/css/all.min.css');
 @import url('fonts/ionicons/css/ionicons.min.css');
 
 
@@ -746,6 +746,9 @@ section {
     top: 70%;
     transform: translateX(-50%);
 }
+#white-icon {
+    color: #fff;
+}
 .page-header-content .icon:before{
     content: "";
     position: absolute;
@@ -802,7 +805,7 @@ section {
     line-height: 36px;
 }
 .page-header.type2 .page-header-content .icon{
-  color: #ddd;
+  color: #c19b76;
 }
 .page-header.type2 .page-header-content .icon:before{
     border-bottom: 1px solid #ddd;
@@ -1453,31 +1456,15 @@ section {
 }
 .about-details p {
     font-size: 14px;
-    color: #999;
+    color: #ffffff;
     line-height: 28px;
 }
-ul.about_list{
-    color: #ffffff;
-    padding-left: 35px;
-    list-style-type: none;
+#about_me img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 15%;
 }
-ul.about_list li {
-    position: relative;
-    padding-left: 15px;
-    font-size: 14px;
-    line-height: 30px;
-}
-ul.about_list li::before {
-    content: "\25CB";
-    color: #efefef;
-    font-size: 20px;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.about-details img {margin-top: 40px;}
 .about_content_box {
     position: relative; 
     display: flex;
@@ -2286,6 +2273,7 @@ ul.angle li:before{
 .banner-testimonials img{
     width: 60%;
     height: auto;
+    margin-top: 5%;
 }
 .testimonials_button-block{
    display: block;
@@ -2687,7 +2675,6 @@ span.optional-sm, span.required-sm{
 }
 .contact_body{
     background: #f6f6f6;
-    padding-top: 130px;
     padding-bottom: 130px;
 }
 .contact_info {
@@ -2799,10 +2786,10 @@ span.optional-sm, span.required-sm{
   transition: all 0.5s ease-in-out;
 }
 .input_field .form-control{
-  padding: 10px 0px;
+  padding: 15px 0px;
 }
 .input_field #contact_message{
-    padding: 30px 0px;
+    padding: 20px 0px;
   }
 .input_field input[type=text]:focus:not([readonly]) + label, .input_field input[type=email]:focus:not([readonly]) + label, .input_field textarea.md-textarea:focus:not([readonly]) + label {color: #999999;}
 .input_field input[type=text]:focus:not([readonly]), .input_field input[type=email]:focus:not([readonly]), .input_field textarea.md-textarea:focus:not([readonly]) {box-shadow: none; border-bottom: 1px solid #cccccc;}

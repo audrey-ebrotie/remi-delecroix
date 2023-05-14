@@ -45,7 +45,7 @@ Me contacter - {{ parent() }}
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="input_field">
-                                        {{ form_widget(form.prenom, { 'attr': { 'class': 'form-control', 'placeholder': 'Votre prénom ou pseudo' } }) }}
+                                        {{ form_widget(form.prenom, { 'attr': { 'class': 'form-control' } }) }}
                                         {{ form_errors(form.prenom) }}
                                         {{ form_label(form.prenom, '', { 'label_attr': { 'for': 'prenom' } }) }}
                                         <span class="required-sm">obligatoire</span>
@@ -53,7 +53,7 @@ Me contacter - {{ parent() }}
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input_field">
-                                        {{ form_widget(form.nom, { 'attr': { 'class': 'form-control', 'placeholder': 'Votre nom' } }) }}
+                                        {{ form_widget(form.nom, { 'attr': { 'class': 'form-control' } }) }}
                                         {{ form_errors(form.nom) }}
                                         {{ form_label(form.nom, '', { 'label_attr': { 'for': 'nom' } }) }}
                                         <span class="optional-sm">facultatif</span>
@@ -61,7 +61,7 @@ Me contacter - {{ parent() }}
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input_field">
-                                        {{ form_widget(form.email, { 'attr': { 'class': 'form-control', 'placeholder': 'Votre adresse email' } }) }}
+                                        {{ form_widget(form.email, { 'attr': { 'class': 'form-control' } }) }}
                                         {{ form_errors(form.email) }}
                                         {{ form_label(form.email, '', { 'label_attr': { 'for': 'email' } }) }}
                                         <span class="required-sm">obligatoire</span>
@@ -69,7 +69,7 @@ Me contacter - {{ parent() }}
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input_field">
-                                        {{ form_widget(form.telephone, { 'attr': { 'class': 'form-control', 'placeholder': 'Votre numéro de téléphone' } }) }}
+                                        {{ form_widget(form.telephone, { 'attr': { 'class': 'form-control' } }) }}
                                         {{ form_errors(form.telephone) }}
                                         {{ form_label(form.telephone, '', { 'label_attr': { 'for': 'telephone' } }) }}
                                         <span class="optional-sm">facultatif</span>
@@ -77,7 +77,7 @@ Me contacter - {{ parent() }}
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input_field">
-                                        {{ form_widget(form.objet, { 'attr': { 'class': 'form-control', 'placeholder': 'Objet' } }) }}
+                                        {{ form_widget(form.objet, { 'attr': { 'class': 'form-control' } }) }}
                                         {{ form_errors(form.objet) }}
                                         {{ form_label(form.objet, '', { 'label_attr': { 'for': 'objet' } }) }}
                                         <span class="required-sm">obligatoire</span>
@@ -85,7 +85,7 @@ Me contacter - {{ parent() }}
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="input_field">
-                                        {{ form_widget(form.message, { 'attr': { 'id': 'contact-message', 'class': 'form-control md-textarea', 'rows': '3', 'placeholder': 'Votre message' } }) }}
+                                        {{ form_widget(form.message, { 'attr': { 'id': 'contact-message', 'class': 'form-control md-textarea', 'rows': '3' } }) }}
                                         {{ form_errors(form.message) }}
                                         {{ form_label(form.message, '', { 'label_attr': { 'for': 'message' } }) }}
                                         <span class="required-sm">obligatoire</span>
