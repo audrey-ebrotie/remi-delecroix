@@ -71,13 +71,15 @@ Ajouter votre témoignage - {{ parent() }}
                         {% endif %}
                     </div>
                     <div class="button_group">
-                        <button type="submit" class="button effect_2 white_button"><span>Valider</span></button>
+                        <button type="submit" class="button effect_2 white_button"><span>Valider</span></button>         
                     </div>
-                    {{ form_end(form) }}
-                </div>
+                {{ form_end(form) }}
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
+
+    {% include "components/_confirmationModal.html.twig" %}
     
-    {% endblock body %}
+{% endblock body %}
     

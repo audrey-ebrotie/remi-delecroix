@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -28,7 +27,7 @@ class Comment
     #[ORM\Column(length: 45, nullable: true)]
     private ?string $lastname = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: "text")]
     #[Assert\NotBlank(message: "Veuillez entrer un message.")]
     #[Assert\Length(
         min: 10,
@@ -48,6 +47,9 @@ class Comment
         maxSizeMessage: "le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo."
     )]
     private ?string $image = null;
+
+    #[ORM\Column(type: "datetime_immutable")]
+    private ?\DateTimeImmutable $created_at = null;
 
     public function getId(): ?int
     {
@@ -100,5 +102,16 @@ class Comment
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    #[ORM\PrePersist]
+    public function setCreatedAt(): void
+    {
+        $this->created_at = new \DateTimeImmutable();
     }
 }

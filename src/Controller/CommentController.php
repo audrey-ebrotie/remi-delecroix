@@ -6,13 +6,15 @@ use App\Entity\Comment;
 use CommentType;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 #[Route('/temoignages')]
 class CommentController extends AbstractController
@@ -25,20 +27,25 @@ class CommentController extends AbstractController
     }
 
     #[Route('/', name: 'testimonials', methods: ['GET'])]
-    public function index(CommentRepository $commentRepository, Request $request): Response
+    public function index(CommentRepository $commentRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $comments = $commentRepository->findAll();
+        $comments = $commentRepository->findBy([], ['created_at' => 'DESC']);
+        $pagination = $paginator->paginate(
+            $comments,
+            $request->query->getInt('page', 1),
+            5
+        );
 
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/testimonials/index.html.twig', [
-            'comments' => $comments,
+            'comments' => $pagination,
             'current_route' => $current_route
         ]);
     }
 
     #[Route('/nouveau', name: 'testimonials_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, SluggerInterface $slugger, ValidatorInterface $validator): Response
+    public function new(Request $request, SluggerInterface $slugger, ValidatorInterface $validator, SessionInterface $session): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -77,17 +84,16 @@ class CommentController extends AbstractController
                 $comment->setImage($defaultImageFilename);
             }
 
-            // Enregistrer le commentaire dans la base de données
+            $comment->setCreatedAt(new \DateTimeImmutable()); // Set the created_at field to the current date and time
+
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
 
-            $this->addFlash('notice', 'Votre témoignage a bien été ajouté.');
+            $session->getFlashBag()->add('success', 'Votre témoignage a bien été ajouté.');
 
-            // Rediriger l'utilisateur vers une page de confirmation
             return $this->redirectToRoute('testimonials');
         }
 
-        // Validation du formulaire après la soumission
         if ($form->isSubmitted()) {
             $errors = $validator->validate($comment);
         } else {
@@ -98,6 +104,7 @@ class CommentController extends AbstractController
 
         return $this->render('pages/testimonials/new.html.twig', [
             'form' => $form->createView(),
+            'comment' => $comment,
             'current_route' => $current_route
         ]);
     }

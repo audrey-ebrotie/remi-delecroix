@@ -1,3 +1,5 @@
+//******** Gestion de l'aperçu d'image dans le formulaire d'ajout d'un témoignage *************//
+
 function previewImage(event) {
     const allowedFormats = ['image/jpg', 'image/jpeg', 'image/png'];
     const maxSize = 2 * 1024 * 1024; // 2 Mo
@@ -43,3 +45,47 @@ fileInput.addEventListener('change', function(event) {
     imagePreview.style.display = 'block';
     previewImage(event);
 });
+
+//******** Gestion de la popup de vérification avant validation d'un témoignage *************//
+
+// document.querySelector('#comment-form').addEventListener('submit', function(event) {
+//     console.log('form submit event triggered');
+//     event.preventDefault();
+//     $('#confirmSubmitModal').modal('show');
+// });
+
+// document.querySelector('#confirmSubmit').addEventListener('click', function() {
+//     console.log('confirm button clicked');
+//     document.querySelector('#comment-form').submit();
+// });
+
+// $('#confirmSubmitModal').on('shown.bs.modal', function () {
+//     console.log('modal is shown');
+// })
+
+
+//  ***************** Modale d'agrandissement de media galerie ********************* //
+
+$(document).ready(function() {
+    $(".fancybox").fancybox({
+        hideOnContentClick: false
+    });
+});
+
+(function (document) {
+    "use strict";
+    const ready = (callback) => {
+        if (document.readyState !== "loading") callback();
+        else document.addEventListener("DOMContentLoaded", callback);
+    };
+    ready(() => {
+        const media = document.getElementsByClassName("media-clickable");
+
+        for (let i = 0; i < media.length; i++) {
+            media[i].addEventListener("click", function (e) {
+                e.preventDefault();
+                $.fancybox.open({ src: this.href });
+            });
+        }
+    });
+})(document);

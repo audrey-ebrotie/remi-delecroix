@@ -6,6 +6,12 @@ Témoignages - {{ parent() }}
 
 {% block body %}
 
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
 <div class="inner_body bg_gray">
     <!-- Page Header -->
     <div class="page-header type2">
@@ -44,18 +50,23 @@ Témoignages - {{ parent() }}
                             <div class="testi-content">
                                 <h4>{{ comment.firstname }} {{ comment.lastname }}</h4>
                                 <p>{{ comment.content }}</p>
+                                <span class="publication-date">Publié le {{ comment.createdAt|date('d/m/Y') }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-    
+
+            <!-- Affichage des liens de pagination -->
+            <div class="pagination">
+                {{ knp_pagination_render(comments) }}
+            </div>
+
         </div>
     </section>
     
-    
-
 </div>
+
 <div class="page_title"><span>Témoignages</span></div>
 
 {% endblock body %}

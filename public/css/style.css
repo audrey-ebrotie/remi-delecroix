@@ -191,6 +191,39 @@ section {
   background: #222; 
 }
 
+/*---------- Pagination ------------*/
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .pagination a,
+  .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination a:hover {
+    background-color: #ccc;
+  }
+  
+  .pagination .active {
+    background-color: #555;
+    color: #fff;
+  }
+  
+  .pagination .disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+
 /*---------- Button Section ------------*/
 .button_group{
     position: relative;
@@ -288,7 +321,6 @@ section {
 .transparent_black_button:before{
     background: #222;
 }
-
 .fade_white_button{
     border-color: #ffffff;
     color: #222;
@@ -302,7 +334,6 @@ section {
 .fade_white_button:before{
     background: rgba(34, 34, 34, 0.5);
 }
-
 .fade_black_button{
     border-color: #000;
     color: #ffffff;
@@ -316,7 +347,6 @@ section {
 .fade_black_button:before{
     background: rgba(255, 255, 255, 0.2);
 }
-
 .white_button{
     border-color: #ffffff;
     color: #222;
@@ -330,7 +360,6 @@ section {
 .white_button:before{
     background: #222;
 }
-
 .light_button{
     border-color: #eee;
     color: #999;
@@ -358,7 +387,6 @@ section {
 .black_button:before{
     background: #ffffff;
 }
-
 .gold_button{
     border-color: #c19b76;
     color: #ffffff;
@@ -1445,6 +1473,7 @@ section {
 .home-img .slide_heading, .home-img-single .slide_heading {margin-bottom: 18px; font-size: 60px; color: #ffffff;}
 .home-img p, .home-img-single p {font-size: 15px; letter-spacing: 2px; color: #acacac; text-transform: uppercase; font-weight: 400; margin-top: 20px; line-height: 2;}
 
+
 /*-------- About -------*/
 .about-details h3 {
     text-transform: uppercase;
@@ -2280,11 +2309,16 @@ ul.angle li:before{
    position: relative;
    top: -4rem;
 }
+.testi-content .publication-date {
+    display: flex;
+    justify-content: flex-end;
+}
 .form-group  li {
     color: rgb(181, 7, 7);
     font-size: 1.0em;
     margin-top: 5px;
     list-style: none;
+    font-weight: bold;
 }
 #image-error {
     color: rgb(181, 7, 7);
@@ -2292,13 +2326,18 @@ ul.angle li:before{
     margin-top: 5px;
     list-style: none;
     padding: 1%;
+    font-weight: bold;
 }
 #image-valid {
-    color: rgb(17, 150, 0);
+    color: rgb(58, 165, 0);
     font-size: 1.0em;
     margin-top: 5px;
     list-style: none;
     padding: 1%;
+    background-color: rgba(255, 255, 255, 0.33);
+    width: 50%;
+    margin: auto;
+    font-weight: bold;
 }
 .image-preview-container {
     width: 100%;
@@ -3359,6 +3398,11 @@ color: #fff;
     color: #000;
     text-transform: uppercase;
     margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .grid-item .label-text h6 {
     color: #999; 

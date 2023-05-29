@@ -38,20 +38,23 @@ Galerie - {{ parent() }}
             {% for media in medias %}
                 <div class="grid-item {{ media.category.name|lower }} {{ media.type }}">
                     <div class="thumb">
-                        {% if media.type == 'photo' %}
-                            <img class="item_image" src="{{ asset(media.filename) }}" alt=""/>
-                        {% else %}
-                            <video controls class="item_video" src="{{ asset(media.filename) }}" type="video/mp4"></video>
-                        {% endif %}
-                        <div class="works-info">
-                            <div class="label-text">
-                                <h4>{{ media.title }}</h4>
-                                <h6>{{ media.category.name }}</h6>
+                        <a class="fancybox" rel="gallery" href="{{ asset(media.filename) }}" data-thumb="{{ asset(media.filename) }}">
+                            {% if media.type == 'photo' %}
+                                <img class="item-image" src="{{ asset(media.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ media.title }}" />
+                            {% else %}
+                                <video controls class="item-video" src="{{ asset(media.filename) }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ media.title }}"></video>
+                            {% endif %}
+                            <div class="works-info">
+                                <div class="label-text">
+                                    <h4>{{ media.title }}</h4>
+                                    <h6>{{ media.category.name }}</h6>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             {% endfor %}
+
         </div>
     </section>
     
