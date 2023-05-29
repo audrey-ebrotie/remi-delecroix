@@ -15,7 +15,8 @@ Galerie - {{ parent() }}
                     Galerie
                     <span class="icon"><i class="fa fa-camera"></i></span>
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris <br> massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris <br> massa eleifend
+                    et purus vel feugiat rutrum nulla cras vitae est.</p>
                 <div class="sign"><img src="{{ asset(latestPhoto.filename)}}" alt="{{ latestPhoto.title }}"></div>
             </div>
         </div>
@@ -25,9 +26,11 @@ Galerie - {{ parent() }}
     <section class="portfolio-grid pt-0 pb-0">
 
         <div class="button-group filters-button-group">
-            <button class="button active" data-filter=".photo">Toutes les photos<sup class="filter-count"></sup></button>
+            <button class="button active" data-filter=".photo">Toutes les photos<sup
+                    class="filter-count"></sup></button>
             {% for category in categories %}
-                <button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }} <sup class="filter-count"></sup></button>
+            <button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }} <sup
+                    class="filter-count"></sup></button>
             {% endfor %}
             <button class="button" data-filter=".video">Toutes les vidéos <sup class="filter-count"></sup></button>
         </div>
@@ -36,28 +39,29 @@ Galerie - {{ parent() }}
             <div class="grid-sizer"></div>
 
             {% for media in medias %}
-                <div class="grid-item {{ media.category.name|lower }} {{ media.type }}">
-                    <div class="thumb">
-                        <a class="fancybox" rel="gallery" href="{{ asset(media.filename) }}" data-thumb="{{ asset(media.filename) }}">
-                            {% if media.type == 'photo' %}
-                                <img class="item-image" src="{{ asset(media.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ media.title }}" />
-                            {% else %}
-                                <video controls class="item-video" src="{{ asset(media.filename) }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ media.title }}"></video>
-                            {% endif %}
-                            <div class="works-info">
-                                <div class="label-text">
-                                    <h4>{{ media.title }}</h4>
-                                    <h6>{{ media.category.name }}</h6>
-                                </div>
-                            </div>
-                        </a>
+            <div class="grid-item {{ media.category.name|lower }} {{ media.type }}">
+                <div class="thumb">
+                    <a class="fancybox" rel="gallery" href="{{ asset(media.filename) }}"
+                        data-thumb="{{ asset(media.filename) }}">
+                        {% if media.type == 'photo' %}
+                        <img class="item-image" src="{{ asset(media.filename) }}" alt="" data-fancybox="gallery"
+                            data-caption="{{ media.title }}" />
+                        {% else %}
+                        <video controls class="item-video" src="{{ asset(media.filename) }}" type="video/mp4"
+                            data-fancybox="gallery" data-caption="{{ media.title }}"></video>
+                        {% endif %}
+                    </a>
+                    <div class="works-info">
+                        <div class="label-text">
+                            <h4>{{ media.title }}</h4>
+                            <h6>{{ media.category.name }}</h6>
+                        </div>
                     </div>
                 </div>
+            </div>
             {% endfor %}
-
         </div>
     </section>
-    
 </div>
 <div class="page_title"><span>Galerie</span></div>
 
