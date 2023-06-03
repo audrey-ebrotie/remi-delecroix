@@ -62,30 +62,3 @@ fileInput.addEventListener('change', function(event) {
 // $('#confirmSubmitModal').on('shown.bs.modal', function () {
 //     console.log('modal is shown');
 // })
-
-
-//  ***************** Modale d'agrandissement de media galerie ********************* //
-
-$(document).ready(function() {
-    $(".fancybox").fancybox({
-        hideOnContentClick: false
-    });
-});
-
-(function (document) {
-    "use strict";
-    const ready = (callback) => {
-        if (document.readyState !== "loading") callback();
-        else document.addEventListener("DOMContentLoaded", callback);
-    };
-    ready(() => {
-        const media = document.getElementsByClassName("media-clickable");
-
-        for (let i = 0; i < media.length; i++) {
-            media[i].addEventListener("click", function (e) {
-                e.preventDefault();
-                $.fancybox.open({ src: this.href });
-            });
-        }
-    });
-})(document);

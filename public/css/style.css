@@ -389,7 +389,7 @@ section {
 }
 .gold_button{
     border-color: #c19b76;
-    color: #ffffff;
+    color: #000000;
 }
 .gold_button:hover{
     color: #c19b76;
@@ -2248,6 +2248,37 @@ ul.angle li:before{
     }
 }
 /*--------- Testimonial  --------*/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 10000;
+}
+
+.modal-content {
+    margin-bottom: 20px;
+}
+
+.modal-button {
+    margin-right: 10px;
+}
+
 .testibox1{
     padding: 0px 170px 0px 170px;
     text-align:center;
@@ -3662,6 +3693,48 @@ color: #fff;
 .project_details_gallery .gallery_item{
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.photo-header-gallery img {
+    height: 30em;
+    width: 65%;
+    object-fit: cover;
+}
+.thumb img {
+    width: 100%; /* Prendra toute la largeur du conteneur .thumb */
+    height: 200px; /* Hauteur fixe */
+    object-fit: cover; /* Permet de couvrir tout l'espace sans déformation */
+}
+.thumb video {
+    width: 100%; /* Prendra toute la largeur du conteneur .thumb */
+    height: 200px; /* Hauteur fixe */
+    object-fit: cover; /* Permet de couvrir tout l'espace sans déformation */
+}
+.thumb .label-text h4 {
+    height: 3em; /* Reserve space for two lines of text. Adjust as needed. */
+    overflow: hidden; /* Ensures that if there's too much text, it doesn't break the layout */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limits to 2 lines */
+    -webkit-box-orient: vertical;
+}
+.thumb .label-text h6 {
+    height: 1.5em; /* Reserve space for one line of text. Adjust as needed. */
+    overflow: hidden; /* Ensures that if there's too much text, it doesn't break the layout */
+}
+.button-wide {
+    background: #c19b76;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin: 5%;
+    width: 45%;
+}
+.button-wide:hover {
+    color: white;
+    background-color: #000;
 }
 .portfolio-carousel{
     position: relative;

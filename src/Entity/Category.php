@@ -22,12 +22,16 @@ class Category
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Media::class)]
-    private Collection $media;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Photo::class)]
+    private Collection $photos;
+
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Video::class)]
+    private Collection $videos;
 
     public function __construct()
     {
-        $this->media = new ArrayCollection();
+        $this->photos = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -59,30 +63,60 @@ class Category
         return $this;
     }
 
-    /**
-     * @return Collection<int, Media>
+   /**
+     * @return Collection<int, Photo>
      */
-    public function getMedia(): Collection
+    public function getPhotos(): Collection
     {
-        return $this->media;
+        return $this->photos;
     }
 
-    public function addMedium(Media $medium): self
+    public function addPhoto(Photo $photo): self
     {
-        if (!$this->media->contains($medium)) {
-            $this->media->add($medium);
-            $medium->setCategory($this);
+        if (!$this->photos->contains($photo)) {
+            $this->photos->add($photo);
+            $photo->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeMedium(Media $medium): self
+    public function removePhoto(Photo $photo): self
     {
-        if ($this->media->removeElement($medium)) {
+        if ($this->photos->removeElement($photo)) {
             // set the owning side to null (unless already changed)
-            if ($medium->getCategory() === $this) {
-                $medium->setCategory(null);
+            if ($photo->getCategory() === $this) {
+                $photo->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos->add($video);
+            $video->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getCategory() === $this) {
+                $video->setCategory(null);
             }
         }
 

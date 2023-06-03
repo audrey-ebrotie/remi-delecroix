@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock title %}
+
+{% block body %}
+
+<div class="inner_body bg_gray">
+    <!-- Page Header -->
+    <div class="page-header type2">
+        <div class="page-header-content text-center">
+            <div class="container">
+                <h1 class="heading">
+                    Galerie
+                    <span class="icon"><i class="fa fa-images"></i></span>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris <br> massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
+                <div class="container d-flex justify-content-between w-100 button-group">
+                    <a class="button button-wide button-photo" href="{{ path('photo_gallery') }}">Galerie Photos</a>
+                    <a class="button button-wide button-video" href="{{ path('video_gallery') }}">Galerie Vidéos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Header -->
+    <section></section>
+</div>
+
+{% endblock body %}

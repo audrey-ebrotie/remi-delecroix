@@ -51,6 +51,9 @@ class Comment
     #[ORM\Column(type: "datetime_immutable")]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $status = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,5 +116,17 @@ class Comment
     public function setCreatedAt(): void
     {
         $this->created_at = new \DateTimeImmutable();
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
     }
 }

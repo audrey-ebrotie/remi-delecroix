@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
-use CommentType;
+use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -29,8 +29,8 @@ class CommentController extends AbstractController
     #[Route('/', name: 'testimonials', methods: ['GET'])]
     public function index(CommentRepository $commentRepository, Request $request, PaginatorInterface $paginator): Response
     {
-        $comments = $commentRepository->findBy([], ['created_at' => 'DESC']);
-        $pagination = $paginator->paginate(
+        $comments = $commentRepository->findBy(['status' => 'validated'], ['created_at' => 'DESC']);
+        $paginationComments = $paginator->paginate(
             $comments,
             $request->query->getInt('page', 1),
             5
@@ -39,7 +39,7 @@ class CommentController extends AbstractController
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/testimonials/index.html.twig', [
-            'comments' => $pagination,
+            'comments' => $paginationComments,
             'current_route' => $current_route
         ]);
     }
@@ -48,6 +48,7 @@ class CommentController extends AbstractController
     public function new(Request $request, SluggerInterface $slugger, ValidatorInterface $validator, SessionInterface $session): Response
     {
         $comment = new Comment();
+        $comment->setStatus('pending');
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -89,7 +90,7 @@ class CommentController extends AbstractController
             $this->entityManager->persist($comment);
             $this->entityManager->flush();
 
-            $session->getFlashBag()->add('success', 'Votre témoignage a bien été ajouté.');
+            $session->getFlashBag()->add('success', 'Votre témoignage a bien été envoyé, il est en attente de validation.');
 
             return $this->redirectToRoute('testimonials');
         }
