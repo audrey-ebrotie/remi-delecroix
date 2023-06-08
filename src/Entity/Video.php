@@ -31,7 +31,7 @@ class Video
     private ?File $videoFile = null;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'videos')]
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id')]
@@ -39,7 +39,7 @@ class Video
 
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -93,7 +93,7 @@ class Video
         $this->videoFile = $videoFile;
 
         if ($videoFile) {
-            $this->createdAt = new \DateTimeImmutable();
+            $this->created_at = new \DateTimeImmutable();
         }
 
         return $this;
@@ -101,12 +101,12 @@ class Video
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $created_at;
 
         return $this;
     }

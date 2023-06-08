@@ -1477,7 +1477,7 @@ section {
 /*-------- About -------*/
 .about-details h3 {
     text-transform: uppercase;
-    color: #ffffff;
+    color: #000000;
     font-weight: 600;
     margin-bottom: 40px;
     font-size: 24px;
@@ -1485,7 +1485,7 @@ section {
 }
 .about-details p {
     font-size: 14px;
-    color: #ffffff;
+    color: #000000;
     line-height: 28px;
 }
 #about_me img {
@@ -1872,7 +1872,7 @@ section {
   background: #f6f6f6;
 }
 .bg_dark_gray{
-    background: #5b5b5b;
+    background: #a1a1a1;
   }
 .bg_black {
     background: #000;
@@ -2740,6 +2740,32 @@ span.optional-sm, span.required-sm{
     transform: translateY(-50%);
 }
 /* -------- Contact ---------- */
+.phone-number {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.phone-number i {
+    margin-right: 5px;
+}
+.email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #C19A76;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.email-button i {
+    margin-right: 5px;
+}
+.email-button:hover {
+    background-color: #ffffff;
+}
 .contact-container{
     height: 80vh;
 }
@@ -3505,6 +3531,26 @@ color: #fff;
     background: #fff;
     text-align: center;
     padding: 25px 10px;
+}
+#inner_body_gallery {
+    background-image: url('../images/gallery/index_banner.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#inner_body_gallery::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Couleur semi-transparente de l'overlay */
+}
+#inner_body_gallery h1{
+    color: white;
+}
+#inner_body_gallery p{
+    color: white;
 }
 
 /*-------- Grid Gallery Hover Style 2 ---------*/

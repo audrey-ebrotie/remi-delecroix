@@ -38,4 +38,14 @@ class HomeController extends AbstractController
             'current_route' => $current_route
         ]);
     }
+
+    #[Route('/contact', name: 'contact_me')]
+    public function index(Request $request): Response
+    {
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/contact.html.twig', [
+            'current_route' => $current_route
+        ]);
+    }
 }

@@ -39,13 +39,13 @@ Galerie Photos - {{ parent() }}
                     <div class="thumb">
                         <a class="fancybox" rel="gallery" href="{{ asset(photo.filename) }}" data-thumb="{{ asset(photo.filename) }}">
                             <img class="item-image" src="{{ asset(photo.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ photo.title }}" />
-                            <div class="works-info">
+                        </a>
+                            <div class="works-info fancybox">
                                 <div class="label-text">
                                     <h4>{{ photo.title }}</h4>
                                     <h6>{{ photo.category.name }}</h6>
                                 </div>
                             </div>
-                        </a>
                     </div>
                 </div>
             {% endfor %}

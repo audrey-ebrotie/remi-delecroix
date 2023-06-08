@@ -45,20 +45,3 @@ fileInput.addEventListener('change', function(event) {
     imagePreview.style.display = 'block';
     previewImage(event);
 });
-
-//******** Gestion de la popup de vérification avant validation d'un témoignage *************//
-
-// document.querySelector('#comment-form').addEventListener('submit', function(event) {
-//     console.log('form submit event triggered');
-//     event.preventDefault();
-//     $('#confirmSubmitModal').modal('show');
-// });
-
-// document.querySelector('#confirmSubmit').addEventListener('click', function() {
-//     console.log('confirm button clicked');
-//     document.querySelector('#comment-form').submit();
-// });
-
-// $('#confirmSubmitModal').on('shown.bs.modal', function () {
-//     console.log('modal is shown');
-// })
