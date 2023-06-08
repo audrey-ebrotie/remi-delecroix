@@ -29,10 +29,10 @@
             updateFilterCount();
         });
 
-        // function updateFilterCount() {
-        //     $filterCount.text( iso.filteredItems.length);
-        // }
-        // updateFilterCount();
+        function updateFilterCount() {
+            $filterCount.text( iso.filteredItems.length);
+        }
+        updateFilterCount();
 
         // change is-checked class on buttons
         $('.button-group').each( function( i, buttonGroup ) {

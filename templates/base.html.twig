@@ -9,7 +9,6 @@
         <title>{% block title %}Rémi DELECROIX - Photographe | Vidéaste{% endblock title%}</title>
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
             {% endblock stylesheets %}
@@ -34,9 +33,6 @@
                 </div>
 
                 {% block javascripts %}
-                    {{ encore_entry_script_tags('app') }}
-
-                    <script src="{{ asset('js/app.js') }}"></script>
                     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
                     <script src="{{ asset('js/bootstrap.js') }}"></script>
                     <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
@@ -46,12 +42,13 @@
                     <script src="{{ asset('js/typed.min.js') }}"></script>
                     <script src="{{ asset('js/menu.js') }}"></script>
                     <script src="{{ asset('js/grid.custom.js') }}"></script>
+                    <script src="{{ asset('js/app.js') }}"></script>
                     <script src="{{ asset('js/custom.js') }}"></script>
                 {% endblock javascripts %}
-            </body>
 
-            {% block footer %}
-                {% include "components/_footer.html.twig" %}
-            {% endblock footer %}
+                {% block footer %}
+                    {% include "components/_footer.html.twig" %}
+                {% endblock footer %}
+            </body>
 
 </html>

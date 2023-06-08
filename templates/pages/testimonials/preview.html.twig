@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prévisualisation du témoignage{% endblock %}
+
+{% block body %}
+    <div class="inner_body">
+        <section class="testimonials-preview">
+            <div class="container">
+                <h2>Votre témoignage</h2>
+                <div class="comment-details">
+                    <p><strong>Prénom ou pseudo :</strong> {{ comment.firstname }}</p>
+                    <p><strong>Nom :</strong> {{ comment.lastname }}</p>
+                    <p><strong>Message :</strong> {{ comment.content }}</p>
+                    {% if comment.image %}
+                        <img src="{{ asset('uploadDirectory/comment_images/' ~ comment.image) }}" alt="Image du témoignage">
+                    {% endif %}
+                </div>
+                <div class="button-group">
+                    <a href="{{ path('testimonials_new') }}" class="btn btn-secondary">Modifier</a>
+                    <a href="{{ path('testimonials_submit', { 'id': comment.id }) }}" class="btn btn-primary">Valider</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

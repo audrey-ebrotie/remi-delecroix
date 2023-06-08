@@ -10,6 +10,12 @@
                         <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
                         </li>
                         <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="{{ path('photo_gallery') }}">Photos</a>
+                                </li>
+                                <li class="menu-item"><a href="{{ path('video_gallery') }}">Vidéos</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                         </li>
@@ -47,6 +53,12 @@
                 <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
                 </li>
                 <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="{{ path('photo_gallery') }}">Photos</a>
+                        </li>
+                        <li class="menu-item"><a href="{{ path('video_gallery') }}">Vidéos</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
                 </li>

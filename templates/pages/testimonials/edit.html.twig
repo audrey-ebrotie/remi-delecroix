@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le témoignage{% endblock %}
+
+{% block body %}
+    <div class="inner_body">
+        <section class="testimonials-edit">
+            <div class="container">
+                <h2>Modifier votre témoignage</h2>
+                {{ form_start(form, { 'attr': { 'class': 'testi-form', 'enctype': 'multipart/form-data', 'method': 'POST' } }) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+                <div class="button-group">
+                    <a href="{{ path('testimonials_preview', { 'id': comment.id }) }}" class="btn btn-secondary">Prévisualiser</a>
+                    <a href="{{ path('testimonials_new') }}" class="btn btn-secondary">Annuler</a>
+                    <a href="{{ path('testimonials_submit', { 'id': comment.id }) }}" class="btn btn-primary">Valider</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

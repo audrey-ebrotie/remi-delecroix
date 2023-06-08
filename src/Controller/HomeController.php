@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\MediaRepository;
+use App\Repository\PhotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,17 +10,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    private $mediaRepository;
+    private $photoRepository;
 
-    public function __construct(MediaRepository $mediaRepository)
+    public function __construct(PhotoRepository $photoRepository)
     {
-        $this->mediaRepository = $mediaRepository;
+        $this->photoRepository = $photoRepository;
     }
 
     #[Route('/', name: 'home')]
     public function home(Request $request): Response
     {
-        $photosHomepage = $this->mediaRepository->findBy(['homepage' => true]);
+        $photosHomepage = $this->photoRepository->findBy(['homepage' => true]);
         $current_route = $request->attributes->get('_route');
 
         return $this->render('home/index.html.twig', [
@@ -35,6 +35,16 @@ class HomeController extends AbstractController
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/about-me.html.twig', [
+            'current_route' => $current_route
+        ]);
+    }
+
+    #[Route('/contact', name: 'contact_me')]
+    public function index(Request $request): Response
+    {
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/contact.html.twig', [
             'current_route' => $current_route
         ]);
     }

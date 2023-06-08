@@ -783,6 +783,14 @@ body.compensate-for-scrollbar {
 }
 /* Thumbs */
 
+.thumb .fancybox img, .thumb .fancybox video {
+    display: block !important;
+}
+
+.thumb .fancybox img:hover, .thumb .fancybox video:hover {
+    cursor: pointer;
+}
+
 .fancybox-thumbs {
     background: #ddd;
     bottom: 0;
