@@ -15,15 +15,18 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Intervention\Image\ImageManager;
 
 #[Route('/temoignages')]
 class CommentController extends AbstractController
 {
     private $entityManager;
+    private $imageManager;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, ImageManager $imageManager)
     {
         $this->entityManager = $entityManager;
+        $this->imageManager = $imageManager;
     }
 
     #[Route('/', name: 'testimonials', methods: ['GET'])]
@@ -66,22 +69,18 @@ class CommentController extends AbstractController
                         $this->getParameter('uploadDirectory') . '/comment_images',
                         $newFilename
                     );
+
+                    // Redimensionner l'image
+                    $image = $this->imageManager->make($this->getParameter('uploadDirectory') . '/comment_images/' . $newFilename);
+                    $image->resize(100, 100); 
+                    $image->save($this->getParameter('uploadDirectory') . '/comment_images/' . $newFilename);
                 } catch (FileException $e) {
                     throw new \Exception('Une erreur est survenue lors de l\'enregistrement du fichier : ' . $e->getMessage());
                 }
 
                 $comment->setImage($newFilename);
             } else {
-                $defaultImageFilename = 'default-user-silhouette-' . uniqid() . '.png';
-                try {
-                    copy(
-                        $commentDefaultImage,
-                        $this->getParameter('uploadDirectory') . '/comment_images/' . $defaultImageFilename
-                    );
-                } catch (FileException $e) {
-                    throw new \Exception('Une erreur est survenue lors de l\'enregistrement du fichier : ' . $e->getMessage());
-                }
-
+                $defaultImageFilename = 'default-user-silhouette.png';
                 $comment->setImage($defaultImageFilename);
             }
 

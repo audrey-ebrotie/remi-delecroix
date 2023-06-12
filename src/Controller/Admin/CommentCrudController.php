@@ -3,13 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Comment;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use Symfony\Component\HttpFoundation\Response;
 
 class CommentCrudController extends AbstractCrudController
 {
@@ -20,11 +22,16 @@ class CommentCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('firstname');
-        yield TextField::new('lastname');
-        yield TextField::new('content');
+        yield TextField::new('firstname')
+            ->setLabel('Prénom');
+        yield TextField::new('lastname')
+            ->setLabel('Nom');
+        yield TextField::new('content')
+            ->setLabel('Texte');
         yield ImageField::new('image')->setBasePath('/uploads/comment_images')->onlyOnIndex();
-        yield DateTimeField::new('created_at')->onlyOnIndex();
+        yield DateTimeField::new('created_at')
+        ->setLabel('Créé le')
+        ->onlyOnIndex();
         yield ChoiceField::new('status')->setChoices([
             'En attente' => 'pending',
             'Validé' => 'validated',
@@ -38,23 +45,9 @@ class CommentCrudController extends AbstractCrudController
             ->setPageTitle('index', 'Gestion des témoignages');
     }
 
-    public function validateComment(Comment $comment): Response
+    public function configureActions(Actions $actions): Actions
     {
-        $comment->setStatus('validated');
-        $this->getDoctrine()->getManager()->flush();
-
-        $this->addFlash('success', 'Le commentaire a été validé avec succès.');
-
-        return $this->redirectToRoute('admin');
-    }
-
-    public function rejectComment(Comment $comment): Response
-    {
-        $comment->setStatus('rejected');
-        $this->getDoctrine()->getManager()->flush();
-
-        $this->addFlash('warning', 'Le commentaire a été rejeté.');
-
-        return $this->redirectToRoute('admin');
+        return $actions
+            ->disable('new'); // Désactive le bouton "Créer Comment"
     }
 }

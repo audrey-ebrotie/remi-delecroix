@@ -34,22 +34,21 @@ Galerie Vidéos - {{ parent() }}
         <div class="grid grid-4 gutter-5 clearfix">
             <div class="grid-sizer"></div>
 
-            {% for video in videos %}
-                <div class="grid-item {{ video.category.name|lower }}">
-                    <div class="thumb">
-                        <a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_videos/cascade-37088.mp4') }}" data-thumb="{{ asset('cascade-37088.mp4') }}">
-                            <video controls class="item-video" src="{{ asset('cascade-37088.mp4') }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ video.title }}"></video>
-                            <div class="works-info">
-                                <div class="label-text">
-                                    <h4>{{ video.title }}</h4>
-                                    <h6>{{ video.category.name }}</h6>
+                {% for video in videos %}
+                    <div class="grid-item {{ video.category.name|lower }}">
+                        <div class="thumb">
+                            <a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_videos/' ~ video.filename) }}" data-thumb="{{ asset('uploads/gallery_videos/' ~ video.filename) }}">
+                                <video controls class="item-video" src="{{ asset('uploads/gallery_videos/' ~ video.filename) }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ video.title }}"></video>
+                                <div class="works-info">
+                                    <div class="label-text">
+                                        <h4>{{ video.title }}</h4>
+                                        <h6>{{ video.category.name }}</h6>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
-
+                {% endfor %}
         </div>
 
     </section>

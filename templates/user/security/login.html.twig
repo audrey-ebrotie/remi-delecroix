@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ACCES ADMIN | Connexion - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-5">
+                <h1 class="mb-4">ACCES ADMIN | Connexion</h1>
+
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+
+                <form action="{{ path('user_login') }}" method="post">
+                    <div class="form-group">
+                        <label for="inputEmail">Adresse Email :</label>
+                        <input type="email" id="inputEmail" name="_username" autofocus class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Mot de passe :</label>
+                        <input type="password" id="inputPassword" name="_password" class="form-control">
+                        <a class="text-secondary d-flex justify-content-end"href="{{ path('user_forgot_password') }}">Mot de passe oublié?</a>
+                    </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <button type="submit" class="btn btn-success">
+                        Valider
+                    </button>
+                    <div class="mt-5">
+                        <p>Pas encore de compte ?</p>
+                        <a class="btn btn-primary" href="{{ path('user_new') }}">Créer un compte</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

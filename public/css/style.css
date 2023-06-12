@@ -59,6 +59,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.wrapper{
+    min-height: 100vh;
+}
+
 .body_box .wrapper{
     position: relative;
     padding: 80px 80px;
@@ -189,6 +193,10 @@ section {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #222; 
+}
+/*---------- Admin ------------*/
+.comment-image-admin {
+    
 }
 
 /*---------- Pagination ------------*/

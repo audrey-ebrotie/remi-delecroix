@@ -17,11 +17,20 @@ class VideoFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 50; $i++) {
+        // Get all files in the video directory
+        $videoDirectory = __DIR__ . '/../../public/uploads/gallery_videos';
+        $videoFiles = scandir($videoDirectory);
+
+        // Filter out the . and .. entries
+        $videoFiles = array_filter($videoFiles, function ($file) {
+            return $file !== '.' && $file !== '..';
+        });
+
+        foreach ($videoFiles as $videoFile) {
             $video = new Video();
-            $video->setTitle($faker->sentence);
-            $video->setDescription($faker->paragraph);
-            $video->setFilename($faker->randomElement($this->videoUrls));
+            $video->setTitle('Title for ' . $videoFile) // Set the title as you need
+                ->setDescription($faker->paragraph)
+                ->setFilename($videoFile);
 
             $category = $this->getReference('category_' . rand(0, 4));
             $video->setCategory($category);
@@ -31,12 +40,5 @@ class VideoFixtures extends Fixture
         }
 
         $manager->flush();
-    }
-
-    public function getDependencies()
-    {
-        return [
-            CategoryFixtures::class,
-        ];
     }
 }
