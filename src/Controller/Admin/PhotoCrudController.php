@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\Photo;
 use App\Repository\CategoryRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -25,15 +27,20 @@ class PhotoCrudController extends AbstractCrudController
             ->setFormTypeOption('choice_label', 'name')
             ->setFormTypeOption('query_builder', fn(CategoryRepository $repo) => $repo->createQueryBuilder('c')->orderBy('c.name', 'ASC'));
         yield TextField::new('category_name')
-            ->setLabel('Category')
+            ->setLabel('Catégorie')
             ->onlyOnIndex();   
-        yield TextField::new('title');
+        yield TextField::new('title')
+            ->setLabel('Titre');
         yield TextField::new('description');
         yield ImageField::new('filename')
+            ->setLabel('image')
             ->setBasePath('/uploads/gallery_photos')
             ->setUploadDir('public/uploads/gallery_photos');
-        yield BooleanField::new('homepage')->setLabel('Homepage');
-        yield DateTimeField::new('created_at')->onlyOnIndex();
+        yield BooleanField::new('homepage')
+            ->setLabel('A la une');
+        yield DateTimeField::new('created_at')
+            ->setLabel('Créé le')
+            ->onlyOnIndex();
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -43,4 +50,13 @@ class PhotoCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Photo')
             ->setPageTitle('index', 'Gestion des photos');
     }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+            ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
+                return $action->setLabel('Ajouter une photo');
+            });
+    }
+
 }

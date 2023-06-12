@@ -8,6 +8,9 @@ services:
     autowire: true
     autoconfigure: true
 
+  Intervention\Image\ImageManager:
+    class: Intervention\Image\ImageManager
+
   App\:
     resource: "../src/*"
     exclude:

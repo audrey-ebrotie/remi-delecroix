@@ -1,11 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}ACCES ADMIN | Créer un nouvel utilisateur - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-5">
+                <h1 class="mb-4">ACCES ADMIN | Créer un nouvel utilisateur</h1>
 
-    {{ include('user/_form.html.twig') }}
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                </div>
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+                <div class="form-group">
+                    {{ form_widget(form.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <button class="btn btn-primary">{{ button_label|default('Créer') }}</button>
+                {{ form_end(form) }}
+                <div class="mt-5">
+                    <p>Déjà un compte ?</p>
+                    <a class="btn btn-info" href="{{ path('user_login') }}">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
