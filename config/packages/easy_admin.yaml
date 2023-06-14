@@ -1,5 +1,0 @@
-easy_admin:
-  entities:
-    Comment:
-      class: App\Entity\Comment
-      controller: App\Controller\Admin\CommentCrudController

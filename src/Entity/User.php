@@ -103,23 +103,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @ORM\Column(nullable=true)
-     */
-    private ?string $resetPasswordToken = null;
-
-    public function getResetPasswordToken(): ?string
-    {
-        return $this->resetPasswordToken;
-    }
-
-    public function setResetPasswordToken(?string $resetPasswordToken): self
-    {
-        $this->resetPasswordToken = $resetPasswordToken;
-
-        return $this;
-    }
-
-    /**
      * @see UserInterface
      */
     public function getRoles(): array

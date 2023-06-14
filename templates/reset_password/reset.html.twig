@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ACCES ADMIN | Réinitialisation du mot de passe{% endblock %}
+
+{% block preloader %}
+{% endblock preloader %}
+
+{% block body %}
+<div class="container">
+    <h1>ACCES ADMIN | Réinitialisation du mot de passe</h1>
+
+    {{ form_start(resetForm) }}
+    <div class="mb-3">
+        {{ form_label(resetForm.plainPassword.first, 'Nouveau mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(resetForm.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(resetForm.plainPassword.first) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(resetForm.plainPassword.second, 'Confirmer le nouveau mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(resetForm.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(resetForm.plainPassword.second) }}
+    </div>
+
+    <div>
+        <button class="btn btn-primary">Réinitialiser le mot de passe</button>
+    </div>
+    {{ form_end(resetForm) }}
+</div>
+{% endblock %}

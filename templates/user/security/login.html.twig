@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ACCES ADMIN | Connexion - {{ parent() }}{% endblock %}
+{% block title %}ACCES ADMIN | Connexion{% endblock %}
+
+{% block preloader %}
+{% endblock preloader %}
 
 {% block body %}
     <div class="container mt-5">
@@ -22,7 +25,7 @@
                     <div class="form-group">
                         <label for="inputPassword">Mot de passe :</label>
                         <input type="password" id="inputPassword" name="_password" class="form-control">
-                        <a class="text-secondary d-flex justify-content-end"href="{{ path('user_forgot_password') }}">Mot de passe oublié?</a>
+                        <a class="text-secondary d-flex justify-content-end"href="{{ path('forgot_password_request') }}">Mot de passe oublié?</a>
                     </div>
 
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
