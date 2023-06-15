@@ -18,6 +18,7 @@
         "ramsey/uuid-doctrine": "*",
         "sensio/framework-extra-bundle": "^6.1",
         "sonata-project/admin-bundle": "^4.22",
+        "sonata-project/doctrine-orm-admin-bundle": "^4.9",
         "symfony/asset": "6.1.*",
         "symfony/console": "6.1.*",
         "symfony/doctrine-messenger": "6.1.*",

@@ -8,6 +8,36 @@ services:
     autowire: true
     autoconfigure: true
 
+  admin.photo:
+    class: App\Admin\PhotoAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\Photo,
+          manager_type: orm,
+          label: Photos,
+        }
+
+  admin.video:
+    class: App\Admin\VideoAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\Video,
+          manager_type: orm,
+          label: Vidéos,
+        }
+
+  admin.category:
+    class: App\Admin\CategoryAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\Category,
+          manager_type: orm,
+          label: Catégories,
+        }
+
   Intervention\Image\ImageManager:
     class: Intervention\Image\ImageManager
 
