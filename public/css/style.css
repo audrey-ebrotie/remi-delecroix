@@ -1483,16 +1483,12 @@ section {
 
 
 /*-------- About -------*/
-.about-details h3 {
-    text-transform: uppercase;
-    color: #000000;
-    font-weight: 600;
-    margin-bottom: 40px;
-    font-size: 24px;
-    letter-spacing: 2px;
+.about-details span {
+    font-family: 'bombes-webfont';
+    font-size: 28px;
 }
 .about-details p {
-    font-size: 14px;
+    font-size: 16px !important;
     color: #000000;
     line-height: 28px;
 }

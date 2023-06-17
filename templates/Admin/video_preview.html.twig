@@ -1,0 +1,7 @@
+<td>
+    {% if object.getFilename() %}
+        <img src="{{ asset('uploads/gallery_videos/' ~ object.getFilename()) }}" alt="Preview" style="max-height: 50px;">
+    {% else %}
+        No preview available
+    {% endif %}
+</td>

@@ -38,6 +38,26 @@ services:
           label: Catégories,
         }
 
+  admin.comment:
+    class: App\Admin\CommentAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\Comment,
+          manager_type: orm,
+          label: Témoignages,
+        }
+
+  admin.user:
+    class: App\Admin\UserAdmin
+    tags:
+      - {
+          name: sonata.admin,
+          model_class: App\Entity\User,
+          manager_type: orm,
+          label: Utilisateurs,
+        }
+
   Intervention\Image\ImageManager:
     class: Intervention\Image\ImageManager
 
