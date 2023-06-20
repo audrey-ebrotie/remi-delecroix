@@ -1,7 +1,7 @@
 <td>
-    {% if object.getImage() %}
-        <img src="{{ asset('uploads/comment_images/' ~ object.getImage()) }}" alt="Preview" style="max-height: 50px;">
-    {% else %}
-        No preview available
-    {% endif %}
+	{% if object.getImage() %}
+		<img src="{{ asset('uploads/comment_images/' ~ object.getImage()) }}" alt="Preview" style="max-height: 70px;">
+	{% else %}
+		No preview available
+	{% endif %}
 </td>

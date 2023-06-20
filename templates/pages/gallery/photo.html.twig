@@ -1,64 +1,69 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-Galerie Photos - {{ parent() }}
+	Galerie Photos -
+	{{ parent() }}
 {% endblock title %}
 
 {% block body %}
 
-<div class="inner_body bg_gray">
-    <!-- Page Header -->
-    <div class="page-header type2">
-        <div class="page-header-content text-center">
-            <div class="container">
-                <h1 class="heading">
-                    Galerie photos
-                    <span class="icon"><i class="fa fa-camera"></i></span>
-                </h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris <br> massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
-                <div class="sign photo-header-gallery"><img src="{{ latestPhoto.filename }} " alt="{{ latestPhoto.title }}"></div>
-            </div>
-        </div>
-    </div>
-    <!-- End Page Header -->
+	<div
+		class="inner_body bg_gray">
+		<!-- Page Header -->
+		<div class="page-header type2">
+			<div class="page-header-content text-center">
+				<div class="container">
+					<h1 class="heading">
+						Galerie photos
+						<span class="icon">
+							<i class="fa fa-camera"></i>
+						</span>
+					</h1>
+					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris
+						<br>
+						massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
+					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ latestPhoto.filename) }} " alt="{{ latestPhoto.title }}"></div>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Header -->
 
-    <section class="portfolio-grid pt-0 pb-0">
+		<section class="portfolio-grid pt-0 pb-0">
 
-        <div class="button-group filters-button-group">
-            <button class="button is-checked" data-filter="*">Toutes les photos</button>
-            {% for category in categories %}
-                <button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }}</button>
-            {% endfor %}
-        </div>
+			<div class="button-group filters-button-group">
+				<button class="button is-checked" data-filter="*">Toutes les photos</button>
+				{% for category in categories %}
+					<button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }}</button>
+				{% endfor %}
+			</div>
 
-        <div class="grid grid-4 gutter-5 clearfix">
-            <div class="grid-sizer"></div>
+			<div class="grid grid-4 gutter-5 clearfix">
+				<div class="grid-sizer"></div>
 
-            {% for photo in photos %}
-                <div class="grid-item {{ photo.category.name|lower }}">
-                    <div class="thumb">
-                        <a class="fancybox" rel="gallery" href="{{ asset(photo.filename) }}" data-thumb="{{ asset(photo.filename) }}">
-                            <img class="item-image" src="{{ asset(photo.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ photo.title }}" />
-                        </a>
-                            <div class="works-info fancybox">
-                                <div class="label-text">
-                                    <h4>{{ photo.title }}</h4>
-                                    <h6>{{ photo.category.name }}</h6>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
+				{% for photo in photos %}
+					<div class="grid-item {{ photo.category.name|lower }}">
+						<div class="thumb">
+							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" data-thumb="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}">
+								<img class="item-image" src="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ photo.title }}"/>
+							</a>
+							<div class="works-info fancybox">
+								<div class="label-text">
+									<h4>{{ photo.title }}</h4>
+									<h6>{{ photo.category.name }}</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</section>
 
-</div>
+	</div>
 
-<script>
-    $(document).ready(function() {
-        // Set the "Toutes les photos" button as checked
-        $('.filters-button-group .button[data-filter="*"]').addClass('is-checked');
-    });
-</script>
+	<script>
+		$(document).ready(function () { // Set the "Toutes les photos" button as checked
+$('.filters-button-group .button[data-filter="*"]').addClass('is-checked');
+});
+	</script>
 
 {% endblock body %}

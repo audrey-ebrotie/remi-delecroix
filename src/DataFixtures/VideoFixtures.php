@@ -9,10 +9,6 @@ use Faker\Factory;
 
 class VideoFixtures extends Fixture
 {
-    private $videoUrls = [
-        'https://www.pexels.com/video/couple-walking-down-the-aisle-8776122/'
-    ];
-
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create();
@@ -28,7 +24,8 @@ class VideoFixtures extends Fixture
 
         foreach ($videoFiles as $videoFile) {
             $video = new Video();
-            $video->setTitle('Title for ' . $videoFile) // Set the title as you need
+            $video
+                ->setTitle($faker->sentence) // Set the title as you need
                 ->setDescription($faker->paragraph)
                 ->setFilename($videoFile);
 

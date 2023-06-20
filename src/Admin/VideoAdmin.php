@@ -26,7 +26,7 @@ final class VideoAdmin extends AbstractAdmin
             ->add('description', TextType::class, [
                 'label' => 'Description',
             ])
-            ->add('filename', VichFileType::class, [
+            ->add('videoFile', VichFileType::class, [
                 'label' => 'Fichier',
                 'required' => false,
             ]);
@@ -55,8 +55,8 @@ final class VideoAdmin extends AbstractAdmin
             ->add('description', null, [
                 'label' => 'Description',
             ])
-            ->add('filename', null, [
-                'label' => 'Aperçu',
+            ->add('videoFile', null, [
+                'label' => 'Vidéo',
                 'template' => 'Admin/video_preview.html.twig',
             ])
             ->add('created_at', null, [
@@ -83,8 +83,9 @@ final class VideoAdmin extends AbstractAdmin
             ->add('description', null, [
                 'label' => 'Description',
             ])
-            ->add('filename', null, [
+            ->add('videoFile', null, [
                 'label' => 'Fichier',
+                'template' => 'Admin/video_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',

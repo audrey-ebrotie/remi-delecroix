@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\Type\ActionsType;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -16,29 +17,33 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 final class PhotoAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $form): void
-    {
-        $form
-            ->add('title', TextType::class, [
-                'label' => 'Titre',
-            ])
-            ->add('category', null, [
-                'choice_value' => 'name',
-                'label' => 'Catégorie',
-                'required' => true,
-            ])
-            ->add('description', TextType::class, [
-                'label' => 'Description',
-                'required' => false,
-            ])
-            ->add('filename', VichFileType::class, [
-                'label' => 'Fichier',
-                'required' => false,
-            ])
-            ->add('homepage', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Page d\'accueil',
-            ]);
-    }
+{
+    $form
+        ->add('title', TextType::class, [
+            'label' => 'Titre',
+        ])
+        ->add('category', null, [
+            'choice_value' => 'name',
+            'label' => 'Catégorie',
+            'required' => true,
+        ])
+        ->add('description', TextType::class, [
+            'label' => 'Description',
+            'required' => false,
+        ])
+        ->add('photoFile', VichImageType::class, [
+            'required' => false,
+            'allow_delete' => true,
+            'download_uri' => true,
+            'download_label' => 'Télécharger',
+            'label' => 'Fichier',
+        ])
+        ->add('homepage', CheckboxType::class, [
+            'required' => false,
+            'label' => 'Page d\'accueil',
+        ]);
+}
+
 
     protected function configureDatagridFilters(DatagridMapper $datagrid): void
     {
@@ -63,8 +68,8 @@ final class PhotoAdmin extends AbstractAdmin
             ->add('description', null, [
                 'label' => 'Description',
             ])
-            ->add('filename', null, [
-                'label' => 'Aperçu',
+            ->add('photoFile', null, [
+                'label' => 'Photo',
                 'template' => 'Admin/photo_preview.html.twig',
             ])
             ->add('created_at', null, [
@@ -95,8 +100,9 @@ final class PhotoAdmin extends AbstractAdmin
             ->add('description', null, [
                 'label' => 'Description',
             ])
-            ->add('filename', null, [
+            ->add('photoFile', null, [
                 'label' => 'Fichier',
+                'template' => 'Admin/photo_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',
@@ -105,4 +111,5 @@ final class PhotoAdmin extends AbstractAdmin
                 'label' => 'Page d\'accueil',
             ]);
     }
+
 }

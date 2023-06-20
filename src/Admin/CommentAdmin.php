@@ -2,16 +2,18 @@
 
 namespace App\Admin;
 
-use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Form\Type\ActionsType;
+use Sonata\Form\Type\BooleanType;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Sonata\Form\Type\BooleanType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Form\Type\ActionsType;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 final class CommentAdmin extends AbstractAdmin
 {
@@ -27,8 +29,12 @@ final class CommentAdmin extends AbstractAdmin
             ->add('content', TextType::class, [
                 'label' => 'Contenu',
             ])
-            ->add('image', TextType::class, [
-                'label' => 'Image',
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'download_uri' => true,
+                'download_label' => 'Télécharger',
+                'label' => 'Fichier',
             ])
             ->add('status', ChoiceType::class, [
                 'choices' => [
@@ -67,7 +73,7 @@ final class CommentAdmin extends AbstractAdmin
                 'label' => 'Contenu',
             ])
             ->add('image', null, [
-                'label' => 'Aperçu',
+                'label' => 'Image',
                 'template' => 'Admin/comment_image_preview.html.twig',
             ])
             ->add('created_at', null, [

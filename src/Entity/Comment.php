@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CommentRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
+#[Vich\Uploadable]
 class Comment
 {
     #[ORM\Id]
@@ -47,6 +50,10 @@ class Comment
         maxSizeMessage: "le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo."
     )]
     private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'comment_images_mapping', fileNameProperty: 'image')]
+    #[Assert\File(mimeTypes: ['image/*'])]
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: "datetime_immutable")]
     private ?\DateTimeImmutable $created_at = null;
@@ -105,6 +112,20 @@ class Comment
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile) {
+            $this->updated_at = new \DateTimeImmutable();
+        }
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

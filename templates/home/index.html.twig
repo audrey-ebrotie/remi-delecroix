@@ -1,47 +1,54 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-{{ parent() }} 
+	{{ parent() }}
 {% endblock title %}
 
 {% block body %}
-        
-    <div class="inner_body">
-        <div class="slide_1">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    
-                    {% for photoHomepage in photosHomepage %}
-                        <div class="swiper-slide">
-                            <div class="slider_item" style="background-image:url('{{ photoHomepage.filename }}')">
-                                <div class="slider-inner">
-                                    <div class="slider-details">
-                                            <h4 class="slider-tag">Photographe | Vidéaste</h4>
-                                            <h1 class="slide_heading"><span>Rémi DELECROIX</span></h1>
-                                        <div class="button_group">
-                                            <a href="{{ path('gallery') }}" class="button effect_1 fade_black_button"><span>Voir la galerie</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
 
-                </div>
-            </div>
-            <div class="swiper-controller">
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
+	<div class="inner_body">
+		<div class="slide_1">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
 
-                <!-- If we need navigation buttons -->
-                <div class="swiper-navigation">
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        </div>
+					{% for photoHomepage in photosHomepage %}
+						<div class="swiper-slide">
+							<div class="slider_item" style="background-image:url('{{ asset('uploads/gallery_photos/' ~ photoHomepage.filename) }}')">
+								<div class="slider-inner">
+									<div class="slider-details">
+										<h4 class="slider-tag">Photographe | Vidéaste</h4>
+										<h1 class="slide_heading">
+											<span>Rémi DELECROIX</span>
+										</h1>
+										<div class="button_group">
+											<a href="{{ path('gallery') }}" class="button effect_1 fade_black_button">
+												<span>Voir la galerie</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
 
-    </div>
-    <div class="page_title"><span>Bienvenue</span></div>
+				</div>
+			</div>
+			<div
+				class="swiper-controller">
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+
+				<!-- If we need navigation buttons -->
+				<div class="swiper-navigation">
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="page_title">
+		<span>Bienvenue</span>
+	</div>
 
 {% endblock body %}

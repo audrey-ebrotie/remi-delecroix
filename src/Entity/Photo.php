@@ -24,7 +24,7 @@ class Photo
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 455)]
+    #[ORM\Column(length: 455, nullable: true)]
     private ?string $filename = null;
 
     #[Vich\UploadableField(mapping: 'photo_mapping', fileNameProperty: 'filename')]
