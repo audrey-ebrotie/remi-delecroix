@@ -12,40 +12,12 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
+use Sonata\AdminBundle\Route\RouteCollectionInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 final class CommentAdmin extends AbstractAdmin
 {
-    protected function configureFormFields(FormMapper $form): void
-    {
-        $form
-            ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
-            ])
-            ->add('lastname', TextType::class, [
-                'label' => 'Nom',
-            ])
-            ->add('content', TextType::class, [
-                'label' => 'Contenu',
-            ])
-            ->add('imageFile', VichImageType::class, [
-                'required' => false,
-                'allow_delete' => true,
-                'download_uri' => true,
-                'download_label' => 'Télécharger',
-                'label' => 'Fichier',
-            ])
-            ->add('status', ChoiceType::class, [
-                'choices' => [
-                    'En attente' => 'pending',
-                    'Validé' => 'validated',
-                    'Rejeté' => 'rejected',
-                ],
-                'label' => 'Statut',
-            ]);
-    }
-
     protected function configureDatagridFilters(DatagridMapper $datagrid): void
     {
         $datagrid
@@ -74,7 +46,7 @@ final class CommentAdmin extends AbstractAdmin
             ])
             ->add('image', null, [
                 'label' => 'Image',
-                'template' => 'Admin/comment_image_preview.html.twig',
+                'template' => 'Admin/comment/comment_image_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',
@@ -84,10 +56,14 @@ final class CommentAdmin extends AbstractAdmin
             ])
             ->add('_action', 'actions', [
                 'actions' => [
-                    'edit' => [],
                     'delete' => [],
+                    'validate' => [
+                        'template' => 'Admin/comment/validate_action.html.twig'
+                    ],
+                    'reject' => [
+                        'template' => 'Admin/comment/reject_action.html.twig'
+                    ],
                 ],
-                'label' => 'Actions',
             ]);
     }
 
@@ -113,4 +89,12 @@ final class CommentAdmin extends AbstractAdmin
                 'label' => 'Statut',
             ]);
     }
+
+    protected function configureRoutes(RouteCollectionInterface $collection): void
+    {
+        $collection
+            ->add('validate', $this->getRouterIdParameter().'/validate')
+            ->add('reject', $this->getRouterIdParameter().'/reject');
+    }
+
 }

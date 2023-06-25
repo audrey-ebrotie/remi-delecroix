@@ -57,7 +57,7 @@ final class VideoAdmin extends AbstractAdmin
             ])
             ->add('videoFile', null, [
                 'label' => 'Vidéo',
-                'template' => 'Admin/video_preview.html.twig',
+                'template' => 'Admin/video/video_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',
@@ -85,7 +85,7 @@ final class VideoAdmin extends AbstractAdmin
             ])
             ->add('videoFile', null, [
                 'label' => 'Fichier',
-                'template' => 'Admin/video_preview.html.twig',
+                'template' => 'Admin/video/video_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',

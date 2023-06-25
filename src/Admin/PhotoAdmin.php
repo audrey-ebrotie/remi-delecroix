@@ -70,7 +70,7 @@ final class PhotoAdmin extends AbstractAdmin
             ])
             ->add('photoFile', null, [
                 'label' => 'Photo',
-                'template' => 'Admin/photo_preview.html.twig',
+                'template' => 'Admin/photo/photo_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',
@@ -102,7 +102,7 @@ final class PhotoAdmin extends AbstractAdmin
             ])
             ->add('photoFile', null, [
                 'label' => 'Fichier',
-                'template' => 'Admin/photo_preview.html.twig',
+                'template' => 'Admin/photo/photo_preview.html.twig',
             ])
             ->add('created_at', null, [
                 'label' => 'Créé le',

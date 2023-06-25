@@ -1,85 +1,89 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-Ajouter votre témoignage - {{ parent() }}
+	Ajouter votre témoignage -
+	{{ parent() }}
 {% endblock title %}
 
-{% block preloader %}
-{% endblock preloader %}
+{% block preloader %}{% endblock preloader %}
 
 
 {% block body %}
 
-<div class="inner_body">
-    <section class="testimonials bg_gold_light">
-        <!-- Page Header -->
-        <div class="page-header type2">
-            <div class="page-header-content text-center">
-                <div class="container">
-                    <h1 class="heading">
-                        Votre témoignage
-                        <span id="white-icon" class="icon"><i class="fa fa-comments"></i></span>
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <!-- End Page Header -->
+	<div class="inner_body">
+		<section
+			class="testimonials bg_gold_light">
+			<!-- Page Header -->
+			<div class="page-header type2">
+				<div class="page-header-content text-center">
+					<div class="container">
+						<h1 class="heading">
+							Votre témoignage
+							<span id="white-icon" class="icon">
+								<i class="fa fa-comments"></i>
+							</span>
+						</h1>
+					</div>
+				</div>
+			</div>
+			<!-- End Page Header -->
 
-        <div class="container">
-            <div class="testimonial-form">
-                {{ form_start(form, { 'attr': { 'id': 'comment-form', 'class': 'testi-form', 'enctype': 'multipart/form-data', 'method': 'POST' } }) }}
+			<div class="container">
+				<div class="testimonial-form">
+					{{ form_start(form, { 'attr': { 'id': 'comment-form', 'class': 'testi-form', 'enctype': 'multipart/form-data', 'method': 'POST' } }) }}
 
-                    <div class="form-group">
-                        {{ form_label(form.firstname) }}
-                        {{ form_widget(form.firstname, { 'attr': { 'class': 'form-control' } }) }}
-                        {{ form_errors(form.firstname, { 'attr': { 'class': 'form-error-message' } }) }}
-                        {% if form.firstname.vars.required %}
-                            <span class="required">obligatoire</span>
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form.lastname) }}
-                        {{ form_widget(form.lastname, { 'attr': { 'class': 'form-control' } }) }}
-                        {{ form_errors(form.lastname, { 'attr': { 'class': 'form-error-message' } }) }}
-                        {% if not form.lastname.vars.required %}
-                            <span class="optional">facultatif</span>
-                        {% endif %}
-                    </div>
-                    <div class="form-group">
-                        <div class="image-preview-container">
-                            <img src="{{ asset('uploads/comment_images/default-user-silhouette.png') }}" alt="Image par défaut" class="image-preview" id="image-preview" data-default-image-url="{{ asset('images/default-user-silhouette.png') }}">
-                            <div class="image-upload">
-                                {{ form_label(form.image) }}
-                                {{ form_widget(form.image, { 'attr': { 'id': 'comment_image_file', 'class': 'form-control', 'onchange': 'previewImage(event)' } }) }}
-                                {{ form_errors(form.image, { 'attr': { 'id': 'image-error', 'class': 'form-error-message' } }) }}
-                                <div id="image-error" class="form-error-message"></div>
-                                <div id="image-valid" class="form-valid-message" style="display: none;">Image valide</div>
-                                {{ form_help(form.image) }}
+					<div class="form-group">
+						{{ form_label(form.firstname) }}
+						{{ form_widget(form.firstname, { 'attr': { 'class': 'form-control' } }) }}
+						{{ form_errors(form.firstname, { 'attr': { 'class': 'form-error-message' } }) }}
+						{% if form.firstname.vars.required %}
+							<span class="required">obligatoire</span>
+						{% endif %}
+					</div>
+					<div class="form-group">
+						{{ form_label(form.lastname) }}
+						{{ form_widget(form.lastname, { 'attr': { 'class': 'form-control' } }) }}
+						{{ form_errors(form.lastname, { 'attr': { 'class': 'form-error-message' } }) }}
+						{% if not form.lastname.vars.required %}
+							<span class="optional">facultatif</span>
+						{% endif %}
+					</div>
+					<div class="form-group">
+						<div class="image-preview-container">
+							<img src="{{ asset('uploads/comment_images/default-user-silhouette.png') }}" alt="Image par défaut" class="image-preview" id="image-preview" data-default-image-url="{{ asset('images/default-user-silhouette.png') }}">
+							<div class="image-upload">
+								{{ form_label(form.imageFile) }}
+								{{ form_widget(form.imageFile, { 'attr': { 'id': 'comment_image_file', 'class': 'form-control', 'onchange': 'previewImage(event)' } }) }}
+								{{ form_errors(form.imageFile, { 'attr': { 'id': 'image-error', 'class': 'form-error-message' } }) }}
+								<div id="image-error" class="form-error-message"></div>
+								<div id="image-valid" class="form-valid-message" style="display: none;">Image valide</div>
+								{{ form_help(form.imageFile) }}
 
-                                {% if not form.image.vars.required %}
-                                    <span class="optional">facultatif</span>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form.content) }}
-                        {{ form_widget(form.content, { 'attr': { 'class': 'form-control', 'rows': '5' } }) }}
-                        {{ form_errors(form.content, { 'attr': { 'class': 'form-error-message' } }) }}
-                        {% if form.content.vars.required %}
-                            <span class="required">obligatoire</span>
-                        {% endif %}
-                    </div>
-                    <div class="button_group">
-                        <button type="submit" class="button effect_2 white_button"><span>Valider</span></button>         
-                    </div>
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </section>
-</div>
+								{% if not form.imageFile.vars.required %}
+									<span class="optional">facultatif</span>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						{{ form_label(form.content) }}
+						{{ form_widget(form.content, { 'attr': { 'class': 'form-control', 'rows': '5' } }) }}
+						{{ form_errors(form.content, { 'attr': { 'class': 'form-error-message' } }) }}
+						{% if form.content.vars.required %}
+							<span class="required">obligatoire</span>
+						{% endif %}
+					</div>
+					<div class="button_group">
+						<button type="submit" class="button effect_2 white_button">
+							<span>Valider</span>
+						</button>
+					</div>
+					{{ form_end(form) }}
+				</div>
+			</div>
+		</section>
+	</div>
 
-    {% include "components/_confirmationModal.html.twig" %}
-    
+	{% include "components/_confirmationModal.html.twig" %}
+
 {% endblock body %}
-    

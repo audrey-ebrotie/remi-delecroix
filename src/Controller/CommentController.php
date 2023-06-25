@@ -13,20 +13,18 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Intervention\Image\ImageManager;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 #[Route('/temoignages')]
 class CommentController extends AbstractController
 {
     private $entityManager;
-    private $imageManager;
 
-    public function __construct(EntityManagerInterface $entityManager, ImageManager $imageManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
-        $this->imageManager = $imageManager;
     }
 
     #[Route('/', name: 'testimonials', methods: ['GET'])]
@@ -48,64 +46,39 @@ class CommentController extends AbstractController
     }
 
     #[Route('/nouveau', name: 'testimonials_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, SluggerInterface $slugger, ValidatorInterface $validator, SessionInterface $session): Response
+    public function new(Request $request, ValidatorInterface $validator, UploaderHelper $uploaderHelper, EntityManagerInterface $entityManager, SessionInterface $session): Response
     {
         $comment = new Comment();
-        $comment->setStatus('pending');
+
+        // Utilisation du formulaire pour manipuler l'entité
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
+        // Vérifie si le formulaire a été soumis et est valide
         if ($form->isSubmitted() && $form->isValid()) {
-            $commentImage = $form->get('image')->getData();
-            $commentDefaultImage = $this->getParameter('imagesDirectory') . '/default-user-silhouette.png';
-
-            if ($commentImage) {
-                $originalFilename = pathinfo($commentImage->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $commentImage->guessExtension();
-
-                try {
-                    $commentImage->move(
-                        $this->getParameter('uploadDirectory') . '/comment_images',
-                        $newFilename
-                    );
-
-                    // Redimensionner l'image
-                    $image = $this->imageManager->make($this->getParameter('uploadDirectory') . '/comment_images/' . $newFilename);
-                    $image->resize(100, 100); 
-                    $image->save($this->getParameter('uploadDirectory') . '/comment_images/' . $newFilename);
-                } catch (FileException $e) {
-                    throw new \Exception('Une erreur est survenue lors de l\'enregistrement du fichier : ' . $e->getMessage());
-                }
-
-                $comment->setImage($newFilename);
-            } else {
-                $defaultImageFilename = 'default-user-silhouette.png';
-                $comment->setImage($defaultImageFilename);
+            // Ajoute l'image par défaut si aucune image n'a été téléchargée
+            if ($comment->getImageFile() === null) {
+                $comment->setImage('default-user-silhouette.png');
             }
 
-            $comment->setCreatedAt(new \DateTimeImmutable()); // Set the created_at field to the current date and time
+            // Définir le statut par défaut à "pending"
+            $comment->setStatus('pending');
 
-            $this->entityManager->persist($comment);
-            $this->entityManager->flush();
+            // Enregistrement du commentaire
+            $entityManager->persist($comment);
+            $entityManager->flush();
 
             $session->getFlashBag()->add('success', 'Votre témoignage a bien été envoyé, il est en attente de validation.');
 
             return $this->redirectToRoute('testimonials');
         }
 
-        if ($form->isSubmitted()) {
-            $errors = $validator->validate($comment);
-        } else {
-            $errors = [];
-        }
-
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/testimonials/new.html.twig', [
-            'form' => $form->createView(),
             'comment' => $comment,
-            'current_route' => $current_route
+            'current_route' => $current_route,
+            'form' => $form->createView(),
         ]);
     }
 }

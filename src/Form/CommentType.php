@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -28,7 +29,7 @@ class CommentType extends AbstractType
                 'label' => 'Votre message',
                 'required' => true,
             ])
-            ->add('image', FileType::class, [
+            ->add('imageFile', FileType::class, [
                 'label' => 'Ajouter une image',
                 'required' => false,
                 'help' => 'fichiers acceptés : jpg, jpeg, png | taille max : 2 Mo',

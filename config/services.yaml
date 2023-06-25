@@ -40,12 +40,13 @@ services:
 
   admin.comment:
     class: App\Admin\CommentAdmin
+    arguments: [~, App\Entity\Comment, App\Admin\CommentAdminController]
     tags:
       - {
           name: sonata.admin,
-          model_class: App\Entity\Comment,
           manager_type: orm,
-          label: Témoignages,
+          group: "Content",
+          label: "Comment",
         }
 
   admin.user:
@@ -73,3 +74,11 @@ services:
   App\Controller\:
     resource: "../src/Controller/"
     tags: ["controller.service_arguments"]
+
+  pp\Admin\CommentAdminController:
+    public: true
+    arguments:
+      - "@sonata.admin.pool"
+      - "@sonata.admin.request.fetcher"
+    calls:
+      - [setContainer, ["@service_container"]]

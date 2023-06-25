@@ -1,0 +1,6 @@
+{% if object.status != 'validated' %}
+	<a href="{{ path('admin_app_comment_validate', { id: object.id }) }}" class="btn btn-sm btn-default validate-link">
+		<i class="fa fa-check"></i>
+		Valider
+	</a>
+{% endif %}

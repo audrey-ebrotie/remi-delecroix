@@ -53,7 +53,7 @@ class Comment
 
     #[Vich\UploadableField(mapping: 'comment_images_mapping', fileNameProperty: 'image')]
     #[Assert\File(mimeTypes: ['image/*'])]
-    private ?File $imageFile = null;
+    private ?File $imageFile = null;    
 
     #[ORM\Column(type: "datetime_immutable")]
     private ?\DateTimeImmutable $created_at = null;
@@ -61,6 +61,11 @@ class Comment
     #[ORM\Column(length: 50)]
     private ?string $status = null;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

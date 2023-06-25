@@ -1,0 +1,6 @@
+{% if object.status != 'rejected' %}
+	<a href="{{ path('admin_app_comment_reject', { id: object.id }) }}" class="btn btn-sm btn-default reject-link">
+		<i class="fa fa-check"></i>
+		Rejeter
+	</a>
+{% endif %}
