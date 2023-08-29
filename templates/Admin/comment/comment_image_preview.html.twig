@@ -2,6 +2,6 @@
 	{% if object.getImage() %}
 		<img src="{{ asset('uploads/comment_images/' ~ object.getImage()) }}" alt="Preview" style="max-height: 70px;">
 	{% else %}
-		No preview available
+		<img src="{{ asset('images/comment/default-user-silhouette.png') }}" alt="Preview image par défaut" style="max-height: 70px;">
 	{% endif %}
 </td>

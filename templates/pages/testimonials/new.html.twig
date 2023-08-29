@@ -50,7 +50,7 @@
 					</div>
 					<div class="form-group">
 						<div class="image-preview-container">
-							<img src="{{ asset('uploads/comment_images/default-user-silhouette.png') }}" alt="Image par défaut" class="image-preview" id="image-preview" data-default-image-url="{{ asset('images/default-user-silhouette.png') }}">
+							<img src="{{ asset('images/comment/default-user-silhouette.png') }}" alt="Image par défaut" class="image-preview" id="image-preview" data-default-image-url="{{ asset('images/default-user-silhouette.png') }}">
 							<div class="image-upload">
 								{{ form_label(form.imageFile) }}
 								{{ form_widget(form.imageFile, { 'attr': { 'id': 'comment_image_file', 'class': 'form-control', 'onchange': 'previewImage(event)' } }) }}

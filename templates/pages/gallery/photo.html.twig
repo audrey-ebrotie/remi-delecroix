@@ -19,9 +19,6 @@
 							<i class="fa fa-camera"></i>
 						</span>
 					</h1>
-					<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed bibendum leo. Mauris
-						<br>
-						massa eleifend et purus vel feugiat rutrum nulla cras vitae est.</p>
 					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ latestPhoto.filename) }} " alt="{{ latestPhoto.title }}"></div>
 				</div>
 			</div>
@@ -44,11 +41,10 @@
 					<div class="grid-item {{ photo.category.name|lower }}">
 						<div class="thumb">
 							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" data-thumb="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}">
-								<img class="item-image" src="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" alt="" data-fancybox="gallery" data-caption="{{ photo.title }}"/>
+								<img class="item-image" src="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" alt="" data-fancybox="gallery"/>
 							</a>
 							<div class="works-info fancybox">
 								<div class="label-text">
-									<h4>{{ photo.title }}</h4>
 									<h6>{{ photo.category.name }}</h6>
 								</div>
 							</div>

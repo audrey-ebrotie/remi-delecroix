@@ -57,9 +57,9 @@ class CommentController extends AbstractController
         // Vérifie si le formulaire a été soumis et est valide
         if ($form->isSubmitted() && $form->isValid()) {
             // Ajoute l'image par défaut si aucune image n'a été téléchargée
-            if ($comment->getImageFile() === null) {
-                $comment->setImage('default-user-silhouette.png');
-            }
+            // if ($comment->getImageFile() === null) {
+            //     $comment->setImage('public/images/comment/default-user-silhouette.png');
+            // }
 
             // Définir le statut par défaut à "pending"
             $comment->setStatus('pending');
