@@ -245,6 +245,9 @@ header p{
 }
 
 /* General Menu Styling */
+#flexmenu{
+    padding-right: 3em;
+}
 #flexmenu .nav-inner ul.main-menu >li{
     margin: 0px 18px;
 }
@@ -429,7 +432,7 @@ header p{
     .mobile-btn span{
         height: 2px;
         width: 100%;
-        background: #595959;
+        background: white;
         margin: 3px 0px;
         display: block;
         float: right;
@@ -676,7 +679,6 @@ header p{
     }
     .navigation {
         position: relative;
-        display: block;
         text-align: center;
     }
     .logo{

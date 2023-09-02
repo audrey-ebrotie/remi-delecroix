@@ -1,55 +1,84 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-Qui suis-je ? - {{ parent() }}
+	Qui suis-je ? -
+	{{ parent() }}
 {% endblock title %}
 
 {% block body %}
 
-<div class="inner_body bg_dark_gray">
-    <!-- Page Header -->
-    <div class="page-header type2">
-        <div class="page-header-content text-center">
-            <div class="container">
-                <h1 id="light-title" class="heading">
-                    Qui suis-je ?
-                    <span id="white-icon" class="icon"><i class="fa fa-user"></i>
-                    </span>
-                </h1>
-            </div>
-        </div>
-    </div>
-    <!-- End Page Header -->
+	<div
+		class="inner_body bg_dark_gray">
+		<!-- Page Header -->
+		<div class="page-header type2">
+			<div class="page-header-content text-center">
+				<div class="container">
+					<h1 id="light-title" class="heading">
+						Qui suis-je ?
+						<span id="white-icon" class="icon">
+							<i class="fa fa-user"></i>
+						</span>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<!-- End Page Header -->
 
-        <div id="about_me" class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-details">
-                        <p>Je m’appelle Rémi je suis photographe / videaste Mariage sur Lille dans les Hauts de France mais je me déplace partout où l'on désire faire appel à mes services. <br><br>
-                        
-                        Mon travail est basé sur le <strong>naturel</strong> et la <strong>discrétion</strong>. <br><br>
+		<div id="about_me" class="container pr-4 pl-4 pb-4">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="about-details">
+						<p>Je m’appelle Rémi et je suis photographe / videaste Mariage, basé à Lille dans les Hauts de France mais je me déplace partout où l'on désire faire appel à mes services.
+							<br><br>
 
-                        La phrase qui caractérise ma façon de travailler serait <strong>" Je suis le témoin silencieux de vos émotions. "</strong> <br><br>
+							Mon travail est basé sur le
+							<strong>naturel</strong>
+							et la
+							<strong>discrétion</strong>.
+							<br><br>
 
-                        Je prends beaucoup de plaisir à capter vos souvenirs également pour des séances <strong>familles, des EVG et EVJF, séances portraits, corporate</strong> et j'en passe... Les souvenirs sont importants et s'en créer l'est tout autant pour moi. <br><br>
+							La phrase qui caractérise ma façon de travailler serait
+							<strong>" Je suis le témoin silencieux de vos émotions. "</strong>
+							<br><br>
 
-                        J'aime la <strong>sincérité</strong> et le <strong>naturel</strong> sur mes images alors si vous désirez retrouver vos <strong>souvenirs</strong> et vos <strong>proches</strong> ainsi que <strong>leurs personnalités</strong> sur vos clichés, je suis une des personnes qu'il vous faut. <br><br>
+							Je prends beaucoup de plaisir à capter vos souvenirs également pour des séances
+							<strong>familles, des EVG et EVJF, séances portraits, corporate</strong>
+							et j'en passe... Les souvenirs sont importants et s'en créer l'est tout autant pour moi.
+							<br><br>
 
-                        N'hésitez pas à me contacter, je me ferais un plaisir d'échanger avec vous ... <br><br>
+							J'aime la
+							<strong>sincérité</strong>
+							et le
+							<strong>naturel</strong>
+							sur mes images alors si vous désirez retrouver vos
+							<strong>souvenirs</strong>
+							et vos
+							<strong>proches</strong>
+							ainsi que
+							<strong>leurs personnalités</strong>
+							sur vos clichés, je suis une des personnes qu'il vous faut.
+							<br><br>
 
-                        Peut être à très vite. <br><br>
+							N'hésitez pas à me contacter, je me ferais un plaisir d'échanger avec vous ...
+							<br><br>
 
-                        <span>Rémi Delecroix</span> </p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img src="{{ asset('images/about-me/portrait-remi.jpeg') }}" alt="">
-                </div>
-            </div>
-        </div>
-    
-</div>
+							Peut être à très vite.
+							<br><br>
 
-<div class="page_title"><span>Qui suis-je ?</span></div>
+							<span>Rémi Delecroix</span>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<img src="{{ asset('images/about-me/portrait-remi.jpeg') }}" alt="">
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="page_title">
+		<span>Qui suis-je ?</span>
+	</div>
 
 {% endblock body %}
