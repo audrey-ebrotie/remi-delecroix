@@ -16,6 +16,9 @@
 header p{
     margin-bottom: 0px;
 }
+.nav-bar{
+    width: 100%;
+}
 .top-bar{
     position: relative;
     border-bottom: 1px solid #ececec;
@@ -111,6 +114,11 @@ header p{
     color: #c19b76;
 }
 /*---------- Search ---------*/
+.nav-more-info{
+    display: flex;
+    justify-content: end;
+    width: 11.5%;
+}
 .nav-more-info .element{
     display: flex;
     align-items: center;
@@ -128,8 +136,6 @@ header p{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
-
 .search_overlay {
     height: 100%;
     width: 100%;
@@ -235,6 +241,9 @@ header p{
   align-items: center;
   justify-content: space-between;
 }
+.logo{
+    width: 13.5%;
+}
 .nav-inner {
     position: relative;
     margin: 0 auto;
@@ -246,7 +255,8 @@ header p{
 
 /* General Menu Styling */
 #flexmenu{
-    padding-right: 3em;
+    width: 75%;
+    display: flex;
 }
 #flexmenu .nav-inner ul.main-menu >li{
     margin: 0px 18px;
@@ -432,7 +442,7 @@ header p{
     .mobile-btn span{
         height: 2px;
         width: 100%;
-        background: white;
+        background: white !important;
         margin: 3px 0px;
         display: block;
         float: right;

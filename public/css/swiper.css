@@ -142,7 +142,7 @@
 .swiper-button-next {
   position: absolute;
   top: 50%;
-  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  /* width: calc(var(--swiper-navigation-size) / 44 * 27); */
   height: var(--swiper-navigation-size);
   margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
   z-index: 10;
@@ -176,11 +176,11 @@
 }
 .swiper-button-prev:hover,
 .swiper-container-rtl .swiper-button-prev:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 .swiper-button-prev:after,
 .swiper-container-rtl .swiper-button-next:after {
-  content: 'préc';
+  content: '< préc';
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {
@@ -191,11 +191,11 @@
 }
 .swiper-button-next:hover,
 .swiper-container-rtl .swiper-button-prev:hover {
-  transform: scale(1.2);  
+  transform: scale(1.4);  
 }
 .swiper-button-next:after,
 .swiper-container-rtl .swiper-button-prev:after {
-  content: 'suiv';
+  content: 'suiv >';
 }
 .swiper-button-prev.swiper-button-white,
 .swiper-button-next.swiper-button-white {
