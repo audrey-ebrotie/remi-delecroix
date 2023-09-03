@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <meta name="description" content="Rémi Delecroix Photographe et vidéaste">
-        <meta name="author" content="">
-        <title>{% block title %}Rémi DELECROIX - Photographe | Vidéaste{% endblock title%}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
-            {% endblock stylesheets %}
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<meta name="description" content="Rémi Delecroix, photographe et vidéaste professionnel basé en à Lille (FRANCE). Spécialisé en photographie et vidéo de mariage, mais aussi portraits, évènements, paysages et autres.">
+		<meta name="author" content="Rémi DELECROIX, RDvideographe">
+		<meta name="keywords" content="Photographie, Vidéo, Rémi Delecroix, Mariage, Mariages, Portrait, Famille, Enfants, Bébé, Grossesse, Naissance, Couple, Nature, Paysage, Animaux, Souvenirs, EVG, EVJF, convention">
+		<meta name="robots" content="index, follow">
+		<meta property="og:title" content="Rémi DELECROIX - Photographe | Vidéaste">
+		<meta property="og:description" content="Rémi Delecroix, photographe et vidéaste professionnel basé à Lille (FRANCE).">
+		<meta property="og:image" content="{{ asset('images/about-me/portrait-remi.jpeg') }}">
+		<meta property="og:url" content="https://www.remi-delecroix.com/">
+		<script type="application/ld+json">{ 
+			            "@context": "https://schema.org",
+			            "@type": "Person",
+			            "name": "Rémi Delecroix",
+			            "jobTitle": "Photographe et vidéaste",
+			            "url": "https://www.remi-delecroix.com/",
+			            "sameAs": ["https://www.facebook.com/p/RDvideographe-100067620573889", "https://www.linkedin.com/in/remi-delecroix-227232137", "https://www.instagram.com/2lec"],
+			            "image": "{{ asset('images/about-me/portrait-remi.jpeg') }}"
+			        }
+		</script>
 
-    </head>
-    {% block preloader %}
-        <div class="oculoader">
-            <div class="loader"></div>
-            <div class="top-side"></div>
-            <div class="bottom-side"></div>
-        </div>
-    {% endblock preloader %}
+		<title>
+			{% block title %}Rémi DELECROIX - Photographe | Vidéaste
+			{% endblock title%}
+		</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}"/>
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
+		{% endblock stylesheets %}
+	</head>
+	{% block preloader %}
+		<div class="oculoader">
+			<div class="loader"></div>
+			<div class="top-side"></div>
+			<div class="bottom-side"></div>
+		</div>
+	{% endblock preloader %}
 
-            {% block header %}
-                {% include "components/_header.html.twig" %}
-            {% endblock header %}
-            
+	{% block header %}
+		{% include "components/_header.html.twig" %}
+	{% endblock header %}
 
-            <body class="body_box light_mode">
-                <div class="wrapper">
-                    {% block body %}{% endblock body %}
-                </div>
 
-                {% block javascripts %}
-                    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-                    <script src="{{ asset('js/bootstrap.js') }}"></script>
-                    <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
-                    <script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
-                    <script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-                    <script src="{{ asset('js/swiper.min.js') }}"></script>
-                    <script src="{{ asset('js/typed.min.js') }}"></script>
-                    <script src="{{ asset('js/menu.js') }}"></script>
-                    <script src="{{ asset('js/grid.custom.js') }}"></script>
-                    <script src="{{ asset('js/app.js') }}"></script>
-                    <script src="{{ asset('js/custom.js') }}"></script>
-                {% endblock javascripts %}
+	<body class="body_box light_mode">
+		<div class="wrapper"> {% block body %}{% endblock body %}
+			</div>
 
-                {% block footer %}
-                    {% include "components/_footer.html.twig" %}
-                {% endblock footer %}
-            </body>
+			{% block javascripts %}
+				<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+				<script src="{{ asset('js/bootstrap.js') }}"></script>
+				<script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+				<script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+				<script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
+				<script src="{{ asset('js/swiper.min.js') }}"></script>
+				<script src="{{ asset('js/typed.min.js') }}"></script>
+				<script src="{{ asset('js/menu.js') }}"></script>
+				<script src="{{ asset('js/grid.custom.js') }}"></script>
+				<script src="{{ asset('js/app.js') }}"></script>
+				<script src="{{ asset('js/custom.js') }}"></script>
+			{% endblock javascripts %}
 
-</html>
+			{% block footer %}
+				{% include "components/_footer.html.twig" %}
+			{% endblock footer %}
+		</body>
+
+	</html>
