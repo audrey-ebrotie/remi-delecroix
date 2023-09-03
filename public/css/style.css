@@ -72,6 +72,7 @@ body {
     position: relative;
     z-index: 5;
     margin-bottom: 8em;
+    min-height: 70vh;
 }
 .dark_mode .wrapper{
     background: #121212;
@@ -883,7 +884,7 @@ section {
     .page-header.type2 .page-header-content .heading,
     .page-header-content .heading{
         padding: 0px 40px;
-        font-size: 40px;
+        font-size: 30px;
         line-height: 40px;
     }
     .page-header.type2 .page-header-content p,
@@ -893,6 +894,12 @@ section {
     }
     .page-header-content .icon{
         top: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .page-header.type2 .page-header-content .heading,
+    .page-header-content .heading{
+        font-size: 26px;
     }
 }
 /* -------- Home ---------- */
@@ -1875,7 +1882,7 @@ section {
   background: #f6f6f6;
 }
 .bg_dark_gray{
-    background: #a1a1a1;
+    background: #c1c1c1;
   }
 .bg_black {
     background: #000;
@@ -2342,6 +2349,9 @@ ul.angle li:before{
    display: block;
    position: relative;
    top: -4rem;
+   @media screen and (max-width: 767px) {
+    top: 2rem;
+}
 }
 .testi-content .publication-date {
     display: flex;
@@ -2393,6 +2403,9 @@ ul.angle li:before{
     display: inline-block;
     margin-top: 10px;
     width: 50%;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
 }
 span.optional, span.required{
     color: rgb(81, 81, 81);
@@ -2636,7 +2649,7 @@ span.optional-sm, span.required-sm{
 }
 @media screen and (max-width: 767px) {
     .testibox1{
-        padding: 0px 50px;
+        padding: 20px 50px;
     }
 }
 /*--------- Team --------*/
@@ -3548,6 +3561,12 @@ color: #fff;
 #inner_body_gallery p{
     color: white;
 }
+@media screen and (max-width: 600px) {
+    .gallery-index {
+        display: block !important;
+        margin: auto !important;
+    }
+}
 
 /*-------- Grid Gallery Hover Style 2 ---------*/
 
@@ -3771,8 +3790,11 @@ color: #fff;
     border-radius: 5px;
     font-size: 18px;
     margin-bottom: 10px;
-    margin: 5%;
+    margin: 10%;
     width: 45%;
+    @media screen and (max-width: 600px){
+        width: 65%;
+    }
 }
 .button-wide:hover {
     color: white;
@@ -3878,10 +3900,13 @@ video {
 
 @media screen and (max-width: 600px) {
     .logo  {
-        background-color: white;
         position: absolute;
         left: 0rem;
         top: 0.5rem;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        background-color: white;
     }
 }
 @media screen and (max-width: 991px) {
