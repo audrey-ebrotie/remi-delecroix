@@ -17,16 +17,14 @@ class PhotoController extends AbstractController
         $photos = $photoRepository->findBy([], ['created_at' => 'DESC']);
         $categories = $categoryRepository->findAll();
 
-        $latestPhoto = $photoRepository->findBy(
-            [], ['created_at' => 'DESC'], 1 
-        )[0] ?? null;
+        $randomPhoto = $photos[array_rand($photos)] ?? null;
 
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/gallery/photo.html.twig', [
             'photos' => $photos,
             'categories' => $categories,
-            'latestPhoto' => $latestPhoto,
+            'randomPhoto' => $randomPhoto,
             'current_route' => $current_route
         ]);
     }

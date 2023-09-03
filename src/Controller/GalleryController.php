@@ -13,10 +13,14 @@ class GalleryController extends AbstractController
     #[Route('/galerie', name: 'gallery')]
     public function gallery(PhotoRepository $photoRepository, Request $request): Response
     {
+        $photos = $photoRepository->findAll();
+        $randomPhoto = $photos[array_rand($photos)] ?? null;
+
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/gallery/index.html.twig', [
-            'current_route' => $current_route
+            'current_route' => $current_route,
+            'randomPhoto' => $randomPhoto
         ]);
     }
 }
