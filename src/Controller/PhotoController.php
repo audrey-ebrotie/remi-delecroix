@@ -14,7 +14,8 @@ class PhotoController extends AbstractController
     #[Route('/galerie/photos', name: 'photo_gallery')]
     public function gallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
-        $photos = $photoRepository->findBy([], ['created_at' => 'DESC']);
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos); 
         $categories = $categoryRepository->findAll();
 
         $randomPhoto = $photos[array_rand($photos)] ?? null;

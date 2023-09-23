@@ -44,18 +44,24 @@
 					<div class="testibox1 testimonial-block mb-3">
 						<div class="row d-flex align-items-center">
 							<div class="col-md-2">
-								<div class="testi-img">
-									{% if comment.image %}
-										<img src="{{ asset('uploads/comment_images/' ~ comment.image) }}" alt="{{ comment.image }}" class="rounded-circle">
-									{% else %}
-										<img src="{{ asset('images/comment/default-user-silhouette.png') }}" alt="Image par défaut">
-									{% endif %}
+								<div class="row testi-profile">
+									<div class="testi-name">
+										<h4>
+											{{ comment.firstname }}
+											{{ comment.lastname }}
+										</h4>
+									</div>
+									<div class="testi-img">
+										{% if comment.image %}
+											<img src="{{ asset('uploads/comment_images/' ~ comment.image) }}" alt="{{ comment.image }}" class="rounded-circle">
+										{% else %}
+											<img src="{{ asset('images/comment/default-user-silhouette.png') }}" alt="Image par défaut">
+										{% endif %}
+									</div>
 								</div>
 							</div>
 							<div class="col-md-10">
 								<div class="testi-content">
-									<h4>{{ comment.firstname }}
-										{{ comment.lastname }}</h4>
 									<p>{{ comment.content }}</p>
 									<span class="publication-date">Publié le
 										{{ comment.createdAt|date('d-m-Y') }}

@@ -4,8 +4,6 @@ security:
     Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: "auto"
   # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
   providers:
-    my_provider:
-      certificate_path: "%env(resolve:CERTIFICATE_PATH)%"
     app_user_provider:
       entity:
         class: App\Entity\User
