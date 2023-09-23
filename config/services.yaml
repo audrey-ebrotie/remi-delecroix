@@ -75,7 +75,7 @@ services:
     resource: "../src/Controller/"
     tags: ["controller.service_arguments"]
 
-  pp\Admin\CommentAdminController:
+  App\Admin\CommentAdminController:
     public: true
     arguments:
       - "@sonata.admin.pool"
