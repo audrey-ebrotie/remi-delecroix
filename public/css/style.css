@@ -1301,7 +1301,7 @@ section {
 }
 @media screen and (max-width: 400px) {
     .swiper-button-prev:after, .swiper-button-next:after{
-        color:#c19b76;
+        display: none;
     }
 }
 .swiper-scrollbar{
