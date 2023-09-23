@@ -1268,6 +1268,11 @@ section {
     height: 22px;
     transform: translateX(-50%);
 }
+@media screen and (max-width: 400px) {
+    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-pagination-bullets {
+        width: 100%;
+    }
+}
 .swiper-navigation{
     position: relative;
     width: 380px;
@@ -1292,6 +1297,11 @@ section {
 @media screen and (max-width: 991px) {
     .swiper-button-prev:after, .swiper-button-next:after{
         color: white;
+    }
+}
+@media screen and (max-width: 400px) {
+    .swiper-button-prev:after, .swiper-button-next:after{
+        color:#c19b76;
     }
 }
 .swiper-scrollbar{
