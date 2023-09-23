@@ -12,7 +12,11 @@
           slidesPerView: 1,
           spaceBetween: 0,
           loop: true,
-          speed: 1000,
+          speed: 1000,  
+          autoplay: {
+            delay: 3000,  // Le délai entre les diapositives en millisecondes
+            disableOnInteraction: true  // Continue l'autoplay même après une interaction utilisateur
+          },
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -48,6 +52,15 @@
               }
             }
           },
+        });
+
+        // Arrête l'autoplay lorsque les boutons sont cliqués
+        document.querySelector('.slide_1 .swiper-button-next').addEventListener('click', function() {
+          swiper.autoplay.stop();
+        });
+
+        document.querySelector('.slide_1 .swiper-button-prev').addEventListener('click', function() {
+          swiper.autoplay.stop();
         });
 
 
