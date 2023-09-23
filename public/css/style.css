@@ -2309,8 +2309,8 @@ ul.angle li:before{
 }
 @media screen and (max-width: 600px) {
     .testibox1 .testi-img{
-        width: 50%;
-        height: 50%;
+        width: 80%;
+        height: 80%;
     }
 }
 
