@@ -3,18 +3,26 @@
 namespace App\Controller;
 
 use App\Repository\PhotoRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class GalleryController extends AbstractController
 {
     #[Route('/galerie', name: 'gallery')]
-    public function gallery(PhotoRepository $photoRepository, Request $request): Response
+    public function gallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
         $photos = $photoRepository->findAll();
-        $randomPhoto = $photos[array_rand($photos)] ?? null;
+        
+        // Filtrer les photos où la catégorie est 'Mariages'
+        $weddingPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Mariages';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $weddingPhotos[array_rand($weddingPhotos)];
 
         $current_route = $request->attributes->get('_route');
 
