@@ -7,6 +7,8 @@
 /public/bundles/
 /var/
 /vendor/
+public/uploads/gallery_videos
+public/uploads/gallery_photos
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
