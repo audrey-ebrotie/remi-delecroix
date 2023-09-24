@@ -1,5 +1,4 @@
 //******** Gestion de l'aperçu d'image dans le formulaire d'ajout d'un témoignage *************//
-
 function previewImage(event) {
     const allowedFormats = ['image/jpg', 'image/jpeg', 'image/png'];
     const maxSize = 2 * 1024 * 1024; // 2 Mo
@@ -45,3 +44,25 @@ fileInput.addEventListener('change', function(event) {
     imagePreview.style.display = 'block';
     previewImage(event);
 });
+
+// Gestion du lazy loading pour les images
+document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img[loading='lazy']"));
+  
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+  
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    }
+  });
+  
