@@ -74,6 +74,11 @@ body {
     margin-bottom: 8em;
     min-height: 70vh;
 }
+@media screen and (max-width: 767px) {
+    .body_box .wrapper .inner_body{
+        margin-bottom: 0;
+    }
+}
 .dark_mode .wrapper{
     background: #121212;
 }
