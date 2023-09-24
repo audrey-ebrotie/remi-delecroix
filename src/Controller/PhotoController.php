@@ -15,10 +15,16 @@ class PhotoController extends AbstractController
     public function gallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
         $photos = $photoRepository->findBy([]);
-        shuffle($photos); 
+        shuffle($photos);
         $categories = $categoryRepository->findAll();
 
-        $randomPhoto = $photos[array_rand($photos)] ?? null;
+        // Filtrer les photos où la catégorie est 'Mariages'
+        $weddingPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Mariages';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $weddingPhotos[array_rand($weddingPhotos)];
 
         $current_route = $request->attributes->get('_route');
 
