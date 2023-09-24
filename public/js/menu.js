@@ -130,12 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Afficher le bouton lorsque l'utilisateur fait défiler la page
 	window.addEventListener("scroll", function () {
 		if (window.scrollY > 200) {
-			setTimeout(function () {
-				scrollToTopContainer.style.opacity = "1";
-			}, 300); // 300 ms de délai
+			scrollToTopContainer.style.opacity = "1";
 		} else {
 			scrollToTopContainer.style.opacity = "0";
-		}
+		}		
 	});
 
 	// Défilement fluide vers le haut
@@ -144,5 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			top: 0,
 			behavior: "smooth"
 		});
+		// Ajoutez cette ligne pour masquer le bouton une fois en haut
+		scrollToTopContainer.style.opacity = "0";
 	});
 });

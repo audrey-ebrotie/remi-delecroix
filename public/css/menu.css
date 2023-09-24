@@ -1061,11 +1061,11 @@ header p {
 #scrollToTopContainer {
     background-color: white;
     border: solid 1px black;
-    bottom: 20px;
+    bottom: 90px;
     cursor: pointer;
-    max-width: 80px;
+    max-width: 70px;
     opacity: 0;
-    padding: 15px;
+    padding: 3px;
     position: fixed;
     right: 0.8%;
     transition: opacity 0.3s ease-in-out;
@@ -1073,9 +1073,15 @@ header p {
     z-index: 99;
 }
 
+@media screen and (min-width: 1921px) {
+    #scrollToTopContainer {
+        right: 0.2%;
+    }
+}
+
 @media screen and (max-width: 1600px) {
     #scrollToTopContainer {
-        right: 1.1%;
+        right: 0.8%;
         width: 4%;
     }
 }
@@ -1093,7 +1099,29 @@ header p {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 576px) {
+    #scrollToTopContainer {
+        bottom: 60px;
+        right: 0.8%;
+        width: 7%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #scrollToTopContainer {
+        right: 0.5%;
+        width: 9%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #scrollToTopContainer {
+        right: 1%;
+        width: 11%;
+    }
+}
+
+@media screen and (max-width: 350px) {
     #scrollToTopContainer {
         display: none;
     }
