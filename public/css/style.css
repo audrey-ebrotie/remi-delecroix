@@ -307,6 +307,35 @@ section {
     transition: all 0.5s ease;
 }
 
+/*======= Scroll to top ========*/
+
+#scrollToTopContainer {
+    background-color:#c19b76;
+    border: 2px solid black;
+    bottom: 3em;
+    cursor: pointer;
+    max-width: 70px;
+    opacity: 0;
+    padding: 3px;
+    position: fixed;
+    right: 1.7em;
+    transition: opacity 0.3s ease-in-out;
+    width: 1.5em;
+    height: 3em;
+}
+
+@media screen and (max-width: 767px) {
+    #scrollToTopContainer {
+        bottom: 1.5em;
+        border: 2px solid white;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #scrollToTopContainer {
+        right: 0.8em;
+    }
+}
 /*----------*/
 .transparent_white_button{
     border-color: #ffffff;
