@@ -13,7 +13,7 @@
       loop: true,
       speed: 1000,
       autoplay: {
-        delay: 5000,  // Le délai entre les diapositives en millisecondes
+        delay: 7000,  // Le délai entre les diapositives en millisecondes
         disableOnInteraction: true  // Continue l'autoplay même après une interaction utilisateur
       },
       navigation: {
