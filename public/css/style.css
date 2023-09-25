@@ -311,7 +311,8 @@ section {
 
 #scrollToTopContainer {
     background-color:#c19b76;
-    border: 2px solid black;
+    box-shadow: 1px 1px 5px grey;
+    border: none;
     bottom: 3em;
     cursor: pointer;
     max-width: 70px;
@@ -328,7 +329,6 @@ section {
 @media screen and (max-width: 767px) {
     #scrollToTopContainer {
         bottom: 1.5em;
-        border: 2px solid white;
     }
 }
 
