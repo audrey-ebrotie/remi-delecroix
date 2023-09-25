@@ -3615,8 +3615,8 @@ color: #fff;
 .portfolio-grid .button-group .button:hover {
     color: #222;
 }
-.portfolio-grid .button-group .button:first-child {margin-left: 0;}
-.portfolio-grid .button-group .button:last-child {margin-right: 0;}
+/* .portfolio-grid .button-group .button:first-child {margin-left: 0;}
+.portfolio-grid .button-group .button:last-child {margin-right: 0;} */
 .portfolio-grid .button-group .button sup{
     font-size: 16px;
     top: -5px;
