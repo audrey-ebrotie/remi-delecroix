@@ -10,17 +10,17 @@
 		<meta name="robots" content="index, follow">
 		<meta property="og:title" content="Rémi DELECROIX - Photographe | Vidéaste">
 		<meta property="og:description" content="Rémi Delecroix, photographe et vidéaste professionnel basé à Lille (FRANCE).">
-		<meta property="og:image" content="{{ asset('images/about-me/portrait-remi.jpeg') }}">
+		<meta property="og:image" content="{{ asset('images/illustration-meta.png') }}">
 		<meta property="og:url" content="https://www.remi-delecroix.com/">
 		<script type="application/ld+json">{ 
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Rémi Delecroix",
-			"jobTitle": "Photographe et vidéaste",
-			"url": "https://www.remi-delecroix.com/",
-			"sameAs": ["https://www.facebook.com/p/RDvideographe-100067620573889", "https://www.linkedin.com/in/remi-delecroix-227232137", "https://www.instagram.com/2lec"],
-			"image": "{{ asset('images/about-me/portrait-remi.jpeg') }}"
-			}
+						"@context": "https://schema.org",
+						"@type": "Person",
+						"name": "Rémi Delecroix",
+						"jobTitle": "Photographe et vidéaste",
+						"url": "https://www.remi-delecroix.com/",
+						"sameAs": ["https://www.facebook.com/p/RDvideographe-100067620573889", "https://www.linkedin.com/in/remi-delecroix-227232137", "https://www.instagram.com/2lec"],
+						"image": "{{ asset('images/about-me/portrait-remi.jpeg') }}"
+						}
 		</script>
 
 		<title>
@@ -46,14 +46,13 @@
 	{% endblock header %}
 
 	<body class="body_box light_mode">
-		<div class="wrapper"> 
-			{% block body %}{% endblock body %}
-		</div>
+		<div class="wrapper"> {% block body %}{% endblock body %}
+			</div>
 
-		<!-- Bouton de retour en haut -->
-		<button id="scrollToTopContainer">
-			<img src="{{ asset('images/arrow-up.png') }}" alt="Retour en haut">
-		</button>
+			<!-- Bouton de retour en haut -->
+			<button id="scrollToTopContainer">
+				<img src="{{ asset('images/arrow-up.png') }}" alt="Retour en haut">
+			</button>
 
 			{% block javascripts %}
 				<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
@@ -72,5 +71,5 @@
 			{% block footer %}
 				{% include "components/_footer.html.twig" %}
 			{% endblock footer %}
-	</body>
-</html>
+		</body>
+	</html>
