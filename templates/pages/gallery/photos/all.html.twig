@@ -27,13 +27,6 @@
 
 		<section class="portfolio-grid pt-0 pb-0">
 
-			<div class="button-group filters-button-group">
-				<button class="button is-checked" data-filter="*">Toutes les photos</button>
-				{% for category in categories %}
-					<button class="button" data-filter=".{{ category.name|lower }}">{{ category.name }}</button>
-				{% endfor %}
-			</div>
-
 			<div class="grid grid-4 gutter-5 clearfix">
 				<div class="grid-sizer"></div>
 
@@ -55,11 +48,5 @@
 		</section>
 
 	</div>
-
-	<script>
-		$(document).ready(function () { // Set the "Toutes les photos" button as checked
-$('.filters-button-group .button[data-filter="*"]').addClass('is-checked');
-});
-	</script>
 
 {% endblock body %}

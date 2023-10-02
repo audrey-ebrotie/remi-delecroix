@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class VideoController extends AbstractController
 {
-    #[Route('/galerie/videos', name: 'video_gallery')]
+    #[Route('/galerie/videos', name: 'videos_gallery')]
     public function galleryVideos(VideoRepository $videoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
         $videos = $videoRepository->findBy([]);
@@ -20,7 +20,7 @@ class VideoController extends AbstractController
 
         $current_route = $request->attributes->get('_route');
 
-        return $this->render('pages/gallery/video.html.twig', [
+        return $this->render('pages/gallery/videos/all.html.twig', [
             'videos' => $videos,
             'categories' => $categories,
             'current_route' => $current_route

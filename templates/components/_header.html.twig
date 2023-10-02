@@ -1,76 +1,124 @@
 <header id="header" class="header_one">
-    <div class="nav-bar">
-        <div class="navigation">
-            <div class="logo">
-                <strong><a href="{{ path('home') }}">RDVIDEOGRAPHE</a></strong>
-            </div>
-            <nav id="flexmenu">
-                <div class="nav-inner">
-                    <ul class="main-menu">
-                        <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
-                        </li>
-                        <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="{{ path('photo_gallery') }}">Photos</a>
-                                </li>
-                                <li class="menu-item"><a href="{{ path('video_gallery') }}">Vidéos</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
-                        </li>
-                        <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="{{ path('contact_me') }}">Me contacter</a>
-                        </li>
-                        <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="{{ path('testimonials') }}">Témoignages</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="nav-more-info">
-                <div class="element">
-                    <div id="mobile-toggle" class="mobile-btn">
-                        <span class="toggle_line"></span>
-                        <span class="toggle_line"></span>
-                        <span class="toggle_line"></span>
-                    </div>
+	<div class="nav-bar">
+		<div class="navigation">
+			<div class="logo">
+				<strong>
+					<a href="{{ path('home') }}">RDVIDEOGRAPHE</a>
+				</strong>
+			</div>
+			<nav id="flexmenu">
+				<div class="nav-inner">
+					<ul class="main-menu">
+						<li class="menu-item{{ current_route == 'home' ? ' active' : '' }}">
+							<a href="{{ path('home') }}">Accueil</a>
+						</li>
+						<li class="menu-item{{ current_route == 'photos_gallery' ? ' active' : '' }}">
+							<a href="{{ path('photos_gallery') }}">Photos</a>
+							<ul class="sub-menu">
+								<li class="menu-item">
+									<a href="{{ path('wedding_photos_gallery') }}">Mariages</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ path('family_photos_gallery') }}">Famille</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ path('portraits_photos_gallery') }}">Portraits</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ path('events_photos_gallery') }}">Evènements</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ path('animals_photos_gallery') }}">Animaux</a>
+								</li>
+								<li class="menu-item">
+									<a href="{{ path('landscapes_photos_gallery') }}">Paysages</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menu-item{{ current_route == 'videos_gallery' ? ' active' : '' }}">
+							<a href="{{ path('videos_gallery') }}">Vidéos</a>
+						</li>
+						<li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}">
+							<a href="{{ path('about_me') }}">Qui suis-je ?</a>
+						</li>
+						<li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}">
+							<a href="{{ path('contact_me') }}">Me contacter</a>
+						</li>
+						<li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}">
+							<a href="{{ path('testimonials') }}">Témoignages</a>
+							<ul class="sub-menu">
+								<li class="menu-item">
+									<a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="nav-more-info">
+				<div class="element">
+					<div id="mobile-toggle" class="mobile-btn">
+						<span class="toggle_line"></span>
+						<span class="toggle_line"></span>
+						<span class="toggle_line"></span>
+					</div>
 
-                    <div class="search_overlay">
-                        <span class="closebtn">&times;</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="search_overlay">
+						<span class="closebtn">&times;</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div class="overlaynav">
-        <a href="#" class="overlaynavclose">&times;</a>
-        <nav id="overlaymenu">
-            <ul class="main-menu">
-                <li class="menu-item{{ current_route == 'home' ? ' active' : '' }}"><a href="{{ path('home') }}">Accueil</a>
-                </li>
-                <li class="menu-item{{ current_route == 'gallery' ? ' active' : '' }}"><a href="{{ path('gallery') }}">Galerie</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="{{ path('photo_gallery') }}">Photos</a>
-                        </li>
-                        <li class="menu-item"><a href="{{ path('video_gallery') }}">Vidéos</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}"><a href="{{ path('about_me') }}">Qui suis-je ?</a>
-                </li>
-                <li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}"><a href="{{ path('contact_me') }}">Me contacter</a>
-                </li>
-                <li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}"><a href="{{ path('testimonials') }}">Témoignages</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item"><a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
+	<div class="overlaynav">
+		<a href="#" class="overlaynavclose">&times;</a>
+		<nav id="overlaymenu">
+			<ul class="main-menu">
+				<li class="menu-item{{ current_route == 'home' ? ' active' : '' }}">
+					<a href="{{ path('home') }}">Accueil</a>
+				</li>
+				<li class="menu-item{{ current_route == 'photos_gallery' ? ' active' : '' }}">
+					<a href="{{ path('photos_gallery') }}">Photos</a>
+					<ul class="sub-menu">
+						<li class="menu-item">
+							<a href="{{ path('wedding_photos_gallery') }}">Mariages</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ path('family_photos_gallery') }}">Famille</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ path('portraits_photos_gallery') }}">Portraits</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ path('events_photos_gallery') }}">Evènements</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ path('animals_photos_gallery') }}">Animaux</a>
+						</li>
+						<li class="menu-item">
+							<a href="{{ path('landscapes_photos_gallery') }}">Paysages</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item{{ current_route == 'videos_gallery' ? ' active' : '' }}">
+					<a href="{{ path('videos_gallery') }}">Vidéos</a>
+				</li>
+				<li class="menu-item{{ current_route == 'about_me' ? ' active' : '' }}">
+					<a href="{{ path('about_me') }}">Qui suis-je ?</a>
+				</li>
+				<li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}">
+					<a href="{{ path('contact_me') }}">Me contacter</a>
+				</li>
+				<li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}">
+					<a href="{{ path('testimonials') }}">Témoignages</a>
+					<ul class="sub-menu">
+						<li class="menu-item">
+							<a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </header>
