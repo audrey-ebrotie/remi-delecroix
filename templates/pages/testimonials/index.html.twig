@@ -38,12 +38,12 @@
 		<!-- End Page Header -->
 
 		<section class="testimonials bg_gray">
-			<div class="container col-10">
+			<div class="container col-md-10 col-11">
 
 				{% for comment in comments %}
 					<div class="testibox1 testimonial-block mb-3">
 						<div class="row d-flex align-items-center">
-							<div class="col-md-2">
+							<div class="col-lg-2">
 								<div class="row testi-profile p-2">
 									<div class="testi-name mb-2">
 										<h4>
@@ -60,7 +60,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-10">
+							<div class="col-md-10 m-auto">
 								<div class="testi-content">
 									<p>{{ comment.content }}</p>
 									<span class="publication-date">Publié le
