@@ -997,12 +997,18 @@ section {
 .page-header.type2 {
     background: transparent;
     padding-top: 150px;
-    padding-bottom: 90px;
+    padding-bottom: 60px;
 }
 
 @media screen and (max-width: 768px) {
     .page-header.type2 {
         padding-top: 20%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page-header.type2 {
+        padding-bottom: 80px;
     }
 }
 
@@ -1098,6 +1104,7 @@ section {
     .page-header.type2 .page-header-content .heading,
     .page-header-content .heading {
         font-size: 20px;
+        padding: 0;
     }
 }
 
@@ -2817,8 +2824,8 @@ ul.angle li:before {
 
 @media screen and (max-width: 600px) {
     .testibox1 .testi-img {
-        width: 40%;
-        height: 40%;
+        width: 30%;
+        height: 30%;
     }
 }
 
@@ -2854,15 +2861,32 @@ ul.angle li:before {
     margin-top: 45px;
 }
 
+.testi-content .publication-date {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    color: grey;
+}
+
 @media screen and (max-width: 768px) {
     .testibox1 p {
         font-size: 14px;
+        margin-top: 30px;
+    }
+
+    .testi-content .publication-date {
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 576px) {
     .testibox1 p {
         font-size: 12px;
+        margin-top: 20px;
+    }
+
+    .testi-content .publication-date {
+        font-size: 10px;
     }
 }
 
@@ -2893,7 +2917,7 @@ ul.angle li:before {
 
 @media screen and (max-width: 600px) {
     .banner-testimonials img {
-        width: 80%;
+        width: 90%;
     }
 
     .testimonials_button-block {
@@ -2901,13 +2925,10 @@ ul.angle li:before {
         width: 60%;
         margin: auto;
     }
-}
 
-.testi-content .publication-date {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 16px;
-    color: grey;
+    .testimonials_button-block a {
+        font-size: 10px;
+    }
 }
 
 .form-group li {
