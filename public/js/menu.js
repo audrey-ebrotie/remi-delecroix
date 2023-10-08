@@ -146,3 +146,26 @@ document.addEventListener("DOMContentLoaded", function () {
 		scrollToTopContainer.style.opacity = "0";
 	});
 });
+
+// Sticky Menu Galerie
+$(document).ready(function() {
+	// Ciblez votre menu
+	var stickyMenu = $(".sticky-menu");
+  
+	// Obtenez l'offset initial du menu
+	var stickyOffset = stickyMenu.offset().top;
+  
+	$(window).scroll(function() {
+	  // Obtenez la position de défilement actuelle
+	  var currentScroll = $(window).scrollTop();
+  
+	  // Comparez l'offset du menu avec la position de défilement
+	  if (currentScroll >= stickyOffset) {
+		stickyMenu.addClass("fixed");
+	  } else {
+		stickyMenu.removeClass("fixed");
+	  }
+	});
+  });
+  
+

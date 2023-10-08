@@ -12,21 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/galerie')]
 class PhotoController extends AbstractController
 {
-    // Tableau associatif pour mapper les noms de catégories en anglais et en français
-    private $categoryMap = [
-        'wedding' => 'Mariages',
-        'family' => 'Famille',
-        'portraits' => 'Portraits',
-        'events' => 'Evènements',
-        'animals' => 'Animaux',
-        'landscapes' => 'Paysages',
-    ];
-
-    // Méthode pour afficher toutes les photos avec une photo en-tête de la catégorie 'Mariages'
     #[Route('/photos', name: 'photos_gallery')]
     public function photoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
-        // Récupérer toutes les photos et les catégories
         $photos = $photoRepository->findBy([]);
         shuffle($photos);
         $categories = $categoryRepository->findAll();
@@ -36,58 +24,172 @@ class PhotoController extends AbstractController
             return $photo->getCategory()->getName() === 'Mariages';
         });
 
-        // Obtenir une photo en-tête aléatoire parmi les photos filtrées
+        // Obtenir une photo aléatoire parmi les photos filtrées
         $randomPhoto = $weddingPhotos[array_rand($weddingPhotos)];
 
-        // Obtenir le nom de la route courante
         $current_route = $request->attributes->get('_route');
 
         return $this->render('pages/gallery/photos/all.html.twig', [
             'photos' => $photos,
             'categories' => $categories,
             'randomPhoto' => $randomPhoto,
-            'current_route' => $current_route,
+            'current_route' => $current_route
         ]);
     }
 
-    // Méthode pour afficher les photos par catégorie
-    #[Route('/photos/{categoryName}', name: 'category_photos_gallery')]
-    public function categoryPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request, string $categoryName): Response
+    #[Route('/photos/mariages', name: 'wedding_photos_gallery')]
+    public function weddingPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
-        // Vérifier si la catégorie existe
-        if (!isset($this->categoryMap[$categoryName])) {
-            throw $this->createNotFoundException('La catégorie n\'existe pas');
-        }
-
-        // Obtenir le nom de la catégorie en français
-        $frenchCategoryName = $this->categoryMap[$categoryName];
-
-        // Récupérer toutes les photos et les catégories
         $photos = $photoRepository->findBy([]);
         shuffle($photos);
         $categories = $categoryRepository->findAll();
 
-        // Filtrer les photos basées sur la catégorie en français
-        $filteredPhotos = array_filter($photos, function ($photo) use ($frenchCategoryName) {
-            return $photo->getCategory()->getName() === $frenchCategoryName;
+        // Filtrer les photos où la catégorie est 'Mariages'
+        $weddingPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Mariages';
         });
 
-        // Vérifier si des photos existent pour cette catégorie
-        if (empty($filteredPhotos)) {
-            throw $this->createNotFoundException('Aucune photo dans cette catégorie');
-        }
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $weddingPhotos[array_rand($weddingPhotos)];
 
-        // Obtenir une photo en-tête aléatoire parmi les photos filtrées
-        $randomPhoto = $filteredPhotos[array_rand($filteredPhotos)];
-
-        // Obtenir le nom de la route courante
         $current_route = $request->attributes->get('_route');
 
-        return $this->render("pages/gallery/photos/{$categoryName}.html.twig", [
-            'photos' => $filteredPhotos,
+        return $this->render('pages/gallery/photos/weddings.html.twig', [
+            'weddingPhotos' => $weddingPhotos,
             'categories' => $categories,
             'randomPhoto' => $randomPhoto,
             'current_route' => $current_route,
+            'current_category' => 'Mariages'
+        ]);
+    }
+
+    #[Route('/photos/famille', name: 'family_photos_gallery')]
+    public function familyPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
+    {
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos);
+        $categories = $categoryRepository->findAll();
+
+        // Filtrer les photos où la catégorie est 'Famille'
+        $familyPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Famille';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $familyPhotos[array_rand($familyPhotos)];
+
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/gallery/photos/family.html.twig', [
+            'familyPhotos' => $familyPhotos,
+            'categories' => $categories,
+            'randomPhoto' => $randomPhoto,
+            'current_route' => $current_route,
+            'current_category' => 'Famille'
+        ]);
+    }
+
+    #[Route('/photos/portraits', name: 'portraits_photos_gallery')]
+    public function portraitsPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
+    {
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos);
+        $categories = $categoryRepository->findAll();
+
+        // Filtrer les photos où la catégorie est 'Portraits'
+        $portraitsPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Portraits';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $portraitsPhotos[array_rand($portraitsPhotos)];
+
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/gallery/photos/portraits.html.twig', [
+            'portraitsPhotos' => $portraitsPhotos,
+            'categories' => $categories,
+            'randomPhoto' => $randomPhoto,
+            'current_route' => $current_route,
+            'current_category' => 'Portraits'
+        ]);
+    }
+
+    #[Route('/photos/evenements', name: 'events_photos_gallery')]
+    public function eventsPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
+    {
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos);
+        $categories = $categoryRepository->findAll();
+
+        // Filtrer les photos où la catégorie est 'Portraits'
+        $eventsPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Evènements';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $eventsPhotos[array_rand($eventsPhotos)];
+
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/gallery/photos/events.html.twig', [
+            'eventsPhotos' => $eventsPhotos,
+            'categories' => $categories,
+            'randomPhoto' => $randomPhoto,
+            'current_route' => $current_route,
+            'current_category' => 'Evènements'
+        ]);
+    }
+
+    #[Route('/photos/animaux', name: 'animals_photos_gallery')]
+    public function animalsPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
+    {
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos);
+        $categories = $categoryRepository->findAll();
+
+        // Filtrer les photos où la catégorie est 'Portraits'
+        $animalsPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Animaux';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $animalsPhotos[array_rand($animalsPhotos)];
+
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/gallery/photos/animals.html.twig', [
+            'animalsPhotos' => $animalsPhotos,
+            'categories' => $categories,
+            'randomPhoto' => $randomPhoto,
+            'current_route' => $current_route,
+            'current_category' => 'Animaux'
+        ]);
+    }
+
+    #[Route('/photos/paysages', name: 'landscapes_photos_gallery')]
+    public function landscapesPhotoGallery(PhotoRepository $photoRepository, CategoryRepository $categoryRepository, Request $request): Response
+    {
+        $photos = $photoRepository->findBy([]);
+        shuffle($photos);
+        $categories = $categoryRepository->findAll();
+
+        // Filtrer les photos où la catégorie est 'Portraits'
+        $landscapesPhotos = array_filter($photos, function ($photo) {
+            return $photo->getCategory()->getName() === 'Paysages';
+        });
+
+        // Obtenir une photo aléatoire parmi les photos filtrées
+        $randomPhoto = $landscapesPhotos[array_rand($landscapesPhotos)];
+
+        $current_route = $request->attributes->get('_route');
+
+        return $this->render('pages/gallery/photos/landscapes.html.twig', [
+            'landscapesPhotos' => $landscapesPhotos,
+            'categories' => $categories,
+            'randomPhoto' => $randomPhoto,
+            'current_route' => $current_route,
+            'current_category' => 'Paysages'
         ]);
     }
 }

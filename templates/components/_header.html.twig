@@ -12,25 +12,26 @@
 						<li class="menu-item{{ current_route == 'home' ? ' active' : '' }}">
 							<a href="{{ path('home') }}">Accueil</a>
 						</li>
-						<li class="menu-item{{ current_route == 'photos_gallery' ? ' active' : '' }}">
+						{% set is_active_gallery = current_route == 'photos_gallery' or current_route ends with '_photos_gallery' %}
+						<li class="menu-item{{ is_active_gallery ? ' active' : '' }}">
 							<a href="{{ path('photos_gallery') }}">Photos</a>
 							<ul class="sub-menu">
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'wedding_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('wedding_photos_gallery') }}">Mariages</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'family_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('family_photos_gallery') }}">Famille</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'portraits_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('portraits_photos_gallery') }}">Portraits</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'events_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('events_photos_gallery') }}">Evènements</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'animals_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('animals_photos_gallery') }}">Animaux</a>
 								</li>
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'landscapes_photos_gallery' ? ' active' : '' }}">
 									<a href="{{ path('landscapes_photos_gallery') }}">Paysages</a>
 								</li>
 							</ul>
@@ -44,10 +45,11 @@
 						<li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}">
 							<a href="{{ path('contact_me') }}">Me contacter</a>
 						</li>
-						<li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}">
+						{% set is_active_testimonials = current_route == 'testimonials' or current_route ends with '_new' %}
+						<li class="menu-item{{ is_active_testimonials ? ' active' : '' }}">
 							<a href="{{ path('testimonials') }}">Témoignages</a>
 							<ul class="sub-menu">
-								<li class="menu-item">
+								<li class="menu-item{{ current_route == 'testimonials_new' ? ' active' : '' }}">
 									<a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
 								</li>
 							</ul>
@@ -78,29 +80,31 @@
 				<li class="menu-item{{ current_route == 'home' ? ' active' : '' }}">
 					<a href="{{ path('home') }}">Accueil</a>
 				</li>
-				<li class="menu-item{{ current_route == 'photos_gallery' ? ' active' : '' }}">
+				{% set is_active_gallery_overlay = current_route == 'photos_gallery' or current_route ends with '_photos_gallery' %}
+				<li class="menu-item{{ is_active_gallery_overlay ? ' active' : '' }}">
 					<a href="{{ path('photos_gallery') }}">Photos</a>
 					<ul class="sub-menu">
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'wedding_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('wedding_photos_gallery') }}">Mariages</a>
 						</li>
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'family_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('family_photos_gallery') }}">Famille</a>
 						</li>
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'portraits_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('portraits_photos_gallery') }}">Portraits</a>
 						</li>
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'events_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('events_photos_gallery') }}">Evènements</a>
 						</li>
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'animals_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('animals_photos_gallery') }}">Animaux</a>
 						</li>
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'landscapes_photos_gallery' ? ' active' : '' }}">
 							<a href="{{ path('landscapes_photos_gallery') }}">Paysages</a>
 						</li>
 					</ul>
 				</li>
+
 				<li class="menu-item{{ current_route == 'videos_gallery' ? ' active' : '' }}">
 					<a href="{{ path('videos_gallery') }}">Vidéos</a>
 				</li>
@@ -110,10 +114,11 @@
 				<li class="menu-item{{ current_route == 'contact_me' ? ' active' : '' }}">
 					<a href="{{ path('contact_me') }}">Me contacter</a>
 				</li>
-				<li class="menu-item{{ current_route == 'testimonials' ? ' active' : '' }}">
+				{% set is_active_testimonials_overlay = current_route == 'testimonials' or current_route ends with '_new' %}
+				<li class="menu-item{{ is_active_testimonials_overlay ? ' active' : '' }}">
 					<a href="{{ path('testimonials') }}">Témoignages</a>
 					<ul class="sub-menu">
-						<li class="menu-item">
+						<li class="menu-item{{ current_route == 'testimonials_new' ? ' active' : '' }}">
 							<a href="{{ path('testimonials_new') }}">Ajouter votre témoignage</a>
 						</li>
 					</ul>

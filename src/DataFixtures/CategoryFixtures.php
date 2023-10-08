@@ -15,10 +15,11 @@ class CategoryFixtures extends Fixture
 
         $categoryNames = [
             'Mariages',
-            'Nature',
+            'Paysages',
             'Famille',
             'Animaux',
-            'Evènements'
+            'Evènements', 
+            'Portraits'
         ];
 
         foreach ($categoryNames as $i => $name) {

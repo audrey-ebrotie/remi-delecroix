@@ -40,7 +40,7 @@ class HomeController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact_me')]
-    public function index(Request $request): Response
+    public function contact(Request $request): Response
     {
         $current_route = $request->attributes->get('_route');
 

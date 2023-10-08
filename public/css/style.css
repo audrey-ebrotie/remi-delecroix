@@ -3513,6 +3513,8 @@ color: #fff;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.251);
+  border-radius: 4px;
 }
 .portfolio-masonry .grid-item .works-info{
     position: absolute;
@@ -3848,6 +3850,7 @@ color: #fff;
     width: 100%; /* Prendra toute la largeur du conteneur .thumb */
     height: 200px; /* Hauteur fixe */
     object-fit: cover; /* Permet de couvrir tout l'espace sans déformation */
+    border: 5px solid white;
 }
 .thumb video {
     width: 100%; /* Prendra toute la largeur du conteneur .thumb */
@@ -5191,3 +5194,4 @@ ul.comment-area{
               transform: translateX(100%) scale(0);
     }
 }
+

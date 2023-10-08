@@ -22,30 +22,30 @@ class PhotoFixtures extends Fixture
             return $file !== '.' && $file !== '..';
         });
 
-        $counter = 0; // Compteur pour limiter à 100 photos
+        $counter = 0; 
 
-        foreach ($photoFiles as $photoFile) {
-            if ($counter >= 100) {
-                break; // Sortir de la boucle si 100 photos ont été générées
+        while ($counter < 600) {
+            foreach ($photoFiles as $photoFile) {
+                if ($counter >= 600) {
+                    break;
+                }
+
+                $photo = new Photo();
+                $photo
+                    ->setTitle($faker->sentence) 
+                    ->setDescription($faker->paragraph)
+                    ->setFilename($photoFile);
+
+                $category = $this->getReference('category_' . rand(0, 5));
+                $photo->setCategory($category);
+                $photo->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 years', 'now')));
+
+                $manager->persist($photo);
+                
+                $counter++;
             }
-
-            $photo = new Photo();
-            $photo
-                ->setTitle($faker->sentence) 
-                ->setDescription($faker->paragraph)
-                ->setFilename($photoFile);
-
-            $category = $this->getReference('category_' . rand(0, 4));
-            $photo->setCategory($category);
-            $photo->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 years', 'now')));
-
-            $manager->persist($photo);
-            
-            $counter++; // Incrémenter le compteur
-
         }
 
         $manager->flush();
     }
-
 }

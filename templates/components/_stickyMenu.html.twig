@@ -1,0 +1,27 @@
+<div class="container-sticky">
+	<div class="col-12 sticky-menu container p-1">
+		<ul class="button-group row justify-content-around">
+			<li class="menu-item{{ current_route == 'photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('photos_gallery') }}">Toutes les photos</a>
+			</li>
+			<li class="menu-item{{ current_route == 'wedding_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('wedding_photos_gallery') }}">Mariages</a>
+			</li>
+			<li class="menu-item{{ current_route == 'family_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('family_photos_gallery') }}">Famille</a>
+			</li>
+			<li class="menu-item{{ current_route == 'portraits_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('portraits_photos_gallery') }}">Portraits</a>
+			</li>
+			<li class="menu-item{{ current_route == 'events_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('events_photos_gallery') }}">Evènements</a>
+			</li>
+			<li class="menu-item{{ current_route == 'animals_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('animals_photos_gallery') }}">Animaux</a>
+			</li>
+			<li class="menu-item{{ current_route == 'landscapes_photos_gallery' ? ' active' : '' }}">
+				<a href="{{ path('landscapes_photos_gallery') }}">Paysages</a>
+			</li>
+		</ul>
+	</div>
+</div>
