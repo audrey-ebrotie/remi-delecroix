@@ -1065,7 +1065,7 @@ header p {
     margin-bottom: 5%;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 767px) {
     /* suppression menu sticky sur tablette et mobile*/
     .container-sticky {
         display: none !important;
@@ -1099,10 +1099,21 @@ header p {
     }
 }
 
+@media screen and (max-width: 992px) {
+    .sticky-menu {
+        width: 600px !important;
+    }
+}
+
 .sticky-menu ul {
     border: 1px #80808075 solid;
     background: rgba(255, 255, 255, 0.972);
     border-radius: 4px;
+}
+@media screen and (max-width: 1200px) {
+    .sticky-menu .menu-item a {
+        font-size: 0.8em;
+    }
 }
 
 .sticky-menu .button-group {
