@@ -306,6 +306,13 @@ header p {
     border: 0;
 }
 
+@media screen and (max-width: 1199px) {
+    #flexmenu .nav-inner li,
+    #flexmenu .nav-inner li a {
+    font-size: 12px;
+    }
+}
+
 #flexmenu .nav-inner ul.main-menu li a {
     padding: 28px 0px;
     text-decoration: none;
