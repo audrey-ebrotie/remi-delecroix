@@ -1057,8 +1057,11 @@ header p {
 }
 
 /* Sticky menu gallery */
+
 .container-sticky {
     border-radius: 4px;
+    height: 100px;
+    /* rajout taille fixe pour cohérence d'aspect avec sticky menu*/
     margin-bottom: 5%;
 }
 
@@ -1066,11 +1069,14 @@ header p {
     position: fixed;
     top: -5px;
     z-index: 100;
-    margin-left: -5em;
 }
 
 .menu-placeholder .fixed {
     height: 20px;
+}
+
+.sticky-menu {
+    width: 1500px !important;
 }
 
 .sticky-menu ul {
@@ -1089,12 +1095,12 @@ header p {
 }
 
 .sticky-menu .menu-item a {
-    font-weight: bold; 
-    color:#8e8e8e;
+    font-weight: bold;
+    color: #8e8e8e;
     padding-bottom: 10px;
 }
 
-.sticky-menu .menu-item a:hover{
+.sticky-menu .menu-item a:hover {
     border-bottom: 3px solid #c19b76;
 }
 
@@ -1102,4 +1108,3 @@ header p {
     border-bottom: 3px solid #c19b76;
     color: #c19b76;
 }
-
