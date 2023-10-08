@@ -1065,6 +1065,13 @@ header p {
     margin-bottom: 5%;
 }
 
+@media screen and (max-width: 992px) {
+    /* suppression menu sticky sur tablette et mobile*/
+    .container-sticky {
+        display: none !important;
+    }
+}
+
 .fixed {
     position: fixed;
     top: -5px;
@@ -1076,7 +1083,20 @@ header p {
 }
 
 .sticky-menu {
-    width: 1500px !important;
+    /* rajout taille fixe pour plus de facilité changement position*/
+    width: 1300px !important;
+}
+
+@media screen and (max-width: 1600px) {
+    .sticky-menu {
+        width: 1024px !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sticky-menu {
+        width: 700px !important;
+    }
 }
 
 .sticky-menu ul {
@@ -1098,6 +1118,18 @@ header p {
     font-weight: bold;
     color: #8e8e8e;
     padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1600px) {
+    .sticky-menu .menu-item a {
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sticky-menu .menu-item a {
+        padding-bottom: 1px;
+    }
 }
 
 .sticky-menu .menu-item a:hover {
