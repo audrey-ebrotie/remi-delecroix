@@ -29,7 +29,7 @@ class VideoFixtures extends Fixture
                 ->setDescription($faker->paragraph)
                 ->setFilename($videoFile);
 
-            $category = $this->getReference('category_' . rand(0, 4));
+            $category = $this->getReference('category_' . rand(0, 5));
             $video->setCategory($category);
             $video->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 years', 'now')));
 

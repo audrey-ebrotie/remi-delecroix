@@ -1055,3 +1055,51 @@ header p {
 .dark_mode #flexmenu .nav-inner ul.main-menu li a {
     color: #ffffff;
 }
+
+/* Sticky menu gallery */
+.container-sticky {
+    border-radius: 4px;
+    margin-bottom: 5%;
+}
+
+.fixed {
+    position: fixed;
+    top: -5px;
+    z-index: 100;
+    margin-left: -5em;
+}
+
+.menu-placeholder .fixed {
+    height: 20px;
+}
+
+.sticky-menu ul {
+    border: 1px #80808075 solid;
+    background: rgba(255, 255, 255, 0.972);
+    border-radius: 4px;
+}
+
+.sticky-menu .button-group {
+    margin: auto;
+    padding: 2% 0 !important;
+}
+
+.sticky-menu .menu-item {
+    list-style: none;
+}
+
+.sticky-menu .menu-item a {
+    font-weight: bold; 
+    color:#8e8e8e;
+    padding-bottom: 10px;
+}
+
+.sticky-menu .menu-item a:hover{
+    border-bottom: 3px solid #c19b76;
+}
+
+.sticky-menu .menu-item.active a {
+    border-bottom: 3px solid #c19b76;
+    color: #c19b76;
+}
+
