@@ -38,4 +38,18 @@ class PhotoRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    /**
+ * @return Photo[] Returns an array of Photo objects
+ */
+    public function findByCategory(string $categoryName)
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.category', 'c') // Assurez-vous que 'category' est la relation correcte dans votre entité Photo
+            ->where('c.name = :categoryName')
+            ->setParameter('categoryName', $categoryName)
+            ->orderBy('p.created_at', 'DESC') // Assurez-vous que 'created_at' est le champ correct pour le tri
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -32,7 +32,7 @@
 			<div class="grid grid-4 gutter-5 clearfix">
 				<div class="grid-sizer"></div>
 
-				{% for photo in eventsPhotos %}
+				{% for photo in photos %}
 					<div class="grid-item {{ photo.category.name|lower }}">
 						<div class="thumb">
 							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}" data-thumb="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}">
@@ -41,6 +41,10 @@
 						</div>
 					</div>
 				{% endfor %}
+			</div>
+			<!-- Affichage des liens de pagination -->
+			<div class="pagination">
+				{{ knp_pagination_render(photos) }}
 			</div>
 		</section>
 

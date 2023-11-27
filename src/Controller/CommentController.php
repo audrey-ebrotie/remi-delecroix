@@ -34,7 +34,7 @@ class CommentController extends AbstractController
         $paginationComments = $paginator->paginate(
             $comments,
             $request->query->getInt('page', 1),
-            5
+            10
         );
 
         $current_route = $request->attributes->get('_route');
