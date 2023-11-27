@@ -250,12 +250,14 @@ section {
 .pagination {
     margin-top: 20px;
     text-align: center;
+    flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .pagination a,
 .pagination span {
     display: inline-block;
-    padding: 8px 12px;
+    padding: 4px 6px;
     margin-right: 5px;
     border-radius: 5px;
     background-color: #f2f2f2;
