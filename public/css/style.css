@@ -2819,6 +2819,7 @@ ul.angle li:before {
 
 .testibox1 .testi-name {
     margin: auto;
+    text-align: center;
 }
 
 .testibox1 .testi-img {
