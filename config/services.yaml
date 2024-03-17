@@ -7,6 +7,10 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
+  
+  App\EventSubscriber\AccessInterceptorSubscriber:
+    arguments:
+      $router: '@router'
 
   admin.photo:
     class: App\Admin\PhotoAdmin
