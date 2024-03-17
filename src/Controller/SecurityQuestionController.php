@@ -19,8 +19,10 @@ class SecurityQuestionController extends AbstractController
         $indexQuestion = $session->get('indexQuestion');
 
         if (!$questionChoisie) {
+            // Après avoir récupéré la questionChoisie de la session
+            $session->remove('security_error');
             // Redirigez l'utilisateur ou gérez l'absence de question
-            return $this->redirectToRoute('home'); 
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('security_question/index.html.twig', [

@@ -27,29 +27,37 @@ class AccessInterceptorSubscriber implements EventSubscriberInterface
         ['question' => 'Code secret ?', 'reponse' => '883382'],
     ];
 
-    public function onKernelRequest(RequestEvent $event)
-    {
-        $request = $event->getRequest();
-        $path = $request->getPathInfo();
+    public function onKernelRequest(RequestEvent $event){
+    $request = $event->getRequest();
+    $path = $request->getPathInfo();
 
         if (strpos($path, '/utilisateur/connexion') === 0) {
-            // Sélectionnez une question aléatoire
-            $indexQuestion = array_rand($this->questionsEtReponses);
-            $questionChoisie = $this->questionsEtReponses[$indexQuestion];
-
-            // Supposons que la question est passée comme un paramètre GET pour simplifier
+            $session = $request->getSession();
             $reponseUtilisateur = $request->query->get('reponse');
             $questionUtilisateur = $request->query->get('question');
 
-            if ($questionUtilisateur !== $questionChoisie['question'] ||
-            strtolower($reponseUtilisateur) !== strtolower($questionChoisie['reponse'])) {
-                $session = $request->getSession();
+            // Ne définissez le message d'erreur que si une réponse a été soumise.
+            if ($reponseUtilisateur !== null) {
+                $indexQuestion = array_rand($this->questionsEtReponses);
+                $questionChoisie = $this->questionsEtReponses[$indexQuestion];
+
+                if ($questionUtilisateur !== $questionChoisie['question'] ||
+                    strtolower($reponseUtilisateur) !== strtolower($questionChoisie['reponse'])) {
+                    $session->set('security_error', 'N accepte que des caractères numériques au nombre de 6');
+                    $session->set('questionChoisie', $questionChoisie);
+                    $session->set('indexQuestion', $indexQuestion);
+
+                    // Puis redirigez vers la page de la question de sécurité :
+                    $url = $this->router->generate('security_question');
+                    $event->setResponse(new RedirectResponse($url));
+                } 
+            } else {
+                // Si aucune réponse n'a été soumise, affichez simplement la question sans erreur.
                 $indexQuestion = array_rand($this->questionsEtReponses);
                 $questionChoisie = $this->questionsEtReponses[$indexQuestion];
                 $session->set('questionChoisie', $questionChoisie);
                 $session->set('indexQuestion', $indexQuestion);
-                
-                // Puis redirigez vers la page de la question de sécurité :
+
                 $url = $this->router->generate('security_question');
                 $event->setResponse(new RedirectResponse($url));
             }
