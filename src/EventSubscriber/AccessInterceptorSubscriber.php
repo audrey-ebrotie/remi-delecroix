@@ -46,7 +46,7 @@ class AccessInterceptorSubscriber implements EventSubscriberInterface
 
                 if ($questionUtilisateur !== $questionChoisie['question'] ||
                     strtolower($reponseUtilisateur) !== strtolower($questionChoisie['reponse'])) {
-                    $session->set('security_error', 'Le code est un numérique de 6 chiffres');
+                    $session->set('security_error', 'Le code saisi est incorrect.');
                     $session->set('questionChoisie', $questionChoisie);
                     $session->set('indexQuestion', $indexQuestion);
 
