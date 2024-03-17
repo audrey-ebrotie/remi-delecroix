@@ -7,54 +7,55 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class AccessInterceptorSubscriber implements EventSubscriberInterface
 {
+    private $router;
+    private $codeSecret;
+
+    public function __construct(UrlGeneratorInterface $router, ParameterBagInterface $params)
+    {
+        $this->router = $router;
+        $this->codeSecret = $params->get('app.security.code');
+    }
+
     public static function getSubscribedEvents()
     {
-        // Priorité 0 par défaut. Augmentez la valeur pour une exécution précoce.
         return [KernelEvents::REQUEST => ['onKernelRequest', 0]];
     }
 
-    private $router;
-
-    public function __construct(UrlGeneratorInterface $router)
+    public function onKernelRequest(RequestEvent $event)
     {
-        $this->router = $router;
-    }
+        $request = $event->getRequest();
+        $path = $request->getPathInfo();
 
-    private $questionsEtReponses = [
-        ['question' => 'Code secret ?', 'reponse' => '883382'],
-    ];
-
-    public function onKernelRequest(RequestEvent $event){
-    $request = $event->getRequest();
-    $path = $request->getPathInfo();
+        // Initialisation des questions et des réponses ici, après que $this->codeSecret soit défini
+        $questionsEtReponses = [
+            ['question' => 'Code secret ?', 'reponse' => $this->codeSecret],
+        ];
 
         if (strpos($path, '/utilisateur/connexion') === 0) {
             $session = $request->getSession();
             $reponseUtilisateur = $request->query->get('reponse');
             $questionUtilisateur = $request->query->get('question');
 
-            // Ne définissez le message d'erreur que si une réponse a été soumise.
             if ($reponseUtilisateur !== null) {
-                $indexQuestion = array_rand($this->questionsEtReponses);
-                $questionChoisie = $this->questionsEtReponses[$indexQuestion];
+                $indexQuestion = array_rand($questionsEtReponses);
+                $questionChoisie = $questionsEtReponses[$indexQuestion];
 
                 if ($questionUtilisateur !== $questionChoisie['question'] ||
                     strtolower($reponseUtilisateur) !== strtolower($questionChoisie['reponse'])) {
-                    $session->set('security_error', 'N accepte que des caractères numériques au nombre de 6');
+                    $session->set('security_error', 'Le code est un numérique de 6 chiffres');
                     $session->set('questionChoisie', $questionChoisie);
                     $session->set('indexQuestion', $indexQuestion);
 
-                    // Puis redirigez vers la page de la question de sécurité :
                     $url = $this->router->generate('security_question');
                     $event->setResponse(new RedirectResponse($url));
-                } 
+                }
             } else {
-                // Si aucune réponse n'a été soumise, affichez simplement la question sans erreur.
-                $indexQuestion = array_rand($this->questionsEtReponses);
-                $questionChoisie = $this->questionsEtReponses[$indexQuestion];
+                $indexQuestion = array_rand($questionsEtReponses);
+                $questionChoisie = $questionsEtReponses[$indexQuestion];
                 $session->set('questionChoisie', $questionChoisie);
                 $session->set('indexQuestion', $indexQuestion);
 
