@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block preloader %}{% endblock preloader %}
+
+{% block title %}Question de Sécurité{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-3">Question de Sécurité</h1>
+    <form method="GET" action="{{ path('user_login') }}" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="reponse" class="form-label">{{ question }}</label>
+            <input type="hidden" name="question" value="{{ question }}" />
+            <input type="text" class="form-control" id="reponse" name="reponse" required>
+            <div class="invalid-feedback">
+                Veuillez fournir une réponse.
+            </div>
+        </div>
+
+        {% if app.session.get('security_error') %}
+        <div class="alert alert-warning" role="alert">
+            {{ app.session.get('security_error') }}
+        </div>
+        {% set foo = app.session.remove('security_error') %}
+        {% endif %}
+        
+        <button type="submit" class="btn btn-primary">Soumettre</button>
+    </form>
+</div>
+{% endblock %}

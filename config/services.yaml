@@ -1,4 +1,6 @@
 parameters:
+  app.security.code: "%env(APP_SECURITY)%"
+
   locale: "fr"
   uploadDirectory: "%kernel.project_dir%/public/uploads"
   imagesDirectory: "images"
@@ -7,6 +9,11 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
+
+  App\EventSubscriber\AccessInterceptorSubscriber:
+    arguments:
+      $router: "@router"
+      $params: "@parameter_bag"
 
   admin.photo:
     class: App\Admin\PhotoAdmin
