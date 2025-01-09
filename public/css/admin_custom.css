@@ -1,0 +1,41 @@
+.vich-image {
+    display: flex;
+    flex-direction: column;
+}
+
+.vich-image img {
+    max-width: 100% !important; 
+    max-height: 100% !important;
+    object-fit: cover; 
+    margin-bottom: 1rem;
+}
+
+.vich-image a:nth-of-type(2) {
+    background-color: #ff9800; 
+    color: white;    
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-decoration: none;
+    width: fit-content;
+}
+
+.vich-image a:nth-of-type(2):hover {
+    background-color: #e67e22;
+}
+
+.vich-file input {
+    margin-bottom: 1rem;
+}
+
+.vich-file a {
+    background-color: #ff9800; 
+    color: white;    
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    text-decoration: none;
+    width: fit-content;
+}
+
+.vich-file a:hover {
+    background-color: #e67e22;
+}

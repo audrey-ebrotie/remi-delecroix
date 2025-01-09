@@ -273,6 +273,17 @@ header p {
     width: 13.5%;
 }
 
+@media screen and (max-width: 600px) {
+    .logo {
+        position: absolute;
+        left: 0rem;
+        top: 0.5rem;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
 .nav-inner {
     position: relative;
     margin: 0 auto;
@@ -1068,12 +1079,10 @@ header p {
 .container-sticky {
     border-radius: 4px;
     height: 100px;
-    /* rajout taille fixe pour cohérence d'aspect avec sticky menu*/
-    margin-bottom: 5%;
+    margin-bottom: 3%;
 }
 
 @media screen and (max-width: 767px) {
-    /* suppression menu sticky sur tablette et mobile*/
     .container-sticky {
         display: none !important;
     }
@@ -1090,7 +1099,6 @@ header p {
 }
 
 .sticky-menu {
-    /* rajout taille fixe pour plus de facilité changement position*/
     width: 1300px !important;
 }
 
@@ -1116,6 +1124,7 @@ header p {
     border: 1px #80808075 solid;
     background: rgba(255, 255, 255, 0.972);
     border-radius: 4px;
+    text-transform: uppercase;
 }
 @media screen and (max-width: 1200px) {
     .sticky-menu .menu-item a {
@@ -1133,7 +1142,7 @@ header p {
 }
 
 .sticky-menu .menu-item a {
-    font-weight: bold;
+    font-weight: 500;
     color: #8e8e8e;
     padding-bottom: 10px;
 }

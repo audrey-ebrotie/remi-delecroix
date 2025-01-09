@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-		<meta name="description" content="Rémi Delecroix - RDvideographe : photographe et vidéaste professionnel basé en à Lille (FRANCE). Spécialisé en photographie et vidéo de mariage, mais aussi portraits, évènements, paysages et autres.">
+		<meta name="description" content="Rémi Delecroix - RDvideographe : photographe et vidéaste professionnel basé en à Lille (FRANCE). Spécialisé en photographie et vidéo de mariage.">
 		<meta name="author" content="Rémi DELECROIX, RDvideographe">
 		<meta name="keywords" content="Photographie, Vidéo, Rémi Delecroix, Mariage, Mariages, Portrait, Famille, Enfants, Bébé, Grossesse, Naissance, Couple, Nature, Paysage, Animaux, Souvenirs, EVG, EVJF, convention">
 		<meta name="robots" content="index, follow">
@@ -13,14 +13,14 @@
 		<meta property="og:image" content="{{ asset('images/illustration-meta.png') }}">
 		<meta property="og:url" content="https://www.remi-delecroix.com/">
 		<script type="application/ld+json">{ 
-						"@context": "https://schema.org",
-						"@type": "Person",
-						"name": "Rémi Delecroix - RDvideographe",
-						"jobTitle": "Photographe et vidéaste",
-						"url": "https://www.remi-delecroix.com/",
-						"sameAs": ["https://www.facebook.com/p/RDvideographe-100067620573889", "https://www.linkedin.com/in/remi-delecroix-227232137", "https://www.instagram.com/2lec"],
-						"image": "{{ asset('images/illustration-meta.png') }}"
-						}
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Rémi Delecroix - RDvideographe",
+			"jobTitle": "Photographe et vidéaste",
+			"url": "https://www.remi-delecroix.com/",
+			"sameAs": ["https://www.facebook.com/p/RDvideographe-100067620573889", "https://www.linkedin.com/in/remi-delecroix-227232137", "https://www.instagram.com/2lec"],
+			"image": "{{ asset('images/illustration-meta.png') }}"
+			}
 		</script>
 
 		<title>
@@ -30,7 +30,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}"/>
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
 		{% endblock stylesheets %}
 	</head>
 	{% block preloader %}
@@ -55,12 +54,12 @@
 			</button>
 
 			{% block javascripts %}
-				<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-				<script src="{{ asset('js/bootstrap.js') }}"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 				<script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
 				<script src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
 				<script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
-				<script src="{{ asset('js/swiper.min.js') }}"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.6/js/swiper.min.js" integrity="sha512-PbIsZpsN9MwxVSnLIYDpDTMYvsmJy1wB4TCRnJiJ5+YQIVChOOpTEUiJllYHrdk6xaVAegvBDkYSlwIg38Xr0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 				<script src="{{ asset('js/typed.min.js') }}"></script>
 				<script src="{{ asset('js/menu.js') }}"></script>
 				<script src="{{ asset('js/grid.custom.js') }}"></script>

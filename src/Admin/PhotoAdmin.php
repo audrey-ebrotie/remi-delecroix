@@ -33,7 +33,7 @@ final class PhotoAdmin extends AbstractAdmin
         ])
         ->add('photoFile', VichImageType::class, [
             'required' => false,
-            'allow_delete' => true,
+            'allow_delete' => false,
             'download_uri' => true,
             'download_label' => 'Télécharger',
             'label' => 'Fichier',

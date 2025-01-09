@@ -5,19 +5,17 @@
 {% endblock title %}
 
 {% block body %}
-
 	<div class="inner_body">
 		<div class="slide_1">
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-
 					{% for photoHomepage in photosHomepage %}
 						<div class="swiper-slide">
 							<div class="slider_item" style="background-image:url('{{ asset('uploads/gallery_photos/' ~ photoHomepage.filename) }}')">
 								<div class="slider-inner">
 									<div class="slider-details">
 										<h4 class="slider-tag">Photographe | Vidéaste</h4>
-										<h1 class="slide_heading">
+										<h2 class="slide_heading">
 											<span>Rémi DELECROIX</span>
 										</h1>
 										<div class="button_group">
@@ -30,7 +28,6 @@
 							</div>
 						</div>
 					{% endfor %}
-
 				</div>
 			</div>
 			<div
@@ -50,5 +47,7 @@
 	<div class="page_title">
 		<span>Bienvenue</span>
 	</div>
+
+	<h1 class="hidden-h1">Remi DELECROIX - Photographe de mariage - LILLE</h1>
 
 {% endblock body %}

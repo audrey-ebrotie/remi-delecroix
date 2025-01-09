@@ -3,6 +3,9 @@ sonata_admin:
   dashboard:
     blocks:
       - { type: sonata.admin.block.admin_list, position: left }
+  assets:
+    extra_stylesheets:
+      - "../../assets/styles/admin_custom.css"
 
 sonata_block:
   blocks:

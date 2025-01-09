@@ -29,6 +29,7 @@ final class VideoAdmin extends AbstractAdmin
             ->add('videoFile', VichFileType::class, [
                 'label' => 'Fichier',
                 'required' => false,
+                'allow_delete' => false,
             ]);
     }
 
