@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,300italic,400,600,700|Mukta:400,500,600,700,800|Playfair+Display');
 @import url('bootstrap.css');
 @import url('menu.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.6/css/swiper.css');
+@import url('swiper.css');
 @import url('jquery.fancybox.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.3.0/css/ionicons.min.css');
+@import url('fonts/font-awesome/css/all.min.css');
+@import url('fonts/ionicons/css/ionicons.min.css');
 
 @font-face {
     font-family: 'bombes-webfont';
@@ -2707,4 +2707,10 @@ video {
 .security-question-container {
     margin-top: 5em;
     max-width: 60%;
+}
+
+.alert-success {
+    background: #D4EDDA;
+    font-weight: 600;
+    color: green;
 }
