@@ -17,6 +17,8 @@ class AccessInterceptorSubscriber implements EventSubscriberInterface
     public function __construct(UrlGeneratorInterface $router, ParameterBagInterface $params)
     {
         $this->router = $router;
+        // Au lieu d’avoir un paramètre en clair,
+        // Symfony va récupérer la variable d'environnement déchiffrée
         $this->codeSecret = $params->get('app.security.code');
     }
 

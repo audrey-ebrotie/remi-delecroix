@@ -1,6 +1,6 @@
 parameters:
   app.security.code: "%env(APP_SECURITY)%"
-
+  
   locale: "fr"
   uploadDirectory: "%kernel.project_dir%/public/uploads"
   imagesDirectory: "images"
