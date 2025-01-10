@@ -2709,8 +2709,13 @@ video {
     max-width: 60%;
 }
 
-.alert-success {
+.alert-success,
+button.btn.btn-success {
     background: #D4EDDA;
-    font-weight: 600;
+    font-weight: 500;
     color: green;
+}
+
+button.btn.btn-success:hover {
+    background: #c7decc;
 }

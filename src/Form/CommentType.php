@@ -18,7 +18,7 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom ou pseudo',
+                'label' => 'Prénom ou pseudo*',
                 'required' => true,
             ])
             ->add('lastname', TextType::class, [
@@ -26,7 +26,7 @@ class CommentType extends AbstractType
                 'required' => false,
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Votre message',
+                'label' => 'Votre message*',
                 'required' => true,
             ])
             ->add('imageFile', FileType::class, [

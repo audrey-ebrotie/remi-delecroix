@@ -37,7 +37,7 @@
 						{{ form_widget(form.firstname, { 'attr': { 'class': 'form-control' } }) }}
 						{{ form_errors(form.firstname, { 'attr': { 'class': 'form-error-message' } }) }}
 						{% if form.firstname.vars.required %}
-							<span class="required">obligatoire</span>
+							<span class="required">*obligatoire</span>
 						{% endif %}
 					</div>
 					<div class="form-group">
@@ -70,11 +70,11 @@
 						{{ form_widget(form.content, { 'attr': { 'id': 'comment_content', 'class': 'form-control', 'rows': '5' } }) }}
 						{{ form_errors(form.content, { 'attr': { 'class': 'form-error-message' } }) }}
 						{% if form.content.vars.required %}
-							<span class="required">obligatoire</span>
+							<span class="required">*obligatoire</span>
 						{% endif %}
 					</div>
 					<div class="button_group">
-						<button type="submit" class="button effect_2 white_button">
+						<button type="submit" class="button effect_5 black_button">
 							<span>Valider</span>
 						</button>
 					</div>

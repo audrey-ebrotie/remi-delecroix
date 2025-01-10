@@ -1,8 +1,35 @@
 sonata_admin:
   title: "Sonata Admin"
   dashboard:
+    groups:
+      content_group:
+        label: "Gestion du Contenu"
+        icon: fa fa-photo-video
+        items:
+          - admin.photo
+          - admin.video
+          - admin.category
+      comment_group:
+        label: "Gestion des témoignages"
+        icon: "fa fa-comment"
+        items:
+          - admin.comment
+      user_group:
+        label: "Gestion des admins"
+        icon: "fa fa-users"
+        items:
+          - admin.user
     blocks:
       - { type: sonata.admin.block.admin_list, position: left }
+      - {
+          type: sonata.block.service.text,
+          position: bottom,
+          settings:
+            {
+              content: '<a href="/logout" class="btn btn-danger">Déconnexion</a>',
+            },
+        }
+
   assets:
     extra_stylesheets:
       - "../../assets/styles/admin_custom.css"
