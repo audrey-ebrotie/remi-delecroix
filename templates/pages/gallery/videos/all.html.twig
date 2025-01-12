@@ -34,7 +34,7 @@
 					<div class="grid-item {{ video.category.name|lower }}">
 						<div class="thumb">
 							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_videos/' ~ video.filename) }}" data-thumb="{{ asset('uploads/gallery_videos/' ~ video.filename) }}">
-								<video controls class="item-video" data-src="{{ asset('uploads/gallery_videos/' ~ video.filename) }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ video.title }}"></video>
+								<video controls class="item-video" src="{{ asset('uploads/gallery_videos/' ~ video.filename) }}" type="video/mp4" data-fancybox="gallery" data-caption="{{ video.title }}"></video>
 								<div class="works-info">
 									<div class="label-text">
 										<h4>{{ video.title }}</h4>
