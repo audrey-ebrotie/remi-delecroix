@@ -9,6 +9,7 @@ config/secrets/*/*.decrypt.private.php
 /vendor/
 public/uploads/gallery_videos
 public/uploads/gallery_photos
+public/uploads/comment_images
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
