@@ -30,8 +30,8 @@ Ce projet utilise Symfony (v6.1.12) pour le développement d'une application web
    ```
 
 6. Créez une base de données MySQL pour l'application.
-7. Copiez le fichier `.env` en `.env.local` et configurez les informations de connexion à la base de données dans ce fichier.
-8. Exécutez les migrations pour créer les tables de la base de données :
+7. Créer un fichier `.env.local` et configurez les informations de connexion à la base de données dans ce fichier ainsi que l'environnement pour le dev (`APP_ENV=dev`)
+8. Si vous n'avez pas de dump récent (voir dossier `data`), exécutez les migrations pour créer les tables de la base de données :
 
    ```
    php bin/console doctrine:migrations:migrate
@@ -44,3 +44,9 @@ Ce projet utilise Symfony (v6.1.12) pour le développement d'une application web
    ```
 
 10. Accédez à l'application dans votre navigateur à l'adresse `http://localhost:8000`.
+
+11. Si besoin de générer de la data pour alimenter la BDD :
+
+```
+php bin/console doctrine:fixture:load
+```

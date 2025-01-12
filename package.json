@@ -16,7 +16,6 @@
     "swiper": "^11.2.0"
   },
   "devDependencies": {
-    "@symfony/webpack-encore": "^5.0.1",
     "postcss-loader": "^8.1.1"
   }
 }
