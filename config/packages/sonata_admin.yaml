@@ -24,10 +24,14 @@ sonata_admin:
       - {
           type: sonata.block.service.text,
           position: bottom,
-          settings:
+          settings: 
             {
-              content: '<a href="/logout" class="btn btn-danger">Déconnexion</a>',
-            },
+              content: 
+                <div>
+                  <a href="/logout" class="btn btn-danger" style="margin-right: 10px;">Déconnexion</a>
+                  <a href="/" class="btn btn-primary">Retour à l'accueil du site</a>
+                </div>
+            }
         }
 
   assets:

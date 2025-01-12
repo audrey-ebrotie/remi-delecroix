@@ -6,11 +6,10 @@
 {% block title %}ACCES ADMIN | Créer un nouvel utilisateur{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
+    <div class="container-new-user">
         <div class="row justify-content-center">
             <div class="col-md-6 mt-5">
-                <h1 class="mb-4">ACCES ADMIN | Créer un nouvel utilisateur</h1>
-
+                <h2 class="mb-4">ACCES ADMIN | Créer un nouvel utilisateur</h1><br>
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.email) }}
@@ -23,7 +22,7 @@
 
                 <button class="btn btn-primary">{{ button_label|default('Créer') }}</button>
                 {{ form_end(form) }}
-                <div class="mt-5">
+                <div class="mt-5 already-registered">
                     <p>Déjà un compte ?</p>
                     <a class="btn btn-info" href="{{ path('user_login') }}">Se connecter</a>
                 </div>

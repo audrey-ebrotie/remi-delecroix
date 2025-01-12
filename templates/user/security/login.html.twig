@@ -6,10 +6,10 @@
 {% block preloader %}{% endblock preloader %}
 
 {% block body %}
-	<div class="container login-page-container">
+	<div class="login-page-container">
 		<div class="row justify-content-center">
 			<div class="col-md-6 mt-5">
-				<h1 class="mb-4">ACCES ADMIN | Connexion</h1>
+				<h2 class="mb-4">ACCES ADMIN | Connexion</h1><br>
 
 				{% if error %}
 					<div class="alert alert-danger">
@@ -33,9 +33,9 @@
 					<button type="submit" class="btn btn-success">
 						Valider
 					</button>
-					<div class="mt-5">
+					<div class="mt-5 not-registered-yet">
 						<p>Pas encore de compte ?</p>
-						<a class="btn btn-primary" href="{{ path('user_new') }}">Créer un compte</a>
+						<a class="btn btn-primary create-account-btn" href="{{ path('user_new') }}">Créer un compte</a>
 					</div>
 				</form>
 			</div>

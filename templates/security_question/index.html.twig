@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container security-question-container">
-		<h1 class="mb-5">Accès sécurisé</h1>
+	<div class="security-question-container">
+		<h2 class="mb-5">Accès sécurisé</h1><br>
 		<form method="GET" action="{{ path('user_login') }}" class="needs-validation" novalidate>
 			<div class="mb-3">
 				<label for="reponse" class="form-label">{{ question }}</label>
