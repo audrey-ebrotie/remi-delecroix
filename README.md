@@ -47,6 +47,6 @@ Ce projet utilise Symfony (v6.1.12) pour le développement d'une application web
 
 11. Si besoin de générer de la data pour alimenter la BDD :
 
-```
-php bin/console doctrine:fixture:load
-```
+   ```
+   php bin/console doctrine:fixture:load
+   ```
