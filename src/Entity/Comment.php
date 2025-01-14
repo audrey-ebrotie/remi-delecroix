@@ -40,14 +40,14 @@ class Comment
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Image(
-        maxSize: "5M",
+        maxSize: "2M",
         mimeTypes: [
             "image/jpg",
             "image/jpeg",
             "image/png",
         ],
         mimeTypesMessage: "Veuillez sélectionner un fichier au format jpg, jpeg ou png.",
-        maxSizeMessage: "le fichier est trop volumineux. Sa taille ne doit pas dépasser 5 Mo."
+        maxSizeMessage: "le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo."
     )]
     private ?string $image = null;
 

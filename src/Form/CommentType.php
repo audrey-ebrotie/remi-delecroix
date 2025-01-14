@@ -32,7 +32,7 @@ class CommentType extends AbstractType
             ->add('imageFile', FileType::class, [
                 'label' => 'Ajouter une image',
                 'required' => false,
-                'help' => 'fichiers acceptés : jpg, jpeg, png | taille max : 5 Mo',
+                'help' => 'fichiers acceptés : jpg, jpeg, png | taille max : 2 Mo',
                 'attr' => [
                     'class' => 'form-control',
                     'id' => 'image-input'
