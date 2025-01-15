@@ -151,6 +151,7 @@ h1,
 
 h1.hidden-h1 {
     visibility: hidden !important;
+    font-size: 4px;
 }
 
 h2,
@@ -195,6 +196,12 @@ h6 {
 section {
     padding-top: 90px;
     padding-bottom: 90px;
+}
+
+@media screen and (max-width: 500px) {
+    section {
+        padding-bottom: 40px;
+    }
 }
 
 /*---------- Pagination ------------*/
@@ -818,6 +825,12 @@ section {
     margin-top: 30px;
 }
 
+@media screen and (max-width: 500px) {
+    .page-header .sign {
+        margin-top: 0;
+    }
+}
+
 /*------- Page Header type 2 -----*/
 .page-header.type2 {
     background: transparent;
@@ -828,12 +841,6 @@ section {
 @media screen and (max-width: 767px) {
     .page-header.type2 {
         padding-top: 20%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .page-header.type2 {
-        padding-bottom: 50px;
     }
 }
 
@@ -1779,6 +1786,10 @@ ul.angle li:before {
     margin-top: 5%;
 }
 
+.banner-testimonials {
+    margin-bottom: -50px;
+}
+
 .testimonials_button-block {
     display: block;
     position: relative;
@@ -1789,17 +1800,25 @@ ul.angle li:before {
     .banner-testimonials img {
         width: 92%;
     }
-
-    .testimonials_button-block {
-        top: 2rem;
-        width: 60%;
-        margin: auto;
-    }
 }
 
 @media screen and (max-width: 600px) {
+    .testimonials_button-block .button {
+        top: 1rem;
+    }
+
     .testimonials_button-block a {
         font-size: 10px;
+    }
+
+    .testimonials_button-block .button {
+        padding: 10px 40px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .testimonials_button-block a {
+        font-size: 8px;
     }
 }
 
@@ -1978,7 +1997,13 @@ span.required-sm {
 
 .contact_body {
     background: #f6f6f6;
-    padding-bottom: 130px;
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 500px) {
+    .contact_body {
+        padding-bottom: 30px;
+    }
 }
 
 .contact_info {
@@ -2300,6 +2325,16 @@ span.required-sm {
     border-radius: 20px;
 }
 
+@media screen and (max-width: 500px) {
+    .photo-header-gallery img {
+       display: none; 
+    }
+
+    .page-header.page-header.type2 {
+        padding-bottom: 30px;
+    }
+}
+
 .thumb img {
     width: 100%;
     height: 200px;
@@ -2324,23 +2359,6 @@ span.required-sm {
 .thumb .label-text h6 {
     height: 1.5em;
     overflow: hidden;
-}
-
-.button-wide {
-    background: #c19b76;
-    padding: 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-bottom: 10px;
-    margin: 10%;
-    width: 45%;
-
-    @media screen and (max-width: 600px) {
-        width: 65%;
-    }
 }
 
 .button-wide:hover {
@@ -2758,4 +2776,29 @@ a.btn.btn-info {
 .already-registered,
 .not-registered-yet {
     margin-top: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+    .page_title {
+        display: none;
+    }
+
+    .body_box .wrapper {
+        padding: 80px 20px 50px 20px;
+    }
+
+    .pagination {
+        display: block !important;
+    }
+
+    .image-upload .form-control {
+        font-size: 10px;
+    }
+
+    .image-upload, 
+    .testi-form,
+    .testi-form .button span,
+    .image-upload .form-control {
+        font-size: 12px;
+    }
 }
