@@ -314,8 +314,8 @@ section {
 /*======= Scroll to top ========*/
 
 #scrollToTopContainer {
-    background-color: #c19b76;
-    box-shadow: 1px 1px 5px grey;
+    background-color: #e4dfd9;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
     border: none;
     bottom: 3em;
     cursor: pointer;
@@ -327,7 +327,8 @@ section {
     transition: opacity 0.3s ease-in-out;
     width: 1.5em;
     height: 3em;
-    z-index: 1;
+    z-index: 5;
+    border-radius: 30px;
 }
 
 @media screen and (max-width: 767px) {
