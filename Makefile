@@ -1,17 +1,7 @@
 # Makefile
 
 # Commande par défaut
-all: composer_update cache_clear generate_thumbnails
-
-# Met à jour les dépendances
-composer_update:
-	@echo "🔄 Mise à jour des dépendances via Composer..."
-	composer update --no-interaction --no-progress --prefer-dist
-
-# Vide le cache Symfony
-cache_clear:
-	@echo "🧹 Nettoyage du cache Symfony..."
-	php bin/console cache:clear
+all: generate_thumbnails
 
 # Génère les miniatures des images
 generate_thumbnails:
