@@ -1,9 +1,13 @@
-# Makefile
+all: cache_clear cache_warmup generate_thumbnails
 
-# Commande par défaut
-all: generate_thumbnails
+cache_clear:
+	@echo "🧹 Nettoyage du cache Symfony..."
+	php bin/console cache:clear --env=prod
 
-# Génère les miniatures des images
+cache_warmup:
+	@echo "🔥 Pré-chauffage du cache Symfony..."
+	php bin/console cache:warmup --env=prod
+
 generate_thumbnails:
 	@echo "🖼️ Génération des miniatures des photos..."
 	php bin/resolve_all.php
