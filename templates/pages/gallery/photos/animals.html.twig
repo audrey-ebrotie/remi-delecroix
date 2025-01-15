@@ -19,7 +19,7 @@
 							<i class="fa fa-camera"></i>
 						</span>
 					</h1>
-					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ randomPhoto.filename) }}" alt="{{ randomPhoto.description }}"></div>
+					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ randomPhoto.filename) | imagine_filter('thumb_big') }}" alt="{{ randomPhoto.description }}"></div>
 				</div>
 			</div>
 		</div>
