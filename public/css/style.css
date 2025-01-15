@@ -1671,8 +1671,8 @@ ul.angle li:before {
 
 @media screen and (max-width: 600px) {
     .testibox1 .testi-img {
-        width: 60px;
-        height: 60px;
+        width: 30%;
+        height: 30%;
     }
 }
 
@@ -1703,8 +1703,8 @@ ul.angle li:before {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     font-style: italic;
-    line-height: 24px;
-    margin-bottom: 30px;
+    line-height: 28px;
+    margin-bottom: 45px;
 }
 
 .testi-content {
@@ -1725,34 +1725,25 @@ ul.angle li:before {
         padding: 20px 50px;
     }
 
-    .testibox1 h4 {
-        font-size: 14px;
-    }
-
     .testibox1 p {
         font-size: 14px;
         margin-top: 30px;
-        line-height: 20px;
+        line-height: 24px;
     }
 
     .testi-content .publication-date {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .testibox1 h4 {
-        font-size: 12px;
-    }
-
     .testibox1 p {
         font-size: 12px;
         margin-top: 20px;
-        line-height: 16px;
     }
 
     .testi-content .publication-date {
-        font-size: 8px;
+        font-size: 10px;
     }
 
     .testibox1 {

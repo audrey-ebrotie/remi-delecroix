@@ -1,7 +1,7 @@
 //******** Gestion de l'aperçu d'image dans le formulaire d'ajout d'un témoignage *************//
 function previewImage(event) {
   const allowedFormats = ['image/jpg', 'image/jpeg', 'image/png'];
-  const maxSize = 2 * 1024 * 1024; // 2 Mo
+  const maxSize = 5 * 1024 * 1024; // 5 Mo
   const imageFile = event.target.files[0];
   const imagePreview = document.getElementById('image-preview');
   const imageError = document.getElementById('image-error');
@@ -23,7 +23,7 @@ function previewImage(event) {
   }
 
   if (imageFile.size > maxSize) {
-      imageError.textContent = 'Le fichier est trop volumineux. Sa taille ne doit pas dépasser 2 Mo.';
+      imageError.textContent = 'Le fichier est trop volumineux. Sa taille ne doit pas dépasser 5 Mo.';
       event.target.value = '';
       imagePreview.src = defaultImageUrl;
       imageValid.style.display = 'none';
