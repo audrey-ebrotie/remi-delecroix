@@ -315,7 +315,7 @@ section {
 
 #scrollToTopContainer {
     background-color: #c19b76;
-    box-shadow: 1px 2px 2px rgb(60, 60, 60);
+    box-shadow: 1px 1px 2px rgb(60, 60, 60);
     border: none;
     bottom: 3em;
     cursor: pointer;
@@ -1479,7 +1479,7 @@ section {
 
 @media screen and (max-width: 600px) {
     .about-details p {
-        font-size: 12px !important;
+        font-size: 14px !important;
         line-height: 20px;
     }
 }
@@ -2031,13 +2031,13 @@ span.required-sm {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 3px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .contact_info .title:after {
     content: "";
     position: absolute;
-    top: 60px;
+    top: 40px;
     left: 0;
     background: #000;
     width: 30px;
@@ -2046,7 +2046,7 @@ span.required-sm {
 
 .contact_info p {
     font-size: 16px;
-    color: #999;
+    color: #6b6b6b;
 }
 
 .contact_info h4 {
@@ -2057,16 +2057,9 @@ span.required-sm {
     margin-top: 30px;
 }
 
-@media screen and (max-width: 991px) {
-    .contact_info {
-        padding-bottom: 50px;
-    }
-}
-
 @media screen and (max-width: 600px) {
     .contact_info h3.title {
         font-size: 16px;
-        margin-bottom: 50px;
     }
 
     .contact_info h4 {
@@ -2074,7 +2067,7 @@ span.required-sm {
     }
 
     .contact_info p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .email-button {
