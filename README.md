@@ -50,3 +50,15 @@ Ce projet utilise Symfony (v6.1.12) pour le développement d'une application web
    ```
    php bin/console doctrine:fixture:load
    ```
+
+12. Pour compiler le css et js (cf Makfile) :
+
+   ```
+   make Gulp
+   ```
+
+13. Générer des miniatures pour les images (cf Makfile) :
+
+   ```
+   make thumbs
+   

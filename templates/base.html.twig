@@ -29,7 +29,7 @@
 		</title>
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}"/>
 		{% block stylesheets %}
-			<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/minified/all-styles.min.css') }}">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"/>
 		{% endblock stylesheets %}
 	</head>
@@ -62,10 +62,8 @@
 				<script src="{{ asset('js/jquery.fancybox.min.js') }}"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.6/js/swiper.min.js" integrity="sha512-PbIsZpsN9MwxVSnLIYDpDTMYvsmJy1wB4TCRnJiJ5+YQIVChOOpTEUiJllYHrdk6xaVAegvBDkYSlwIg38Xr0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 				<script src="{{ asset('js/typed.min.js') }}"></script>
-				<script src="{{ asset('js/menu.js') }}"></script>
-				<script src="{{ asset('js/grid.custom.js') }}"></script>
-				<script src="{{ asset('js/app.js') }}"></script>
-				<script src="{{ asset('js/custom.js') }}"></script>
+				<script src="{{ asset('js/minified/menu.min.js') }}"></script>
+				<script src="{{ asset('js/minified/all-scripts.min.js') }}"></script>
 			{% endblock javascripts %}
 
 			{% block footer %}

@@ -1,9 +1,14 @@
 # Makefile
 
 # Commande par défaut
-all: generate_thumbnails
+all: thumbs
 
 # Génère les miniatures des images
-generate_thumbnails:
+thumbs:
 	@echo "🖼️ Génération des miniatures des photos..."
 	php bin/resolve_all.php
+
+# Exécuter Gulp
+gulp:
+	@echo "🚀 Exécution de Gulp..."
+	npx gulp

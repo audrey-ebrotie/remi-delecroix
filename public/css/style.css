@@ -61,7 +61,7 @@ body {
 }
 
 .wrapper {
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .body_box .wrapper {
@@ -315,7 +315,7 @@ section {
 
 #scrollToTopContainer {
     background-color: #c19b76;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    box-shadow: 1px 2px 2px rgb(60, 60, 60);
     border: none;
     bottom: 3em;
     cursor: pointer;
@@ -1459,6 +1459,7 @@ section {
     border-radius: 10px;
 
 }
+
 .about-details span {
     font-family: 'bombes-webfont';
     font-size: 32px;
@@ -1880,9 +1881,11 @@ ul.angle li:before {
     display: inline-block;
     margin-top: 10px;
     width: 50%;
+}
 
-    @media screen and (max-width: 767px) {
-        width: 100%;
+@media screen and (max-width: 767px) {
+    .image-upload {
+        width: 80%;
     }
 }
 
@@ -2334,7 +2337,7 @@ span.required-sm {
 
 @media screen and (max-width: 500px) {
     .photo-header-gallery img {
-       display: none; 
+        display: none;
     }
 
     .page-header.page-header.type2 {
@@ -2597,6 +2600,7 @@ video {
     .copyright {
         margin-bottom: 15px;
         margin: 1rem auto;
+        width: 50vw;
     }
 
     .copyright.text-white {
@@ -2762,9 +2766,10 @@ button.btn.btn-success:hover {
 }
 
 @media screen and (max-width: 599px) {
+
     .container-new-user,
     .login-page-container,
-    .security-question-container  {
+    .security-question-container {
         margin-top: 2rem;
     }
 }
@@ -2802,10 +2807,9 @@ a.btn.btn-info {
         font-size: 10px;
     }
 
-    .image-upload, 
+    .image-upload,
     .testi-form,
-    .testi-form .button span,
-    .image-upload .form-control {
+    .testi-form .button span {
         font-size: 12px;
     }
 }

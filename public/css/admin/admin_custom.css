@@ -3,9 +3,8 @@
     flex-direction: column;
 }
 
-.vich-image img {
-    max-width: 100% !important; 
-    max-height: 100% !important;
+.sonata-ba-field .vich-image img {
+    max-width: 50vw !important; 
     object-fit: cover; 
     margin-bottom: 1rem;
 }
