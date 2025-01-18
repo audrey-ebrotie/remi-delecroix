@@ -82,10 +82,3 @@ services:
     resource: "../src/Controller/"
     tags: ["controller.service_arguments"]
 
-  # App\Admin\CommentAdminController:
-  #   public: true
-  #   arguments:
-  #     $adminPool: "@sonata.admin.pool"
-  #     $adminFetcher: "@sonata.admin.request.fetcher"
-  #   calls:
-  #     - [setContainer, ["@service_container"]]

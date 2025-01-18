@@ -8,17 +8,18 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Security\Core\Security;
 
 class AccessInterceptorSubscriber implements EventSubscriberInterface
 {
     private $router;
     private $codeSecret;
+    private $security;
 
-    public function __construct(UrlGeneratorInterface $router, ParameterBagInterface $params)
+    public function __construct(UrlGeneratorInterface $router, ParameterBagInterface $params, Security $security)
     {
         $this->router = $router;
-        // Au lieu d’avoir un paramètre en clair,
-        // Symfony va récupérer la variable d'environnement déchiffrée
+        $this->security = $security;
         $this->codeSecret = $params->get('app.security.code');
     }
 
@@ -32,13 +33,28 @@ class AccessInterceptorSubscriber implements EventSubscriberInterface
         $request = $event->getRequest();
         $path = $request->getPathInfo();
 
-        // Initialisation des questions et des réponses ici, après que $this->codeSecret soit défini
+        // Initialisation des questions et réponses
         $questionsEtReponses = [
             ['question' => 'Code secret ?', 'reponse' => $this->codeSecret],
         ];
 
+        // Ne pas appliquer la logique si l'utilisateur est déjà authentifié
+        if ($this->security->getUser()) {
+            return;
+        }
+
         if (strpos($path, '/utilisateur/connexion') === 0) {
             $session = $request->getSession();
+
+            // Vérifiez si une erreur d'authentification existe
+            $authErrorKey = Security::AUTHENTICATION_ERROR;
+            $error = $session->get($authErrorKey);
+
+            if ($error) {
+                // Ne redirige pas, laisse Symfony afficher l'erreur sur /utilisateur/connexion
+                return;
+            }
+
             $reponseUtilisateur = $request->query->get('reponse');
             $questionUtilisateur = $request->query->get('question');
 

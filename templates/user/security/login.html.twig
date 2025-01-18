@@ -12,7 +12,7 @@
 				<h2 class="mb-4">ACCES ADMIN | Connexion</h1><br>
 
 				{% if error %}
-					<div class="alert alert-danger">
+					<div class="alert alert-message">
 						{{ error.messageKey|trans(error.messageData, 'security') }}
 					</div>
 				{% endif %}
@@ -25,7 +25,6 @@
 					<div class="form-group">
 						<label for="inputPassword">Mot de passe :</label>
 						<input type="password" id="inputPassword" name="_password" class="form-control">
-						<a class="text-secondary d-flex justify-content-end" href="{{ path('forgot_password_request') }}">Mot de passe oublié?</a>
 					</div>
 
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -42,3 +41,4 @@
 		</div>
 	</div>
 {% endblock %}
+{% block footer %}{% endblock footer %}

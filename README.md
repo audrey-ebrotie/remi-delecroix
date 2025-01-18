@@ -57,8 +57,12 @@ Ce projet utilise Symfony (v6.1.12) pour le développement d'une application web
    make Gulp
    ```
 
-13. Générer des miniatures pour les images (cf Makfile) :
+13. Convertir les images en webp et générer des miniatures pour les images (cf Makfile) :
 
    ```
-   make thumbs
-   
+   make process
+   ```
+    Si besoin, nettoyer les caches existants avant de générer de nouvelles miniatures : 
+   ```
+   php bin/console liip:imagine:cache:remove
+   ```

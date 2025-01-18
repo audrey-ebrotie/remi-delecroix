@@ -19,7 +19,7 @@
 							<i class="fa fa-camera"></i>
 						</span>
 					</h1>
-					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ randomPhoto.filename) }}" alt="{{ randomPhoto.description }}"></div>
+					<div class="sign photo-header-gallery"><img src="{{ asset('uploads/gallery_photos/' ~ randomPhoto.filename|replace({'.jpg': '.webp', '.jpeg': '.webp', '.png': '.webp'})) }}" alt="{{ randomPhoto.description }}"></div>
 				</div>
 			</div>
 		</div>
@@ -35,8 +35,8 @@
 				{% for photo in photos %}
 					<div class="grid-item {{ photo.category.name|lower }}">
 						<div class="thumb">
-							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_photos/' ~ photo.filename) | imagine_filter('thumb_small') }}" data-thumb="{{ asset('uploads/gallery_photos/' ~ photo.filename) }}">
-								<img class="item-image" data-src="{{ asset('uploads/gallery_photos/' ~ photo.filename) | imagine_filter('thumb_big') }}" alt="{{ photo.description }}" loading="lazy" data-fancybox="gallery"/>
+							<a class="fancybox" rel="gallery" href="{{ asset('uploads/gallery_photos/' ~ photo.filename|replace({'.jpg': '.webp', '.jpeg': '.webp', '.png': '.webp'})) | imagine_filter('thumb_small') }}" data-thumb="{{ asset('uploads/gallery_photos/' ~ photo.filename|replace({'.jpg': '.webp', '.jpeg': '.webp', '.png': '.webp'})) }}">
+								<img class="item-image" data-src="{{ asset('uploads/gallery_photos/' ~ photo.filename|replace({'.jpg': '.webp', '.jpeg': '.webp', '.png': '.webp'})) | imagine_filter('thumb_big') }}" alt="{{ photo.description }}" loading="lazy" data-fancybox="gallery"/>
 							</a>
 						</div>
 					</div>

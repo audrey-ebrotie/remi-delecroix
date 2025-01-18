@@ -11,7 +11,7 @@
 				<div class="swiper-wrapper">
 					{% for photoHomepage in photosHomepage %}
 						<div class="swiper-slide">
-							<div class="slider_item" style="background-image:url('{{ asset('uploads/gallery_photos/' ~ photoHomepage.filename) | imagine_filter('thumb_big') }}')">
+							<div class="slider_item" style="background-image:url('{{ asset('uploads/gallery_photos/' ~ photoHomepage.filename|replace({'.jpg': '.webp', '.jpeg': '.webp', '.png': '.webp'})) | imagine_filter('thumb_big') }}')">
 								<div class="slider-inner">
 									<div class="slider-details">
 										<h4 class="slider-tag">Photographe | Vidéaste</h4>
