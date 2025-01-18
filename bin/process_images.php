@@ -1,14 +1,9 @@
 <?php
 
 $sourceDir = 'public/uploads/gallery_photos/';
-$webpDir = $sourceDir . 'webp/';
+$webpDir = $sourceDir; // Les fichiers WebP sont stockés dans le même dossier que les fichiers sources
 $thumbSmallCacheDir = 'public/media/cache/thumb_small/';
 $thumbBigCacheDir = 'public/media/cache/thumb_big/';
-
-// Créer les répertoires nécessaires s'ils n'existent pas
-if (!is_dir($webpDir)) {
-    mkdir($webpDir, 0755, true);
-}
 
 // Fonction pour supprimer les fichiers associés (WebP + miniatures)
 function deleteAssociatedFiles(string $basename, string $webpDir, string $thumbSmallCacheDir, string $thumbBigCacheDir): void
