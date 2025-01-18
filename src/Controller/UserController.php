@@ -44,39 +44,55 @@ class UserController extends AbstractController
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-    
+
         if ($form->isSubmitted() && $form->isValid()) {
+            // Vérifiez si un utilisateur avec le même username/email existe déjà
+            $existingUser = $userRepository->findOneBy(['email' => $user->getEmail()]);
+            if ($existingUser) {
+                // Ajouter un message flash pour indiquer l'erreur
+                $this->addFlash('error', 'Un utilisateur avec cet email existe déjà. Veuillez en utiliser un autre.');
+
+                return $this->redirectToRoute('user_new');
+            }
+
             $user->setUsername($user->getEmail());
-            // Hash the password
+
+            // Hasher le mot de passe
             $user->setPassword(
                 $passwordHasher->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
             );
-            
-            // Set the role to admin
+
+            // Attribuer le rôle d'admin
             $user->setRoles(['ROLE_ADMIN']);
-    
-            // Save the user
+
+            // Sauvegarder l'utilisateur
             $userRepository->save($user, true);
-    
-            return $this->redirectToRoute('user_login', [], Response::HTTP_SEE_OTHER);
+
+            // Ajouter un message flash pour la confirmation
+            $this->addFlash('success', 'Votre compte a bien été créé.');
+
+            // Ajouter un marqueur pour ignorer la sécurité lors de la redirection
+            $request->getSession()->set('skip_security_check', true);
+
+            // Rediriger vers la page de connexion
+            return $this->redirectToRoute('user_login');
         }
 
         $current_route = $request->attributes->get('_route');
-    
+
         return $this->renderForm('user/new.html.twig', [
             'current_route' => $current_route,
             'user' => $user,
             'form' => $form,
         ]);
-    }
+    }    
 
     #[Route('/deconnexion', name:'user_logout')]
     public function logout()
     {
         // This method can be blank - it will be intercepted by the logout key on your firewall
     }
-
 }

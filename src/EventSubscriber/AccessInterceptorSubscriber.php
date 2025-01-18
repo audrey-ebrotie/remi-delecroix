@@ -43,6 +43,12 @@ class AccessInterceptorSubscriber implements EventSubscriberInterface
             return;
         }
 
+        // Ignorer la redirection si un paramètre de redirection temporaire est défini
+        if ($request->getSession()->has('skip_security_check')) {
+            $request->getSession()->remove('skip_security_check');
+            return;
+        }
+
         if (strpos($path, '/utilisateur/connexion') === 0) {
             $session = $request->getSession();
 

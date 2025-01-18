@@ -10,6 +10,13 @@
         <div class="row justify-content-center">
             <div class="col-md-6 mt-5">
                 <h2 class="mb-4">ACCES ADMIN | Créer un nouvel utilisateur</h1><br>
+
+                    {% for message in app.flashes('error') %}
+                        <div class="alert alert-message">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
                 {{ form_start(form) }}
                 <div class="form-group">
                     {{ form_label(form.email) }}

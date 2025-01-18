@@ -2752,7 +2752,8 @@ button.btn.btn-success:hover {
 }
 
 .security-question-container .alert-message,
-.login-page-container .alert-message {
+.login-page-container .alert-message,
+.container-new-user .alert-message {
     background: rgb(255, 62, 62) !important;
     color: white !important;
 }
