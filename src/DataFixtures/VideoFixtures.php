@@ -9,7 +9,7 @@ use Faker\Factory;
 
 class VideoFixtures extends Fixture
 {
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
 
