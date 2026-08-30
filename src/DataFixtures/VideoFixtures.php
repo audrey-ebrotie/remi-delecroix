@@ -2,40 +2,48 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\Video;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class VideoFixtures extends Fixture
+class VideoFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create();
+        $faker = Factory::create('fr_FR');
 
-        // Get all files in the video directory
         $videoDirectory = __DIR__ . '/../../public/uploads/gallery_videos';
-        $videoFiles = scandir($videoDirectory);
+        $videoFiles = array_values(array_filter(
+            scandir($videoDirectory),
+            fn($file) => $file !== '.' && $file !== '..'
+        ));
 
-        // Filter out the . and .. entries
-        $videoFiles = array_filter($videoFiles, function ($file) {
-            return $file !== '.' && $file !== '..';
-        });
+        if (empty($videoFiles)) {
+            throw new \RuntimeException('Aucune vidéo dans ' . $videoDirectory);
+        }
 
         foreach ($videoFiles as $videoFile) {
             $video = new Video();
             $video
-                ->setTitle($faker->sentence) // Set the title as you need
+                ->setTitle($faker->sentence)
                 ->setDescription($faker->paragraph)
-                ->setFilename($videoFile);
-
-            $category = $this->getReference('category_' . rand(0, 5));
-            $video->setCategory($category);
-            $video->setCreatedAt(\DateTimeImmutable::createFromMutable($faker->dateTimeBetween('-2 years', 'now')));
+                ->setFilename($videoFile)
+                ->setCategory($this->getReference('category_' . rand(0, 5), Category::class))
+                ->setCreatedAt(\DateTimeImmutable::createFromMutable(
+                    $faker->dateTimeBetween('-2 years', 'now')
+                ));
 
             $manager->persist($video);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [CategoryFixtures::class];
     }
 }

@@ -7,7 +7,7 @@
 
     // Slider 1 (page:1&2)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.slide_1 .swiper-container', {
+    var swiper = new Swiper('.slide_1 .swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
@@ -64,7 +64,7 @@
 
     // Slider 2 (page:3&4)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.slide_2 .swiper-container', {
+    var swiper = new Swiper('.slide_2 .swiper', {
       slidesPerView: 1,
       spaceBetween: 10,
       autoplay: true,
@@ -116,7 +116,7 @@
 
     // Slider 3 (page:5)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.slide_3 .swiper-container', {
+    var swiper = new Swiper('.slide_3 .swiper', {
       slidesPerView: 1,
       grabCursor: true,
       spaceBetween: 0,
@@ -197,7 +197,7 @@
 
     // portfolio-carousel (page:portfolio single 1)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.portfolio-carousel .swiper-container', {
+    var swiper = new Swiper('.portfolio-carousel .swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
@@ -236,7 +236,7 @@
 
     // blog-carousel (page:blog single 1)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.blog-carousel .swiper-container', {
+    var swiper = new Swiper('.blog-carousel .swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
       loop: true,
@@ -275,7 +275,7 @@
 
     // team-carousel (page:about us 3)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.team-carousel .swiper-container', {
+    var swiper = new Swiper('.team-carousel .swiper', {
       slidesPerView: 4,
       spaceBetween: 30,
       autoplay: true,
@@ -321,7 +321,7 @@
 
     // testimonial-carousel (page:elements)
     var interleaveOffset = 0.5;
-    var swiper = new Swiper('.testimonial-carousel .swiper-container', {
+    var swiper = new Swiper('.testimonial-carousel .swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
       autoplay: true,
