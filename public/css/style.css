@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,300italic,400,600,700|Mukta:400,500,600,700,800|Playfair+Display');
 @import url('bootstrap.css');
 @import url('menu.css');
-@import url('swiper.css');
 @import url('jquery.fancybox.css');
 @import url('fonts/font-awesome/css/all.min.css');
 @import url('fonts/ionicons/css/ionicons.min.css');
+@import url('swiper.css');
 
 @font-face {
     font-family: 'bombes-webfont';
@@ -1054,6 +1054,9 @@ section {
 }
 
 /*======== Swiper CSS =======*/
+.swiper {
+    overflow: hidden;
+}
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -1142,7 +1145,8 @@ section {
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-pagination-bullets {
-    top: 0px;
+    top: auto;
+    bottom: 20px;
     left: 50%;
     width: auto;
     height: 22px;
@@ -2812,4 +2816,16 @@ a.btn.btn-info {
     .testi-form .button span {
         font-size: 12px;
     }
+}
+
+/* Fix Swiper 11: ensure pagination positioning works */
+.swiper {
+  position: relative;
+}
+
+/* Fix Swiper 11: override default pagination positioning */
+.swiper-pagination {
+    left: 50% !important;
+    width: auto;
+    top: 2px !important;
 }
